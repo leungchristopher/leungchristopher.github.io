@@ -11,6 +11,7 @@ body {
   font-size: 1em;
   line-height: 1.5em;
   color: #8d9aa5;
+  text-wrap: wrap;
 }
 
 a {
