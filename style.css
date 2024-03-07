@@ -2,7 +2,7 @@
 
 /*General*/
 body {
-  background: #fff;
+  background: #000000;
   max-width: 980px;
   margin: 0 auto;
   padding: 0 20px;
@@ -10,26 +10,26 @@ body {
   font-weight: 300;
   font-size: 1em;
   line-height: 1.5em;
-  color: #8d9aa5;
+  color: #ffffff;
   text-wrap: wrap;
 }
 
 a {
-  color: #3f8aBf;
+  color: #ffffff;
   text-decoration: none;
 }
 
 a:hover {
-  color: #3079ab;
+  color: #ffffff;
 }
 
 a:visited {
-  color: #5a6772;
+  color: #ffffff;
 }
 
 h1, h2, h3 {
-  font-weight: 500;
-  color: #384047;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 h1 {
@@ -38,8 +38,8 @@ h1 {
 }
 
 h2 {
-    font-size: 1em;
-    font-weight: 300;
+    font-size: 1.5em;
+    font-weight: 700;
     margin: 0;
     padding: 10px 0 30px 0;
 }
@@ -84,12 +84,12 @@ li {
 #home li::before {
     content: counter(step-counter);
     font-size: .65em;
-    color: #fff;
+    color: #ffffff;
     font-weight: 300;
     padding: 2px 6px;
     margin:  0 18px 0 0;
     border-radius: 3px;
-    background:#8d9aa5;
+    background:#000000;
     line-height: 1em;
 }
 
