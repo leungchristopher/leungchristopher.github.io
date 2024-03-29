@@ -6,7 +6,7 @@ body {
   max-width: 980px;
   margin: 0 auto;
   padding: 0 20px;
-  font: Roboto, Helvetica Neue, Helvectica, Arial, serif;
+  font: Verdana, Helvetica Neue, Helvectica, Arial, serif;
   font-weight: 300;
   font-size: 1em;
   line-height: 1.5em;
@@ -28,7 +28,7 @@ a:visited {
 }
 
 h1, h2, h3 {
-  font: Roboto, Helvetica Neue, Helvectica, Arial, serif;
+  font: Helvetica Neue, Helvectica, Arial, serif;
   font-weight: 700;
   color: #000000;
 }
