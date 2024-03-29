@@ -28,7 +28,7 @@ a:visited {
 }
 
 h1, h2, h3 {
-  font: Helvetica Neue, Helvectica, Arial, serif;
+  font-family: Helvetica Neue, Helvectica, Arial, serif;
   font-weight: 700;
   color: #000000;
 }
