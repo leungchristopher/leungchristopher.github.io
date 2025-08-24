@@ -7,7 +7,7 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   font-family: Helvetica Neue, Helvetica, Verdana, Arial, serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1em;
   line-height: 1.5em;
   color: #000000;
@@ -115,4 +115,5 @@ li {
 span {
   color: red;
 }
+
 
