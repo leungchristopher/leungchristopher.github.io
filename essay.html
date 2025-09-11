@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W5RGFQVK30"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W5RGFQVK30');
+</script>
+<title>Essays</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Style for the essay content area */
+  #essay-content {
+    white-space: pre-wrap; /* Ensures the text wraps */
+    word-wrap: break-word; /* Breaks long words if necessary */
+    font-family: monospace;  /* A good choice for fixed-width text */
+    line-height: 1.5;
+  }
+</style>
+
+</head>
+<body>
+
+<h1>Christopher Leung</h1>
+  <p><a href="https://www.gen.cam.ac.uk/">Department of Genetics, University of Cambridge</a></p>
+  <p><a href="https://www.cruk.cam.ac.uk">Cancer Research UK Cambridge Institute</a></p>
+  <p>Deep learning, artificial intelligence, computational biology</p>
+  <p><a href="http://canarytokens.com/feedback/about/pgadatot08diqwhvm7jhao29n/contact.php">Contact</a></p>
+
+<hr>
+
+<pre id="essay-content">Loading essay...</pre>
+
+<hr>
+<p><a href="index.html">Back to home</a></p>
+
+<script>
+  // This script runs when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    const essayContentEl = document.getElementById('essay-content');
+    const params = new URLSearchParams(window.location.search);
+    const fileName = params.get('file'); // Gets 'on-the-unknown' from the URL
+
+    if (!fileName) {
+      essayContentEl.textContent = 'Error: No essay file specified.';
+      return;
+    }
+
+    // Fetch the corresponding .txt file
+    fetch(`${fileName}.txt`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
+      .then(text => {
+        // Format the fetched text and display it
+        essayContentEl.textContent = formatText(text, 80);
+      })
+      .catch(error => {
+        console.error('Error fetching essay:', error);
+        essayContentEl.textContent = `Could not load essay: "${fileName}.txt". Please ensure the file exists.`;
+      });
+  });
+
+  /**
+   * Wraps text to a specified character width without breaking words.
+   * @param {string} text - The input text.
+   * @param {number} maxWidth - The maximum line width.
+   * @returns {string} The formatted text.
+   */
+  function formatText(text, maxWidth) {
+    const lines = text.split('\n');
+    let formattedText = '';
+
+    lines.forEach(line => {
+      if (line.length <= maxWidth) {
+        formattedText += line + '\n';
+        return;
+      }
+      
+      let currentLine = '';
+      const words = line.split(' ');
+      
+      words.forEach(word => {
+        if ((currentLine + word).length > maxWidth) {
+          formattedText += currentLine.trim() + '\n';
+          currentLine = word + ' ';
+        } else {
+          currentLine += word + ' ';
+        }
+      });
+      formattedText += currentLine.trim() + '\n';
+    });
+    
+    return formattedText;
+  }
+</script>
+
+</body>
+</html>
