@@ -3,6 +3,8 @@ permalink: /about/
 title: "About"
 ---
 
-Tempor velit sint sunt ipsum tempor enim ad qui ullamco. Est dolore anim ad velit duis dolore minim sunt aliquip amet commodo labore. Ut eu pariatur aute ea aute excepteur laborum. Esse ea esse excepteur minim mollit qui cillum excepteur ex dolore magna. Labore deserunt fugiat incididunt incididunt sint ea. Consequat dolore aute laboris quis proident quis non et est consectetur ex eiusmod sit culpa.
+I am a third-year Natural Sciences student at the University of Cambridge, based in the Department of Genetics. My interests lie at the intersection of machine learning and genetics, concerning how we navigate data domains which are spatiotemporally sparse, heterogeneous, and unreliable. This is the focus of my thesis project.
 
-Cupidatat ea do et in excepteur in. Ad nostrud ut est esse eu duis ea sunt eiusmod. Aliquip tempor veniam sint elit fugiat. Velit incididunt laboris amet incididunt labore dolore irure velit excepteur commodo deserunt laborum. Consectetur eu fugiat veniam veniam Lorem labore magna eiusmod. Ea occaecat reprehenderit pariatur consectetur minim labore ut aliquip.
+I am currently a Research Fellow of the Supervised Program for Alignment Research. In the past, I have worked on applying deep learning to genomics at the Cancer Research UK Cambridge Institute; structural biology and biochemistry at the Max Planck Institute for Multidisciplinary Sciences and Weizmann Institute of Science; and liquid biopsy at the Centre for Novostics. At school, I maintained an interest in competitive mathematics and science competitions, reaching the final stage of the selection processes for the International Olympiad on Astronomy and Astrophysics and International Chemistry Olympiad for the UK. My team also won the IBM Hut 7 Prize at the National Cipher Challenge with an evolutionary program, and I took part in the Oxford Quantum Club outreach programme.
+
+In my free time, I enjoy bouldering, tennis, and playing chamber music.
