@@ -10,6 +10,13 @@ search: true
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
+
+# Kramdown settings for LaTeX support
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
+  input: GFM
+  hard_wrap: false
 # Outputting
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
@@ -102,3 +109,10 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+# MathJax configuration for LaTeX support
+head_scripts:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+after_footer_scripts:
+  - /assets/js/mathjax-config.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
