@@ -32,12 +32,12 @@ In the same line of thought, actions are formulated as strong predictions that o
 
 What does this imply? We can borrow directly from Friston's free energy princple.
 
-Let's say we're in a situation where taking actions $a\in\mathcal{A}$ leads to outcomes $o\in\mathcal{O}$. Active inference provides a model where we have a goal distribution $P(o)$ and expected distribution $P(o\given a)$. We can then define the expected free energy (F): 
+Let's say we're in a situation where taking actions $a\in\mathcal{A}$ leads to outcomes $o\in\mathcal{O}$. Active inference provides a model where we have a goal distribution $P(o)$ and expected distribution $P(o\vert a)$. We can then define the expected free energy (F): 
 
-$$F(a)\approx D_{KL}[P(o\given a) \parallel P(o)]=\left(\sum_o P(o\given a)\ln P(o\given a)\right)-\left(\sum_o P(o\given a)\ln P(o)\right)$$
+$$F(a)\approx D_{KL}[P(o\vert a) \parallel P(o)]=\left(\sum_o P(o\vert a)\ln P(o\vert a)\right)-\left(\sum_o P(o\vert a)\ln P(o)\right)$$
 
 In this expression, the first term describes the value of the information we have in our model. The latter describes the expected utility of the active inference model. Hence, minimising expected free energy means maximising expected utility:
-$$\min G(a)\approx\max\sum_o P(o\given a)\ln P(o)$$
+$$\min G(a)\approx\max\sum_o P(o\vert a)\ln P(o)$$
 
 ## A unified theory of intelligent agency
 What if I, an agent, have multiple goals? Strategies come into play. We have studied this in multi-agent scenarios, but how do goals interact in strategic terms within an agent? Shanahan describes this in the **global workspace theory** in *Embodiment and the inner mind*. More on this later.
