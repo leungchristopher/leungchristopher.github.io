@@ -16,6 +16,7 @@ First, we define an *agent* as an entity that develops an understanding of the w
 
 ## The universal intelligence measure
 Legg and Hutter's definition of universal intelligence from 2007 reads as follows:
+
 $$\Upsilon(\pi)=\sum_{\mu\in E}2^{-K(\mu)}V^{\pi}_{\mu}$$
 
 Note that the universal intelligence measure, $\Upsilon$, satisfies the invariance properties of Kolmogorov complexity. The underlying computational architecture does not matter: we could encode the tasks in a Scratch-based universal Turing machine or the 'human coding language', to similar effect. Moreover, the hierarchy of problems in the scale-free architecture has scale-free properties.
