@@ -5,6 +5,25 @@ layout: single
 author_profile: true
 ---
 
+<style>
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+th {
+  text-align: left;
+  font-weight: 600;
+}
+
+td {
+  padding: 8px 12px;
+}
+</style>
+
 ## Summary
 
 {% assign total_hours = 0 %}
@@ -35,15 +54,41 @@ author_profile: true
 
 ## Work Log
 
-{% assign sorted_entries = site.data.accountability.entries | reverse %}
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Project</th>
+      <th>Hours</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+{% assign current_date = nil %}
+{% assign date_row_count = 0 %}
 
-{% for entry in sorted_entries %}
-### {{ entry.date }}
+{% for entry in site.data.accountability.entries %}
+  {% if entry.date != current_date %}
+    {% comment %} Count entries for this new date {% endcomment %}
+    {% assign date_row_count = 0 %}
+    {% for e in site.data.accountability.entries %}
+      {% if e.date == entry.date %}
+        {% assign date_row_count = date_row_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    {% assign current_date = entry.date %}
+    {% assign date_shown = false %}
+  {% endif %}
 
-**Project**: {{ entry.project }}
-**Hours**: {{ entry.hours }}
-**Notes**: {{ entry.description }}
-
----
-
+  <tr>
+    {% unless date_shown %}
+      <td rowspan="{{ date_row_count }}"><strong>{{ current_date }}</strong></td>
+      {% assign date_shown = true %}
+    {% endunless %}
+    <td>{{ entry.project }}</td>
+    <td>{{ entry.hours }}</td>
+    <td>{{ entry.description }}</td>
+  </tr>
 {% endfor %}
+  </tbody>
+</table>
