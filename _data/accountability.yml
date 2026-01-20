@@ -51,11 +51,23 @@ entries:
     project: "ARBOx3"
     hours: 8.0
     description: "Mechanistic interpretability"
+  - date: "2026-01-07"
+    project: "Literature Review"
+    hours: 1.0
+    description: "Background Research"
   - date: "2026-01-06"
     project: "ARBOx3"
     hours: 8.0
     description: "Transformers"
+  - date: "2026-01-06"
+    project: "Literature Review"
+    hours: 1.0
+    description: "Background Research"
   - date: "2026-01-05"
     project: "ARBOx3"
     hours: 8.0
     description: "Neural networks and PyTorch"
+  - date: "2026-01-05"
+    project: "Literature Review"
+    hours: 2.0
+    description: "Background Research"
