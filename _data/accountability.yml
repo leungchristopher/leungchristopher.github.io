@@ -1,0 +1,13 @@
+entries:
+  - date: "2026-01-20"
+    project: "Literature Review"
+    hours: 7.0
+    description: "Wrote up methods section"
+  - date: "2026-01-19"
+    project: "Literature Review"
+    hours: 7.0
+    description: "Wrote 1000 words"
+  - date: "2026-01-18"
+    project: "Literature Reviwe"
+    hours: 3.0
+    description: "Researched methods and introduction"
