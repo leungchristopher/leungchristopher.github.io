@@ -1,4 +1,12 @@
 entries:
+  - date: "2026-01-21"
+    project: "Literature Review"
+    hours: 2.5
+    description: "Editing"
+  - date: "2026-01-21"
+    project: "Lectures"
+    hours: 2.0
+    description: "Condensed lecture notes. Todo: M3 reading list"
   - date: "2026-01-20"
     project: "Literature Review"
     hours: 9.0
