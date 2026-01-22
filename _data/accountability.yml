@@ -1,5 +1,13 @@
 entries:
   - date: "2026-01-21"
+    project: "Part II Project"
+    hours: 5.0
+    description: "Setup and progress meeting"
+  - date: "2026-01-22"
+    project: "Literature Review"
+    hours: 3.0
+    description: "Finishing"
+  - date: "2026-01-21"
     project: "Literature Review"
     hours: 2.5
     description: "Editing"
