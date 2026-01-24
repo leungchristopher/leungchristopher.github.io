@@ -1,4 +1,12 @@
 entries:
+  - date: "2026-01-24"
+    project: "Preparations"
+    hours: 1.0
+    description: "Ch1"
+  - date: "2026-01-23"
+    project: "Preparations"
+    hours: 0.5
+    description: "Intros"
   - date: "2026-01-22"
     project: "Part II Project"
     hours: 5.0
