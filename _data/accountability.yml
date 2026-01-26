@@ -1,4 +1,28 @@
 entries:
+  - date: "2026-01-26"
+    project: "Lectures"
+    hours: 2.0
+    description: "M5/M3 L3s. Condensed lecture notes"
+  - date: "2026-01-26"
+    project: "M2"
+    hours: 3.0
+    description: "Clark revision + supo"
+  - date: "2026-01-26"
+    project: "Lectures"
+    hours: 2.0
+    description: "M5/M3 L3s. Condensed lecture notes"
+  - date: "2026-01-25"
+    project: "Lectures"
+    hours: 2.0
+    description: "Condensed lecture notes for M5 L2 and M3 modules."
+  - date: "2026-01-25"
+    project: "Literature Review"
+    hours: 1.0
+    description: "Revisions"
+  - date: "2026-01-25"
+    project: "M2"
+    hours: 2.0
+    description: "Clark"
   - date: "2026-01-24"
     project: "Preparations"
     hours: 1.0
