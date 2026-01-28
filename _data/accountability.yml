@@ -1,4 +1,12 @@
 entries:
+  - date: "2026-01-28"
+    project: "Part II Project"
+    hours: 5.0
+    description: "Reading and pipeline setup"
+  - date: "2026-01-28"
+    project: "Literature Review"
+    hours: 1.5
+    description: "Final touches"
   - date: "2026-01-27"
     project: "Literature Review"
     hours: 7.0
