@@ -5,8 +5,8 @@ entries:
     description: "Discussion with G.M. about project progression"
   - date: "2026-01-29"
     project: "Part II Project"
-    hours: 3.0
-    description: "Reading, pipeline, prep for meeting with supervisors"
+    hours: 6.0
+    description: "Reading, writing pipeline, prep for meeting with supervisors, meeting with supervisors + notes, repo reorg"
   - date: "2026-01-28"
     project: "Part II Project"
     hours: 5.0
