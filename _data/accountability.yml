@@ -1,4 +1,12 @@
 entries:
+  - date: "2026-01-29"
+    project: "CRUK CI"
+    hours: 1.0
+    description: "Discussion with G.M. about project progression"
+  - date: "2026-01-29"
+    project: "Part II Project"
+    hours: 3.0
+    description: "Reading, pipeline, prep for meeting with supervisors"
   - date: "2026-01-28"
     project: "Part II Project"
     hours: 5.0
