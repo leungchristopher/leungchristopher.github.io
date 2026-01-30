@@ -1,4 +1,8 @@
 entries:
+  - date: "2026-01-30"
+    project: "Lectures"
+    hours: 1.0
+    description: "M5L5, M3L4, M5 problem sheet"
   - date: "2026-01-29"
     project: "CRUK CI"
     hours: 1.0
