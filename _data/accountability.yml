@@ -1,7 +1,23 @@
 entries:
+  - date: "2026-01-31"
+    project: "Project"
+    hours: 1.0
+    description: "Reading"
+  - date: "2026-02-01"
+    project: "M5"
+    hours: 2.0
+    description: "Problem sheets"
+  - date: "2026-02-01"
+    project: "M3"
+    hours: 2.0
+    description: "Kaplanis reading"
+  - date: "2026-01-31"
+    project: "Part II Project"
+    hours: 1.0
+    description: "Reading"
   - date: "2026-01-30"
     project: "Lectures"
-    hours: 1.0
+    hours: 2.0
     description: "M5L5, M3L4, M5 problem sheet"
   - date: "2026-01-29"
     project: "CRUK CI"
