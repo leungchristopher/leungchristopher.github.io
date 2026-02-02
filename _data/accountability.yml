@@ -1,6 +1,18 @@
 entries:
-  - date: "2026-01-31"
-    project: "Project"
+  - date: "2026-02-02"
+    project: "Preparations"
+    hours: 1.5
+    description: "MARL"
+  - date: "2026-02-02"
+    project: "Part II Project"
+    hours: 4.0
+    description: "Implementation"
+  - date: "2026-02-02"
+    project: "Lectures"
+    hours: 2.0
+    description: "M5L6 M3L5"
+  - date: "2026-02-01"
+    project: "Part II Project"
     hours: 1.0
     description: "Reading"
   - date: "2026-02-01"
