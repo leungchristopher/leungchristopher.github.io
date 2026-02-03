@@ -1,4 +1,8 @@
 entries:
+  - date: "2026-02-03"
+    project: "Part II Project"
+    hours: 5.0
+    description: "Recombination statistics"
   - date: "2026-02-02"
     project: "Preparations"
     hours: 1.5
