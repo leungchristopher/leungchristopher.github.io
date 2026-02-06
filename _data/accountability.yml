@@ -1,5 +1,13 @@
 entries:
   - date: "2026-02-04"
+    project: "M5"
+    hours: 0.5
+    description: "Upkeep"
+  - date: "2026-02-04"
+    project: "M3"
+    hours: 2.0
+    description: "Mendelian disease genetics"
+  - date: "2026-02-04"
     project: "Part II Project"
     hours: 7.5
     description: "Recombination statistics"
