@@ -1,4 +1,24 @@
 entries:
+  - date: "2026-02-08"
+    project: "Preparations"
+    hours: 1.5
+    description: "80k"
+  - date: "2026-02-07"
+    project: "M3"
+    hours: 1.0
+    description: "Reading"
+  - date: "2026-02-06"
+    project: "Project"
+    hours: 1.0
+    description: "Organisation"
+  - date: "2026-02-05"
+    project: "M3"
+    hours: 1.5
+    description: "Reading"
+  - date: "2026-02-05"
+    project: "Project"
+    hours: 1.5
+    description: "Reading"
   - date: "2026-02-04"
     project: "M5"
     hours: 0.5
