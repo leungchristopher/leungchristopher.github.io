@@ -3,24 +3,22 @@ permalink: /research/
 title: Research
 ---
 
-I work on ancestral recombination graphs, mechanistic interpretability, and sequence-to-function models in genomics.
+My research interests are guided by multi-scale phenomena. Genome evolution provides an excellent example: for a virus, how do the dynamics of within-host evolution impact inter-host evolution? We can use the language of dynamical systems and perturbation theory to describe these phenomena.
+
+I'm currently interested in computational neuroscience and machine learning, particularly regarding the emergence of cooperation.
+
+Two books I'd recommend: [The Evolution of Cooperation] by Robert Axelrod, and [Embodiment and the Inner Life] by Murray Shanahan.
 
 ## Projects
 
-**ARG-RL** — Reinforcement learning for inferring the ancestral history of DNA viruses. [GitHub](https://github.com/leungchristopher/arg-rl)
-
-**OrcaFly** — Convolutional neural network for predicting 3-dimensional genome organisation. [GitHub](https://github.com/leungchristopher/orcafly)
-
-**BetaAbalone / BetaConnect** — Deep reinforcement learning and Monte Carlo tree search. [GitHub](https://github.com/leungchristopher/betaabalone)
+To be updated
 
 ## Experience
-
-- Research Fellow, Supervised Program for Alignment Research (SPAR)
-- Deep learning applied to genomics, Cancer Research UK Cambridge Institute
-- Structural biology and biochemistry, Max Planck Institute for Multidisciplinary Sciences
-- Structural biology, Weizmann Institute of Science
-- Liquid biopsy, Centre for Novostics
+See [about](/about) page
 
 ## Publications
 
-No publications yet.
+Upcoming preprints!
+
+[The Evolution of Cooperation]: https://books.google.co.uk/books/about/The_Evolution_of_Cooperation.html
+[Embodiment and the Inner Life]: https://global.oup.com/academic/product/embodiment-and-the-inner-life-9780199226559
