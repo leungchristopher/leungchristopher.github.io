@@ -16,6 +16,12 @@ BA Natural Sciences
 - Weizmann Institute of Science, [Haran Group]: Hidden Markov Models for fast protein kinetics
 - CUHK, [Centre for Novostics]: algorithms for non-invasive cancer liquid biopsy
 
+## Skills
+
+- Python (JAX, PyTorch), C++, high performance computing
+- Statistical inference, machine learning, molecular and disease biology, biochemistry, statistical physics
+- Chamber and piano music!
+
 ## Competitions
 
 - Hut 7 IBM prize (team 1st), National Cipher Challenge
