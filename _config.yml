@@ -1,118 +1,34 @@
 title: Chris Leung
+url: "https://leungchristopher.com"
 email: chcl4@cam.ac.uk
-description: >- # this means to ignore newlines until "baseurl:"
-  Machine learning and genetics at Cambridge.
-twitter_username: chrishcleung
+description: Machine learning and genetics at Cambridge.
 github_username: leungchristopher
-minimal_mistakes_skin: default
-search: true
 
 # Build settings
 markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes
-
-# Kramdown settings for LaTeX support
 kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
   input: GFM
   hard_wrap: false
-# Outputting
-permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
-paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+permalink: /blog/:title/
 
 include:
   - _pages
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
-
-# Plugins (previously gems:)
 plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
   - jekyll-feed
-  - jemoji
-  - jekyll-include-cache
-
-author:
-  name   : "Chris Leung"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Genetics and machine learning at Cambridge"
-  links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://leungchristopher.com"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/leungchristopher"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/christopherhcleung/"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://x.com/chrishcleung"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/_chrisleung_"
-
-footer:
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/leungchristopher"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/christopherhcleung/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/_chrisleung_"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://x.com/chrishcleung"
+  - jekyll-sitemap
 
 defaults:
-  # _posts
   - scope:
       path: ""
       type: posts
     values:
-      layout: single
-      author_profile: true
-      read_time: false
-      comments: false
-      share: true
-      related: false
-  # _pages
+      layout: post
   - scope:
       path: "_pages"
       type: pages
     values:
-      layout: single
-      author_profile: true
-
-category_archive:
-  type: liquid
-  path: /categories/
-tag_archive:
-  type: liquid
-  path: /tags/
-
-# MathJax configuration for LaTeX support
-head_scripts:
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-after_footer_scripts:
-  - /assets/js/mathjax-config.js
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+      layout: page

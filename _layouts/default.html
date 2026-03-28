@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title and page.title != site.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncatewords: 30 }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed.xml">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta name="robots" content="index, follow">
+  {% if page.excerpt %}
+  <meta property="og:description" content="{{ page.excerpt | strip_html | truncatewords: 30 }}">
+  {% else %}
+  <meta property="og:description" content="{{ site.description }}">
+  {% endif %}
+  <meta property="og:title" content="{% if page.title and page.title != site.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="site-header">
+      <nav class="site-nav">
+        <a href="/" class="site-title">Chris Leung</a>
+        <div class="nav-end">
+          <ul class="nav-links">
+            <li><a href="/about/">About</a></li>
+            <li><a href="/research/">Research</a></li>
+            <li><a href="/blog/">Writing</a></li>
+            <li><a href="/accountability/">Log</a></li>
+          </ul>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="site-main">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <p>Chris Leung</p>
+    </footer>
+
+  </div>
+
+  <script>
+    (function() {
+      document.addEventListener('click', function(e) {
+        var a = e.target.closest('a[href]');
+        if (!a) return;
+        try {
+          var url = new URL(a.href);
+          if (url.origin !== location.origin) return;
+          if (url.hash && url.pathname === location.pathname) return;
+          if (a.target || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+        } catch(err) { return; }
+        e.preventDefault();
+        var href = a.href;
+        document.body.classList.add('is-leaving');
+        setTimeout(function() { location.href = href; }, 150);
+      });
+    })();
+  </script>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('themeToggle');
+      var html = document.documentElement;
+      btn.addEventListener('click', function() {
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch(e) {}
+      });
+    })();
+  </script>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        tags: 'ams'
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+</body>
+</html>

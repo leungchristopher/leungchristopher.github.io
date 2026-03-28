@@ -1,7 +1,49 @@
 ---
-# You don't need to edit this file, it's empty on purpose.
-# Edit theme's home layout instead if you wanna make some changes
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-layout: home
-author_profile: true
+layout: default
+title: Chris Leung
 ---
+
+<div class="section intro">
+  <p class="intro-name">Chris Leung</p>
+  <p>Third-year Natural Sciences student at the University of Cambridge, based in the Department of Genetics. My interests lie at the intersection of machine learning and genetics — how we navigate data domains which are spatiotemporally sparse, heterogeneous, and unreliable.</p>
+  <p>I am currently a Research Fellow of the <a href="https://www.sparresearch.org/" target="_blank" rel="noopener noreferrer">Supervised Program for Alignment Research</a>, with a particular interest in the limitations of behavioural evaluations.</p>
+</div>
+
+<div class="section">
+  <div class="section-label">
+    <span class="label-text">Research</span>
+    <a href="/research/" class="label-link">View →</a>
+  </div>
+  <p class="blurb">Work on ancestral recombination graphs, mechanistic interpretability, and sequence-to-function models in genomics. <a href="/research/">Research and projects →</a></p>
+</div>
+
+<div class="section">
+  <div class="section-label">
+    <span class="label-text">Writing</span>
+    <a href="/blog/" class="label-link">Archive →</a>
+  </div>
+  <ul class="post-list">
+    {% for post in site.posts limit:5 %}
+    <li class="post-list-item">
+      <a href="{{ post.url }}" class="post-list-title">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-label">
+    <span class="label-text">Contact</span>
+  </div>
+  <ul class="contact-list">
+    <li><a href="mailto:chcl4@cam.ac.uk">chcl4@cam.ac.uk</a></li>
+    <li><a href="https://github.com/leungchristopher" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-label">
+    <span class="label-text">Log</span>
+  </div>
+  <p class="blurb">A public record of how I spend my time. <a href="/accountability/">Accountability log →</a></p>
+</div>
