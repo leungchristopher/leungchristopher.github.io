@@ -11,7 +11,8 @@ Two books I'd recommend: [The Evolution of Cooperation] by Robert Axelrod, and [
 
 ## Projects
 
-To be updated
+- Viral ancestral recombination graphs
+- 
 
 ## Experience
 See [about](/about) page

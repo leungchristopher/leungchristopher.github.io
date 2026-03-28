@@ -4,7 +4,7 @@ date: 2026-03-28
 categories:
   - blog
 tags:
-  - science
+  - curiosities
 ---
 
 It's done!

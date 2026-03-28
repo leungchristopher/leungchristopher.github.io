@@ -4,7 +4,7 @@ date: 2026-01-28
 categories:
   - blog
 tags:
-  - science
+  - curiosities
 ---
 
 Recently I started my Part II project at the Department of Genetics in Cambridge. The plan is to construct and analyse ancestral recombination graphs constructed from viral genomes.

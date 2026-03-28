@@ -4,8 +4,7 @@ date: 2025-12-03
 categories:
   - blog
 tags:
-  - genetics
-  - mathematics
+  - research
 ---
 
 [Paper]

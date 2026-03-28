@@ -4,8 +4,7 @@ date: 2025-12-23
 categories:
   - blog
 tags:
-  - ai
-  - mathematics
+  - artificial intelligence
 ---
 
 [Paper]

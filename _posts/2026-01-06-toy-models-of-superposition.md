@@ -4,7 +4,7 @@ date: 2026-01-06
 categories:
   - blog
 tags:
-  - ai
+  - machine learning
 ---
 
 Why don't we get grandmother neurons - neurons corresponding to a feature?
