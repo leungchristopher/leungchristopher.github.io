@@ -16,6 +16,12 @@ BA Natural Sciences
 - Weizmann Institute of Science, [Haran Group]: Hidden Markov Models for fast protein kinetics
 - CUHK, [Centre for Novostics]: algorithms for non-invasive cancer liquid biopsy
 
+## Competitions
+
+- Hut 7 IBM prize (team 1st), National Cipher Challenge
+- Top 10 out of 12000 in the selection for the UK's International Chemistry Olympiad team.
+- Top 14 in the selection for the UK's International Astronomy and Astrophysics Olympiad team.
+
 [Department of Genetics]: https://www.gen.cam.ac.uk/
 [Hannon Group]: https://www.hannonlab.org/
 [Supervised Program for Alignment Research]: https://sparai.org/
