@@ -1,5 +1,13 @@
 entries:
   - date: "2026-03-28"
+    project: "Neuroscience"
+    hours: 1.0
+    description: "Discussion with dad"
+  - date: "2026-03-28"
     project: "Part II Project"
-    hours: 1.5
-    description: "80k"
+    hours: 3
+    description: "Writeup"
+  - date: "2026-03-27"
+    project: "Part II Project"
+    hours: 6
+    description: "Writing and rewriting"
