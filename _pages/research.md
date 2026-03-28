@@ -12,7 +12,8 @@ Two books I'd recommend: [The Evolution of Cooperation] by Robert Axelrod, and [
 ## Projects
 
 - Viral ancestral recombination graphs
-- 
+- Multi-agent reinforcement learning
+- Spontaneous neuronal activation and the restoration of learned behaviours
 
 ## Experience
 See [about](/about) page
