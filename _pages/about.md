@@ -8,7 +8,7 @@ University of Cambridge, 2023–26
 BA Natural Sciences
 
 ## Scientific work
-
+For details, see [research](/research) and [my blog](/blog).
 - University of Cambridge, [Department of Genetics]: ancestral recombination graph algorithms
 - Cancer Research UK Cambridge Institute, [Hannon Group]: deep learning for genome organisation
 - [Supervised Program for Alignment Research](https://sparai.org/): multi-agent alignment
