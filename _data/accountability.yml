@@ -1,5 +1,21 @@
 entries:
-  - date: "2026-03-28"
+  - date: "2026-03-30"
+    project: "Blog"
+    hours: 0.2
+    description: "Two"
+  - date: "2026-03-30"
+    project: "Blog"
+    hours: 0.2
+    description: "One"
+  - date: "2026-03-30"
+    project: "Orbit"
+    hours: 1.0
+    description: "Preparations"
+  - date: "2026-03-30"
+    project: "Part II Project"
+    hours: 4.0
+    description: "Writing and refining"
+  - date: "2026-03-29"
     project: "Part II Project"
     hours: 9.0
     description: "Writing and refining"
