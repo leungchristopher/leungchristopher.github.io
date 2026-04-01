@@ -1,5 +1,21 @@
 entries:
-  - date: "2026-03-30"
+  - date: "2026-04-01"
+    project: "Orbit"
+    hours: 10.0
+    description: "Day two"
+  - date: "2026-04-01"
+    project: "Blog"
+    hours: 0.2
+    description: "Three"
+  - date: "2026-03-31"
+    project: "Neuroscience"
+    hours: 2.0
+    description: "Research proposal writeup"
+  - date: "2026-03-31"
+    project: "Orbit"
+    hours: 10.0
+    description: "Day one"
+  - date: "2026-03-31"
     project: "Blog"
     hours: 0.2
     description: "Two"
