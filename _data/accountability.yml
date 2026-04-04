@@ -1,4 +1,12 @@
 entries:
+  - date: "2026-04-03"
+    project: "Orbit"
+    hours: 10.0
+    description: "Day four"
+  - date: "2026-04-02"
+    project: "Orbit"
+    hours: 10.0
+    description: "Day three"
   - date: "2026-04-01"
     project: "Orbit"
     hours: 10.0
