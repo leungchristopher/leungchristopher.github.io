@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="page-header">
+  <h1>{{ page.title }}</h1>
+</div>
+
+{% assign sorted_books = site.books | sort: 'date_finished' | reverse %}
+{% if sorted_books.size > 0 %}
+<ul class="post-list books-list">
+  {% for book in sorted_books %}
+  <li class="post-list-item book-list-item">
+    <div class="post-list-left">
+      <a href="{{ book.url }}" class="post-list-title">{{ book.title }}</a>
+      <span class="book-list-author">{{ book.author }}</span>
+      {% if book.rating %}
+      <div class="book-rating book-rating-small" aria-label="{{ book.rating }} out of 10">
+        {% for i in (1..10) %}{% if i <= book.rating %}<span class="dot dot-filled">&#9679;</span>{% else %}<span class="dot dot-empty">&#9675;</span>{% endif %}{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    <time class="post-list-date" datetime="{{ book.date_finished }}">{{ book.date_finished | date: "%Y-%m-%d" }}</time>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="books-empty">No reviews yet.</p>
+{% endif %}

@@ -706,6 +706,54 @@ body.is-leaving {
   font-weight: 600;
 }
 
+/* ─── Book reviews ─── */
+.book-author {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+  margin-top: -6px;
+}
+
+.book-rating {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.dot {
+  font-size: 0.62rem;
+  line-height: 1;
+}
+
+.dot-filled {
+  color: var(--fg);
+}
+
+.dot-empty {
+  color: var(--faint);
+  color: rgba(128, 126, 112, 0.35);
+}
+
+.book-list-author {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.book-rating-small {
+  margin-top: 5px;
+}
+
+.book-rating-small .dot {
+  font-size: 0.55rem;
+}
+
+.books-empty {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
 /* ─── 404 ─── */
 .not-found {
   padding: 40px 0;
