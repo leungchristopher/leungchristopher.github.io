@@ -1,8 +1,20 @@
 entries:
+  - date: "2026-04-04"
+    project: "Blog"
+    hours: 0.2
+    description: "Six"
+  - date: "2026-04-03"
+    project: "Blog"
+    hours: 0.2
+    description: "Five"
   - date: "2026-04-03"
     project: "Orbit"
     hours: 10.0
     description: "Day four"
+  - date: "2026-04-02"
+    project: "Blog"
+    hours: 0.2
+    description: "Four"
   - date: "2026-04-02"
     project: "Orbit"
     hours: 10.0
