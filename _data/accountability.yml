@@ -1,4 +1,28 @@
 entries:
+  - date: "2026-04-07"
+    project: "Revision"
+    hours: 2.0
+    description: "Setup and M2"
+  - date: "2026-04-07"
+    project: "Blog"
+    hours: 0.1
+    description: "Nine"
+  - date: "2026-04-06"
+    project: "Part II Project"
+    hours: 5.0
+    description: "Writeup and final corrections"
+  - date: "2026-04-06"
+    project: "Blog"
+    hours: 0.1
+    description: "Eight"
+  - date: "2026-04-05"
+    project: "Part II Project"
+    hours: 5.0
+    description: "Writeup"
+  - date: "2026-04-05"
+    project: "Blog"
+    hours: 0.1
+    description: "Seven"
   - date: "2026-04-04"
     project: "Blog"
     hours: 0.2
