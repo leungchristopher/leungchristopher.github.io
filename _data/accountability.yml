@@ -1,4 +1,20 @@
 entries:
+  - date: "2026-04-11"
+    project: "Revision"
+    hours: 5.0
+    description: "More revision"
+  - date: "2026-04-10"
+    project: "Revision"
+    hours: 5.0
+    description: "More revision"
+  - date: "2026-04-09"
+    project: "Revision"
+    hours: 5.0
+    description: "More revision"
+  - date: "2026-04-08"
+    project: "Revision"
+    hours: 5.0
+    description: "More revision"
   - date: "2026-04-07"
     project: "Revision"
     hours: 2.0
