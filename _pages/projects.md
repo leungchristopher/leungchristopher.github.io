@@ -38,6 +38,17 @@ title: Projects
 
 <div class="research-item">
   <div class="research-title-row">
+    <span class="research-title">Structural biology of transcription</span>
+    <span class="research-year">2024</span>
+  </div>
+  <div class="research-affil">Department Cramer, Max Planck Institute for Multidisciplinary Sciences, Göttingen, Germany</div>
+  <div class="research-desc">
+    Studied +1 nucleosome promoter-proximal pausing in eukaryotic transcription. Independently designed biochemical assays, and developed skills in cryo-electron microscopy. Funded by the Max Planck Institute for Multidiscplinary Sciences.
+  </div>
+</div>
+
+<div class="research-item">
+  <div class="research-title-row">
     <span class="research-title">Hidden Markov Models for fast protein kinetics</span>
     <span class="research-year">2023</span>
   </div>
