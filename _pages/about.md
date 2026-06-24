@@ -3,34 +3,8 @@ permalink: /about/
 title: "About"
 ---
 
-University of Cambridge, 2023–26
+I studied Natural Sciences at the University of Cambridge from 2023 to 2026, obtaining a double First and coming second overall in my cohort. I also received the J.M. Thoday Prize for the best undergraduate research project in genetics.
 
-BA Natural Sciences
+I develop mathematical and computational methods to understand biological and artificial information processing systems. Broadly, I'm interested in applying perturbations - physiological (in specific brain neural circuits), biological (evolutionary selection), or computational (dropout, and opponent selection in multi-agent reinforcement learning) - to understand the basis of cooperation in intelligent systems. [This page](/projects) gives an overview of current and past projects.
 
-## Scientific work
-For details, see [research](/research) and [my blog](/blog).
-- University of Cambridge, [Department of Genetics]: ancestral recombination graph algorithms
-- Cancer Research UK Cambridge Institute, [Hannon Group]: deep learning for genome organisation
-- [Supervised Program for Alignment Research](https://sparai.org/): multi-agent alignment
-- Max Planck Institute for Multidisciplinary Sciences, [Department of Molecular Biology]: human transcriptional biology and cryo-electron microscopy
-- Weizmann Institute of Science, [Haran Group]: Hidden Markov Models for fast protein kinetics
-- CUHK, [Centre for Novostics]: algorithms for non-invasive cancer liquid biopsy
-
-## Skills
-
-- Python (JAX, PyTorch), C++, high performance computing
-- Statistical inference, machine learning, molecular and disease biology, biochemistry, statistical physics
-- Chamber and piano music!
-
-## Competitions
-
-- Hut 7 IBM prize (team 1st), National Cipher Challenge
-- Top 10 out of 12000 in the selection for the UK's International Chemistry Olympiad team.
-- Top 14 in the selection for the UK's International Astronomy and Astrophysics Olympiad team.
-
-[Department of Genetics]: https://www.gen.cam.ac.uk/
-[Hannon Group]: https://www.hannonlab.org/
-[Supervised Program for Alignment Research]: https://sparai.org/
-[Department of Molecular Biology]: https://www.mpinat.mpg.de/cramer
-[Haran Group]: https://www.weizmann.ac.il/chembiophys/cfharan/home
-[Centre for Novostics]: https://www.novostics.hk/
+In a past life, I was an Olympiad competitor, reaching the national finals for selecting the UK's teams for the International Chemistry and Astronomy and Astrophysics Olympiad. My team and I also won the National Cipher Challenge in 2022.
