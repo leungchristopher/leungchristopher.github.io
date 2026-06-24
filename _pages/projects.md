@@ -5,8 +5,19 @@ title: Projects
 
 <div class="research-item">
   <div class="research-title-row">
+    <span class="research-title">Spontaneous neuronal activation</span>
+    <span class="research-year">2026–present</span>
+  </div>
+    <div class="research-affil">Lois group, Caltech</div>
+  <div class="research-desc">
+    Computational modelling of spontaneous neuronal activity and its role in the restoration of learned behaviours following perturbation. Drawing on attractor network theory and Hebbian plasticity.
+  </div>
+</div>
+
+<div class="research-item">
+  <div class="research-title-row">
     <span class="research-title">Viral ancestral recombination graphs</span>
-    <span class="research-year">2024–present</span>
+    <span class="research-year">2025–present</span>
   </div>
   <div class="research-affil">Department of Genetics, University of Cambridge</div>
   <div class="research-desc">
@@ -17,32 +28,11 @@ title: Projects
 <div class="research-item">
   <div class="research-title-row">
     <span class="research-title">Deep learning for genome organisation</span>
-    <span class="research-year">2024</span>
+    <span class="research-year">2025-present</span>
   </div>
   <div class="research-affil">Hannon Group, Cancer Research UK Cambridge Institute</div>
   <div class="research-desc">
     Convolutional and attention-based architectures for predicting three-dimensional chromatin organisation from DNA sequence. Work focused on learning sequence determinants of topologically associating domains and compartment structure.
-  </div>
-</div>
-
-<div class="research-item">
-  <div class="research-title-row">
-    <span class="research-title">Multi-agent reinforcement learning and alignment</span>
-    <span class="research-year">2024</span>
-  </div>
-  <div class="research-affil">Supervised Program for Alignment Research (SPAR)</div>
-  <div class="research-desc">
-    Studying the emergence and robustness of cooperative behaviour in multi-agent systems. Implications for the alignment problem: under what conditions do agents develop stable cooperative norms, and how are these disrupted by distributional shift?
-  </div>
-</div>
-
-<div class="research-item">
-  <div class="research-title-row">
-    <span class="research-title">Spontaneous neuronal activation</span>
-    <span class="research-year">2023–present</span>
-  </div>
-  <div class="research-desc">
-    Computational modelling of spontaneous neuronal activity and its role in the restoration of learned behaviours following perturbation. Drawing on attractor network theory and Hebbian plasticity.
   </div>
 </div>
 
@@ -60,7 +50,7 @@ title: Projects
 <div class="research-item">
   <div class="research-title-row">
     <span class="research-title">Algorithms for non-invasive cancer liquid biopsy</span>
-    <span class="research-year">2023</span>
+    <span class="research-year">2022</span>
   </div>
   <div class="research-affil">Centre for Novostics, Chinese University of Hong Kong</div>
   <div class="research-desc">

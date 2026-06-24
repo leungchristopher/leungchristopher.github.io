@@ -15,12 +15,9 @@ Two books I'd recommend: [The Evolution of Cooperation] by Robert Axelrod, and [
 - Multi-agent reinforcement learning
 - Spontaneous neuronal activation and the restoration of learned behaviours
 
-## Experience
-See [about](/about) page
-
 ## Publications
 
-Upcoming preprints!
+Upcoming preprints
 
 [The Evolution of Cooperation]: https://books.google.co.uk/books/about/The_Evolution_of_Cooperation.html
 [Embodiment and the Inner Life]: https://global.oup.com/academic/product/embodiment-and-the-inner-life-9780199226559
