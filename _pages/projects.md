@@ -10,7 +10,7 @@ title: Projects
   </div>
     <div class="research-affil">Lois group, Caltech</div>
   <div class="research-desc">
-    Computational modelling of spontaneous neuronal activity and its role in the restoration of learned behaviours following perturbation. Drawing on attractor network theory and Hebbian plasticity.
+    Computational modelling of spontaneous neuronal activity and its role in the restoration of learned behaviours following perturbation. Drawing on attractor network theory and Hebbian plasticity. Part of the Cambridge-Caltech exchange, funded by Caltech and St Catharine's College, Cambridge
   </div>
 </div>
 
@@ -21,7 +21,7 @@ title: Projects
   </div>
   <div class="research-affil">Department of Genetics, University of Cambridge</div>
   <div class="research-desc">
-    Scalable inference of ancestral recombination graphs for viral populations. Developing algorithms that reconstruct co-evolutionary history across scales of within-host and between-host transmission, using techniques from statistical physics and phylogenetics.
+    Scalable inference of ancestral recombination graphs for viral populations. Developing algorithms that reconstruct co-evolutionary history across scales of within-host and between-host transmission, using techniques from statistical physics and phylogenetics. Work received the J.M. Thoday Prize for the best undergraduate research project in genetics.
   </div>
 </div>
 
@@ -32,7 +32,7 @@ title: Projects
   </div>
   <div class="research-affil">Hannon Group, Cancer Research UK Cambridge Institute</div>
   <div class="research-desc">
-    Convolutional and attention-based architectures for predicting three-dimensional chromatin organisation from DNA sequence. Work focused on learning sequence determinants of topologically associating domains and compartment structure.
+    Convolutional and attention-based architectures for predicting three-dimensional chromatin organisation from DNA sequence. Work focused on learning sequence determinants of topologically associating domains and compartment structure. Initially funded by Cancer Research UK's summer research programme, I am still involved with this project as a visiting student.
   </div>
 </div>
 
@@ -43,7 +43,7 @@ title: Projects
   </div>
   <div class="research-affil">Haran Group, Weizmann Institute of Science</div>
   <div class="research-desc">
-    Inference of conformational state sequences from single-molecule FRET data using hidden Markov models. Work addressed the challenge of fast dynamics on timescales shorter than photon-arrival intervals.
+    Inference of conformational state sequences from single-molecule FRET data using hidden Markov models. Work addressed the challenge of fast dynamics on timescales shorter than photon-arrival intervals. Funded by the Weizmann UK Foundation.
   </div>
 </div>
 

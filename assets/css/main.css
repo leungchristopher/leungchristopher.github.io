@@ -190,6 +190,18 @@ body.is-leaving {
   text-underline-offset: 2px;
 }
 
+/* ─── Section body links ─── */
+.section p a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.section p a:hover {
+  color: var(--muted);
+}
+
 /* ─── Section label ─── */
 .section-label {
   display: flex;
