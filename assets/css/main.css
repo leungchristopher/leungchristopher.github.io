@@ -61,6 +61,10 @@
   padding: 0;
 }
 
+a:visited {
+  color: inherit;
+}
+
 /* ─── Base ─── */
 html {
   font-size: 18px;
