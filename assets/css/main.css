@@ -1,3 +1,36 @@
+/* ─── Fonts ─── */
+@font-face {
+  font-family: 'NewCM08';
+  src: url('/NewCM08-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NewCM08';
+  src: url('/NewCM08-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NewCM08';
+  src: url('/NewCM08-Book.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NewCM08';
+  src: url('/NewCM08-BookItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* ─── Variables ─── */
 :root {
   --bg:     #ffffff;
@@ -36,7 +69,7 @@ html {
 }
 
 body {
-  font-family: 'New Computer Modern', Georgia, 'Times New Roman', serif;
+  font-family: 'NewCM08', Georgia, 'Times New Roman', serif;
   background-color: var(--bg);
   color: var(--fg);
   line-height: 1.65;
@@ -339,7 +372,7 @@ body.is-leaving {
 .post-content h2,
 .post-content h3,
 .post-content h4 {
-  font-weight: 700;
+  font-weight: 500;
   margin-top: 2.4em;
   margin-bottom: 0.55em;
   line-height: 1.3;
@@ -394,7 +427,7 @@ body.is-leaving {
 }
 
 .post-content code {
-  font-family: 'New Computer Modern Mono', 'Courier New', Courier, monospace;
+  font-family: 'NewCM08', Georgia, 'Times New Roman', serif;
   font-size: 0.87em;
   background: var(--faint2);
   border: 1px solid var(--faint);
@@ -455,14 +488,14 @@ body.is-leaving {
 
 .page-content h2 {
   font-size: 0.98rem;
-  font-weight: 700;
+  font-weight: 500;
   margin-top: 2.6em;
   margin-bottom: 0.65em;
 }
 
 .page-content h3 {
   font-size: 0.93rem;
-  font-weight: 700;
+  font-weight: 500;
   margin-top: 1.9em;
   margin-bottom: 0.45em;
 }
@@ -495,7 +528,7 @@ body.is-leaving {
 }
 
 .page-content strong {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 /* ─── Tag filter ─── */
@@ -698,7 +731,7 @@ body.is-leaving {
 
 .toc-link.toc-active {
   color: var(--fg);
-  font-weight: 700;
+  font-weight: 500;
 }
 
 /* ─── Book reviews ─── */

@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title and page.title != site.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncatewords: 30 }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=New+Computer+Modern:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=New+Computer+Modern+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed.xml">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
@@ -72,6 +69,10 @@
         var href = a.href;
         document.body.classList.add('is-leaving');
         setTimeout(function() { location.href = href; }, 150);
+      });
+
+      window.addEventListener('pageshow', function() {
+        document.body.classList.remove('is-leaving');
       });
     })();
   </script>
