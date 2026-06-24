@@ -63,13 +63,14 @@
 
 /* ─── Base ─── */
 html {
-  font-size: 17px;
+  font-size: 18px;
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
 }
 
 body {
   font-family: 'NewCM08', Georgia, 'Times New Roman', serif;
+  font-weight: 500;
   background-color: var(--bg);
   color: var(--fg);
   line-height: 1.65;
@@ -130,37 +131,24 @@ body.is-leaving {
   color: var(--fg);
 }
 
-/* ─── Theme toggle pill ─── */
+/* ─── Theme toggle ─── */
 .theme-toggle {
-  width: 36px;
-  height: 20px;
-  border-radius: 10px;
-  background: var(--faint);
-  border: 1px solid var(--faint);
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid var(--muted);
   cursor: pointer;
-  position: relative;
   flex-shrink: 0;
   padding: 0;
   appearance: none;
   -webkit-appearance: none;
   outline: none;
-  transition: background 0.15s;
+  transition: background 0.15s, border-color 0.15s;
 }
 
-.theme-toggle::before {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
+[data-theme="dark"] .theme-toggle {
   background: var(--muted);
-  transition: transform 0.18s ease, background 0.15s;
-}
-
-[data-theme="dark"] .theme-toggle::before {
-  transform: translateX(16px);
 }
 
 /* ─── Main ─── */
@@ -207,11 +195,9 @@ body.is-leaving {
 }
 
 .label-text {
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-size: 0.82rem;
   color: var(--muted);
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .label-link {
@@ -325,8 +311,19 @@ body.is-leaving {
 /* ─── Footer ─── */
 .site-footer {
   padding: 20px 0;
-  font-size: 0.74rem;
+  font-size: 0.82rem;
   color: var(--muted);
+  display: flex;
+  gap: 24px;
+}
+
+.site-footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--fg);
 }
 
 /* ─── Post page ─── */
@@ -556,11 +553,9 @@ body.is-leaving {
 
 /* ─── Blog archive ─── */
 .archive-year {
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-size: 0.82rem;
   color: var(--muted);
-  font-weight: 400;
+  font-weight: 500;
   margin-top: 44px;
   margin-bottom: 14px;
 }
@@ -571,11 +566,9 @@ body.is-leaving {
 
 /* ─── Tags page ─── */
 .tag-group-heading {
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-size: 0.82rem;
   color: var(--muted);
-  font-weight: 400;
+  font-weight: 500;
   margin-top: 44px;
   margin-bottom: 14px;
 }
