@@ -7,7 +7,7 @@ tags:
   - curiosities
 ---
 
-Another year at Cambridge has drawn to a close, so I've decided to come up with 10 bullet points to summarise what I've learned so far.
+Another year at Cambridge has drawn to a close, so I've decided to come up with 10 paragraphs and 16 one-liners (making 26 (!) points) to summarise what I've learned so far.
 
 # Academic
 ## Phenomenology and mechanism
@@ -34,5 +34,22 @@ I've run into quite a few good opportunities by just putting myself out there, a
 It's been such a joy playing with other people again, and I've planned more musical sidequests next year!
 ## Time
 This is the time where I'll have the fewest responsibilities ever. Whilst this doesn't mean that one should be irresponsible, one should take advantage of this abundance: see that friend, spend those hours watching the sun set, chat late into the night. Because this era, too, will end.
+# Quickfire round
+11. When life gets you down, have some fruit
+12. Wear sunscreen and don't apply it in spots
+13. Everything can be a trip hazard if you're sufficiently unskilled
+14. It's okay to be dilettantish in your pursuits as long as you achieve depth in them and cross-fertilise ideas
+15. Developmental biology is really really hard
+16. 13.1 miles is the Pareto frontier in the pain-enjoyment tradeoff
+17. Play music with your friends more frequently
+18. Swimming is the most underrated form of cardio
+19. Don't trade sleep for marginal increments in work hours
+20. What is your question?
+21. Don't work yourself to the bone: you (and the people who remember you afterwards) will regret it
+22. Smell the flowers
+23. Play some more games when you and your friends are bored
+24. Eat the frog
+25. Reject things which drain you
+26. It's about the life in your years, not the years in your life
 
-Part of a 15 minute writing exercise!
+Part of a 15 minute writing exercise
