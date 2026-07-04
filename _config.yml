@@ -1,8 +1,15 @@
-title: Chris Leung
-url: "https://leungchristopher.com"
+# Site
+title: "Chris Leung"
+name: "Chris Leung"
 email: chcl4@cam.ac.uk
-description: Machine learning and genetics at Cambridge.
-github_username: leungchristopher
+description: "Machine learning and genetics at Cambridge."
+url: "https://leungchristopher.com"
+repository: "leungchristopher/leungchristopher.github.io"
+
+# Theme
+remote_theme: "mmistakes/minimal-mistakes"
+minimal_mistakes_skin: "default"
+search: false
 
 # Build settings
 markdown: kramdown
@@ -14,31 +21,82 @@ kramdown:
 
 permalink: /blog/:title/
 
-collections:
-  books:
-    output: true
-    permalink: /books/:title/
-
 include:
   - _pages
 
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-remote-theme
+  - jekyll-include-cache
+
+# Archives (Liquid-based, GitHub Pages compatible)
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
+# Author profile (sidebar)
+author:
+  name: "Chris Leung"
+  bio: "Machine learning and genetics at Cambridge."
+  avatar: "/assets/images/bio-photo.jpg"
+  location: "Cambridge / Caltech"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:chcl4@cam.ac.uk"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/leungchristopher"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/christopherhcleung"
+    - label: "X"
+      icon: "fab fa-fw fa-x-twitter"
+      url: "https://x.com/chrishcleung"
+    - label: "Substack"
+      icon: "fab fa-fw fa-substack"
+      url: "https://leungchristopher.substack.com/"
+
+footer:
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:chcl4@cam.ac.uk"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/leungchristopher"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/christopherhcleung"
+    - label: "X"
+      icon: "fab fa-fw fa-x-twitter"
+      url: "https://x.com/chrishcleung"
+    - label: "Substack"
+      icon: "fab fa-fw fa-substack"
+      url: "https://leungchristopher.substack.com/"
 
 defaults:
+  # Blog posts
   - scope:
       path: ""
       type: posts
     values:
-      layout: post
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: false
+      share: false
+      related: true
+      toc: true
+      toc_sticky: true
+  # Pages
   - scope:
       path: "_pages"
       type: pages
     values:
-      layout: page
-  - scope:
-      path: ""
-      type: books
-    values:
-      layout: book
+      layout: single
+      author_profile: true
