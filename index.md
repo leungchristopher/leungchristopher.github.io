@@ -93,14 +93,24 @@ Book a meeting [here](https://calendly.com/chcl4-cam/30min) or reach out by [ema
   Each project is a collapsed disclosure: only the title shows until clicked.
   To add one, copy a <details class="proj"> block and keep the markup as-is.
 -->
+<details class="proj">
+  <summary>
+    <span class="proj-arrow" aria-hidden="true"></span>
+    <span class="proj-title">todo</span>
+  </summary>
+  <div class="proj-body">
+    <p class="desc">Built in Rust: control your todo list. Used to learn Rust.</p>
+    <p class="project-link"><a class="btn" href="https://github.com/Ky-Ng/x-linguistic-fine-tuning-generalization">Try here!</a></p>
+  </div>
+</details>
 
 <details class="proj">
   <summary>
     <span class="proj-arrow" aria-hidden="true"></span>
-    <span class="proj-title">Cross-lingual interpretability · 2026</span>
+    <span class="proj-title">Cross-lingual interpretability</span>
   </summary>
   <div class="proj-body">
-    <p class="affil">Oxford AI Safety Initiative</p>
+    <p class="affil">Oxford AI Safety Initiative, 2026</p>
     <p class="desc">Using LoRA finetuning to understand generalisation across languages in open-source LLMs.</p>
     <p class="project-link"><a class="btn" href="https://github.com/Ky-Ng/x-linguistic-fine-tuning-generalization">writeup and code</a></p>
   </div>
@@ -109,10 +119,10 @@ Book a meeting [here](https://calendly.com/chcl4-cam/30min) or reach out by [ema
 <details class="proj">
   <summary>
     <span class="proj-arrow" aria-hidden="true"></span>
-    <span class="proj-title">Multi-agent AlphaZero · 2026</span>
+    <span class="proj-title">Multi-agent AlphaZero</span>
   </summary>
   <div class="proj-body">
-    <p class="desc">Implementation of a multi-agent AlphaZero architecture, trained using JAX on GPUs.</p>
+    <p class="desc">Implementation of the multi-agent AlphaZero architecture, trained using JAX on GPUs.</p>
     <p class="project-link"><a class="btn" href="https://github.com/leungchristopher/maz">code</a></p>
   </div>
 </details>
