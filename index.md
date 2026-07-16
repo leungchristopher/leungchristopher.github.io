@@ -22,10 +22,10 @@ Beyond my work, I am an active chamber musician and enjoy tennis and distance ru
 Book a meeting [here](https://calendly.com/chcl4-cam/30min) or reach out by [email](mailto:chcl4@cam.ac.uk). 
 ## Publications
 **Christopher Leung**, Charlotte Houldcroft, Aylwyn Scally. *Statistical inference of viral ancestral recombination graphs* (2026). *In preparation.*
-## Projects
+## Research
 
 <!--
-  To add a figure to a project, drop an image into assets/images/projects/
+  To add a figure to a research entry, drop an image into assets/images/projects/
   and change that card's `src="…"` below. Square images (or diagrams on a
   transparent/white background) look best. Keep each card's markup as-is.
 -->
@@ -61,25 +61,6 @@ Book a meeting [here](https://calendly.com/chcl4-cam/30min) or reach out by [ema
 
 <div class="project">
   <div class="project-body">
-    <h3>Cross-lingual interpretability · 2026</h3>
-    <p class="affil">Oxford AI Safety Initiative</p>
-    <p class="desc">Using LoRA finetuning to understand generalisation across languages in open-source LLMs.</p>
-    <p class="project-link"><a class="btn" href="https://github.com/Ky-Ng/x-linguistic-fine-tuning-generalization">writeup and code</a></p>
-  </div>
-  <div class="project-figure"><img src="/assets/images/projects/arbox.png" alt="Cross-lingual interpretability"></div>
-</div>
-
-<div class="project">
-  <div class="project-body">
-    <h3>Multi-agent AlphaZero · 2026</h3>
-    <p class="desc">Implementation of a multi-agent AlphaZero architecture, trained using JAX on GPUs.</p>
-    <p class="project-link"><a class="btn" href="https://github.com/leungchristopher/maz">code</a></p>
-  </div>
-  <div class="project-figure"><img src="/assets/images/projects/az.png" alt="Multi-agent AlphaZero"></div>
-</div>
-
-<div class="project">
-  <div class="project-body">
     <h3>Lock-in risk benchmark for LLM systems · 2025</h3>
     <p class="affil">Supervised Program for Alignment Research</p>
     <p class="desc">Paper under review.</p>
@@ -105,6 +86,43 @@ Book a meeting [here](https://calendly.com/chcl4-cam/30min) or reach out by [ema
   </div>
   <div class="project-figure"><img src="/assets/images/projects/clpc.png" alt="Hidden Markov Models for fast protein kinetics"></div>
 </div>
+
+## Projects
+
+<!--
+  Each project is a collapsed disclosure: only the title shows until clicked.
+  To add one, copy a <details class="proj"> block and keep the markup as-is.
+-->
+
+<details class="proj">
+  <summary>
+    <span class="proj-arrow" aria-hidden="true"></span>
+    <span class="proj-title">Cross-lingual interpretability · 2026</span>
+  </summary>
+  <div class="proj-body">
+    <p class="affil">Oxford AI Safety Initiative</p>
+    <p class="desc">Using LoRA finetuning to understand generalisation across languages in open-source LLMs.</p>
+    <p class="project-link"><a class="btn" href="https://github.com/Ky-Ng/x-linguistic-fine-tuning-generalization">writeup and code</a></p>
+  </div>
+</details>
+
+<details class="proj">
+  <summary>
+    <span class="proj-arrow" aria-hidden="true"></span>
+    <span class="proj-title">Multi-agent AlphaZero · 2026</span>
+  </summary>
+  <div class="proj-body">
+    <p class="desc">Implementation of a multi-agent AlphaZero architecture, trained using JAX on GPUs.</p>
+    <p class="project-link"><a class="btn" href="https://github.com/leungchristopher/maz">code</a></p>
+  </div>
+</details>
+## Books and music
+
+I am currently reading: *Das Glasperlenspiel* (Hesse), *Incomplete Nature* (Deacon), *Who we are and how we got here* (Reich), and *Embodiment and the Inner Life* (Shanahan).
+{: .hobbies}
+
+My next piano recital is in **October**.
+{: .hobbies}
 
 <!-- <div class="project">
   <div class="project-body">
