@@ -22,6 +22,7 @@
       <a class="site-name" href="{{ '/' | relative_url }}">{{ site.name }}</a>
       <nav class="site-nav">
         <a href="{{ '/essays/' | relative_url }}">Essays</a>
+        <a href="{{ '/links/' | relative_url }}">Links</a>
         <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
           <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="4.2"></circle>
@@ -34,7 +35,7 @@
       </nav>
     </header>
 
-    <main class="content">
+    <main class="content{% if page.body_class %} {{ page.body_class }}{% endif %}">
       {{ content }}
     </main>
 
