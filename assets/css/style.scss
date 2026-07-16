@@ -517,6 +517,18 @@ pre code { background: none; padding: 0; }
 }
 .site-footer .social a:hover { color: var(--fg); }
 .site-footer .copyright { color: var(--muted); }
+// Rapid clicking must not select the text or look like an affordance.
+.site-footer .copyright .mark {
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: opacity .12s ease;
+}
+.site-footer .copyright .answer { color: var(--muted); border-bottom: none; }
+.site-footer .copyright .answer:hover { color: var(--fg); }
+@media (prefers-reduced-motion: reduce) {
+  .site-footer .copyright .mark { transition: none; }
+}
 
 // ─── Small screens ───────────────────────────────────────────
 @media (max-width: 34rem) {

@@ -46,7 +46,10 @@
         {% if site.social.x %}<a href="{{ site.social.x }}">X</a>{% endif %}
         {% if site.social.substack %}<a href="{{ site.social.substack }}">Substack</a>{% endif %}
       </div>
-      <div class="copyright">© {{ site.time | date: "%Y" }} {{ site.name }}</div>
+      <div class="copyright">
+        <span class="mark">© {{ site.time | date: "%Y" }} {{ site.name }}</span>
+        <a class="answer" href="https://mailtoll.app/chris" rel="noopener" hidden>Don't Panic — but it'll cost you →</a>
+      </div>
     </footer>
   </div>
 
@@ -65,6 +68,26 @@
         root.dataset.theme = next;
         try { localStorage.setItem('theme', next); } catch (e) {}
         label();
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var mark = document.querySelector('.copyright .mark');
+      var answer = document.querySelector('.copyright .answer');
+      if (!mark || !answer) return;
+      var clicks = 0, idle;
+      mark.addEventListener('click', function () {
+        clicks++;
+        // Stopping for three seconds puts it back to sleep.
+        clearTimeout(idle);
+        idle = setTimeout(function () { clicks = 0; mark.style.opacity = ''; }, 3000);
+        if (clicks > 32) mark.style.opacity = Math.max(0, 1 - (clicks - 32) / 10);
+        if (clicks === 42) {
+          mark.hidden = true;
+          answer.hidden = false;
+        }
       });
     })();
   </script>
