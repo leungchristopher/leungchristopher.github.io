@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    // Set theme before paint to avoid a flash (default: light).
+    (function () {
+      try { document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light'; }
+      catch (e) { document.documentElement.dataset.theme = 'light'; }
+    })();
+  </script>
+  <title>{% if page.title and page.title != site.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  {% seo title=false %}
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% feed_meta %}
+  {% include mathjax.html %}
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="site-name" href="{{ '/' | relative_url }}">{{ site.name }}</a>
+      <nav class="site-nav">
+        <a href="{{ '/essays/' | relative_url }}">Essays</a>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2"></circle>
+            <path d="M12 2.5v2.4M12 19.1v2.4M4.6 4.6l1.7 1.7M17.7 17.7l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.6 19.4l1.7-1.7M17.7 6.3l1.7-1.7"></path>
+          </svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"></path>
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <main class="content">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="social">
+        {% if site.social.email %}<a href="{{ site.social.email }}">Email</a>{% endif %}
+        {% if site.social.github %}<a href="{{ site.social.github }}">GitHub</a>{% endif %}
+        {% if site.social.linkedin %}<a href="{{ site.social.linkedin }}">LinkedIn</a>{% endif %}
+        {% if site.social.x %}<a href="{{ site.social.x }}">X</a>{% endif %}
+        {% if site.social.substack %}<a href="{{ site.social.substack }}">Substack</a>{% endif %}
+      </div>
+      <div class="copyright">© {{ site.time | date: "%Y" }} {{ site.name }}</div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.querySelector('.theme-toggle');
+      if (!btn) return;
+      function label() {
+        btn.setAttribute('aria-label',
+          root.dataset.theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+      }
+      label();
+      btn.addEventListener('click', function () {
+        var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        label();
+      });
+    })();
+  </script>
+</body>
+</html>

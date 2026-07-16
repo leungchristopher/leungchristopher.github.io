@@ -1,10 +1,6 @@
 ---
 title: "People and research taste"
 date: 2026-03-30
-categories:
-  - blog
-tags:
-  - curiosities
 ---
 
 Something I've been thinking about recently is the development of research taste. I sometimes consider research taste as a filter problem.

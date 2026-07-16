@@ -1,10 +1,6 @@
 ---
 title: "Three years of Cambridge and twenty-six ideas"
 date: 2026-06-24
-categories:
-  - blog
-tags:
-  - curiosities
 ---
 
 Another year at Cambridge has drawn to a close, so I've decided to come up with 10 paragraphs and 16 one-liners (making 26 (!) points) to summarise what I've learned so far.

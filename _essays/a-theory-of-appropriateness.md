@@ -1,10 +1,6 @@
 ---
 title: "Notes on: appropriateness and generative artificial intelligence"
 date: 2025-12-23
-categories:
-  - blog
-tags:
-  - artificial intelligence
 ---
 
 The paper's challenge is to lay down a definition of appropriateness: how should an individual act in an environment? In this paper, Leibo et al. start from the perspective that modelling the behaviour of AIs and humans is mutually instructive.

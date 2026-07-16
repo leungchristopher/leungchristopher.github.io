@@ -1,0 +1,20 @@
+---
+layout: default
+title: Essays
+permalink: /essays/
+---
+<h1>Essays</h1>
+
+<p class="lede">Notes and essays on machine learning, neuroscience, genetics, and the occasional curiosity.</p>
+
+<ul class="essay-list">
+  {% assign essays = site.essays | sort: "date" | reverse %}
+  {% for essay in essays %}
+  {% unless essay.draft %}
+    <li class="essay-item">
+      <a class="essay-item-title" href="{{ essay.url | relative_url }}">{{ essay.title }}</a>
+      <time class="essay-item-date" datetime="{{ essay.date | date_to_xmlschema }}">{{ essay.date | date: "%b %Y" }}</time>
+    </li>
+  {% endunless %}
+  {% endfor %}
+</ul>

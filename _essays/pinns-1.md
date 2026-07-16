@@ -1,10 +1,6 @@
 ---
 title: "Physics-informed neural networks 1"
 date: 2026-04-02
-categories:
-  - blog
-tags:
-  - physics
 ---
 
 Overfitting and generalisation are perpetual problems in neural network training. One thing we can do is regularisation, where we add $L(\textrm{regularisation})=\lambda\lVert \theta \rVert$.

@@ -1,10 +1,6 @@
 ---
 title: "On scale-free intelligence"
 date: 2025-12-23
-categories:
-  - blog
-tags:
-  - artificial intelligence
 ---
 
 [Paper]

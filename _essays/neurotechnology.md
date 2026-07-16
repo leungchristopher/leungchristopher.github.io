@@ -1,10 +1,6 @@
 ---
 title: "Neurotechnology"
 date: 2026-04-01
-categories:
-  - blog
-tags:
-  - curiosities
 ---
 
 I've travelled from Cambridge, England to Cambridge, Massachusetts to spend half a week with some folks who are building neurotech for a wide range of applications.

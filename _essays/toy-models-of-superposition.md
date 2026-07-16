@@ -1,10 +1,6 @@
 ---
 title: "Toy models of superposition"
 date: 2026-01-06
-categories:
-  - blog
-tags:
-  - machine learning
 ---
 
 Why don't we get grandmother neurons - neurons corresponding to a feature?

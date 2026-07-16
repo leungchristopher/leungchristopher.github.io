@@ -1,10 +1,6 @@
 ---
 title: "Consolidative memory replay"
 date: 2026-04-03
-categories:
-  - blog
-tags:
-  - neuroscience
 ---
 
 I had to write a research proposal recently, and I came across this really interesting problem in the exploration phase.

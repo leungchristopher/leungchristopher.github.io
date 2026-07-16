@@ -1,10 +1,6 @@
 ---
 title: "On mentors"
 date: 2026-04-07
-categories:
-  - blog
-tags:
-  - curiosities
 ---
 
 Recent events have prompted me to reflect on the mentors I've had the privilege of working with, and how they've shaped how I think.
