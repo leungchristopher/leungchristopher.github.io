@@ -1,0 +1,84 @@
+---
+layout: default
+title: Photos
+permalink: /photos/
+body_class: photos-page
+---
+<div class="photo-gallery">
+  <button type="button" class="photo-nav photo-nav--prev" aria-label="Previous photo">‹</button>
+  <div class="photo-scroll">
+    {% assign photos = site.static_files | where_exp: "f", "f.path contains '/assets/photos/'" | sort: "name" %}
+    {% for photo in photos %}
+    <img class="photo-item" src="{{ photo.path | relative_url }}" alt="" loading="lazy">
+    {% endfor %}
+  </div>
+  <button type="button" class="photo-nav photo-nav--next" aria-label="Next photo">›</button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var gallery = document.querySelector('.photo-gallery');
+  if (!gallery) return;
+  var track = gallery.querySelector('.photo-scroll');
+  var real = Array.prototype.slice.call(track.querySelectorAll('.photo-item'));
+  if (real.length < 2) return;
+
+  // Shuffle (Fisher-Yates), then re-insert in the new order.
+  for (var i = real.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = real[i]; real[i] = real[j]; real[j] = tmp;
+  }
+  real.forEach(function (img) { track.appendChild(img); });
+
+  // Clone the last image before the first, and the first after the
+  // last, so scrolling past either end lands on a lookalike — then
+  // jump instantly (no animation) to the real item it's standing in
+  // for. That's what makes the loop feel infinite.
+  var firstClone = real[0].cloneNode(true);
+  var lastClone = real[real.length - 1].cloneNode(true);
+  track.insertBefore(lastClone, real[0]);
+  track.appendChild(firstClone);
+
+  var items = Array.prototype.slice.call(track.querySelectorAll('.photo-item'));
+  var firstRealIndex = 1;
+  var lastRealIndex = items.length - 2;
+  var current = firstRealIndex;
+
+  function scrollToIndex(i, smooth) {
+    items[i].scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', inline: 'center', block: 'nearest' });
+  }
+  scrollToIndex(current, false);
+
+  function settle() {
+    if (current === 0) {
+      current = lastRealIndex;
+      scrollToIndex(current, false);
+    } else if (current === items.length - 1) {
+      current = firstRealIndex;
+      scrollToIndex(current, false);
+    }
+  }
+
+  function goTo(i) {
+    current = i;
+    scrollToIndex(current, true);
+    clearTimeout(track._settleTimer);
+    track._settleTimer = setTimeout(settle, 550);
+  }
+
+  var timer = setInterval(function () { goTo(current + 1); }, 5000);
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(function () { goTo(current + 1); }, 5000);
+  }
+
+  gallery.querySelector('.photo-nav--prev').addEventListener('click', function () {
+    goTo(current - 1);
+    resetTimer();
+  });
+  gallery.querySelector('.photo-nav--next').addEventListener('click', function () {
+    goTo(current + 1);
+    resetTimer();
+  });
+});
+</script>

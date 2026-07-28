@@ -1,0 +1,34 @@
+---
+layout: default
+---
+<article class="dlog-entry">
+  <header class="entry-header">
+    <h1 class="entry-title">{{ page.title | default: page.goal }}</h1>
+    <time class="entry-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
+  </header>
+
+  <div class="entry-body">
+    {% if page.goal %}<p><strong>Goal:</strong> {{ page.goal }}</p>{% endif %}
+    {% if page.summary %}<p><strong>Summary:</strong> {{ page.summary }}</p>{% endif %}
+
+    {% if page.sessions %}
+    <table class="sessions">
+      <thead><tr><th>In</th><th>Out</th><th>Task</th><th>Tag</th></tr></thead>
+      <tbody>
+        {% for s in page.sessions %}
+        <tr><td>{{ s.in }}</td><td>{{ s.out }}</td><td>{{ s.task | default: "" }}</td><td>{{ s.tag | default: "" }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+
+    {{ content }}
+
+    {% assign entry_tags = page.sessions | map: "tag" | uniq %}
+    {% if entry_tags.size > 0 %}
+    <p class="tags">{% for t in entry_tags %}{% if t %}<span class="tag">{{ t }}</span>{% endif %}{% endfor %}</p>
+    {% endif %}
+  </div>
+
+  <p class="entry-back"><a href="{{ '/dlog/' | relative_url }}">Back to log</a></p>
+</article>

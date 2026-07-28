@@ -1,0 +1,56 @@
+{% comment %}
+Renders the tag word cloud. Requires dlog-stats.html to be included first
+(needs dlog_tags and dlog_tag_max_minutes). Clicking a tag filters the
+entry list below via tiny inline JS matching on each <li>'s data-tags.
+{% endcomment %}
+{%- assign palette = "#c0392b,#2471a3,#1e8449,#af601a,#7d3c98,#117864,#b03a5b,#4a5a8a" | split: "," -%}
+<div class="tag-cloud" role="group" aria-label="Filter by tag">
+  {%- for tag in dlog_tags -%}
+    {%- assign tag_minutes = 0 -%}
+    {%- for entry in site.dlog -%}
+      {%- for s in entry.sessions -%}
+        {%- if s.tag == tag -%}
+          {%- assign in_parts = s.in | split: ':' -%}
+          {%- assign out_parts = s.out | split: ':' -%}
+          {%- assign in_min = in_parts[0] | times: 60 | plus: in_parts[1] -%}
+          {%- assign out_min = out_parts[0] | times: 60 | plus: out_parts[1] -%}
+          {%- assign tag_minutes = tag_minutes | plus: out_min | minus: in_min -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endfor -%}
+    {%- assign ratio = 0 -%}
+    {%- if dlog_tag_max_minutes > 0 -%}{%- assign ratio = tag_minutes | times: 100 | divided_by: dlog_tag_max_minutes -%}{%- endif -%}
+    {%- assign size = ratio | divided_by: 100.0 | times: 1.6 | plus: 0.85 | round: 2 -%}
+    {%- assign color_index = forloop.index0 | modulo: palette.size -%}
+    {%- assign color = palette[color_index] -%}
+    <button type="button" class="tag-cloud-item" data-tag="{{ tag }}" style="font-size: {{ size }}em; color: {{ color }}" title="{{ tag_minutes }} min">{{ tag }}</button>
+  {%- endfor -%}
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var cloud = document.querySelector('.tag-cloud');
+  var list = document.querySelector('.entry-list');
+  if (!cloud || !list) return;
+  var buttons = cloud.querySelectorAll('.tag-cloud-item');
+  var items = list.querySelectorAll('.entry-item');
+  var active = null;
+
+  function apply() {
+    buttons.forEach(function (b) {
+      b.classList.toggle('is-active', b.dataset.tag === active);
+    });
+    items.forEach(function (li) {
+      var tags = (li.dataset.tags || '').split(' ');
+      li.hidden = active !== null && tags.indexOf(active) === -1;
+    });
+  }
+
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      active = active === b.dataset.tag ? null : b.dataset.tag;
+      apply();
+    });
+  });
+});
+</script>

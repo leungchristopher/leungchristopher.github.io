@@ -7,6 +7,10 @@ description: "Machine learning and genetics at Cambridge."
 url: "https://leungchristopher.com"
 repository: "leungchristopher/leungchristopher.github.io"
 
+# The date of the first dlog entry. Used on the log page to compute
+# "days since starting". Update this if you re-start the log from scratch.
+dlog_start: "2026-07-27"
+
 # Build settings
 markdown: kramdown
 kramdown:
@@ -15,11 +19,14 @@ kramdown:
   input: GFM
   hard_wrap: false
 
-# Essays collection
+# Essays collection, plus dlog: one plain markdown file per day, in _dlog/.
 collections:
   essays:
     output: true
     permalink: /essays/:name/
+  dlog:
+    output: true
+    permalink: /dlog/:name/
 
 # Contact / social (rendered in the footer)
 social:
@@ -40,6 +47,16 @@ defaults:
       type: essays
     values:
       layout: post
+      math: true
+  - scope:
+      path: ""
+      type: dlog
+    values:
+      layout: dlog
+
+feed:
+  collections:
+    essays: {}
 
 plugins:
   - jekyll-feed

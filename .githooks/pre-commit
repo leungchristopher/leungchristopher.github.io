@@ -1,0 +1,21 @@
+#!/bin/sh
+# Strips EXIF/GPS/ICC metadata from any staged photo under assets/photos/
+# before it's committed. Requires exiftool (brew install exiftool).
+# Activated via: git config core.hooksPath .githooks
+
+photos=$(git diff --cached --name-only --diff-filter=ACM -- 'assets/photos/*')
+
+if [ -z "$photos" ]; then
+  exit 0
+fi
+
+if ! command -v exiftool >/dev/null 2>&1; then
+  echo "pre-commit: exiftool not found — install it (brew install exiftool) to strip photo metadata." >&2
+  exit 1
+fi
+
+echo "$photos" | while IFS= read -r f; do
+  [ -f "$f" ] || continue
+  exiftool -q -all= -overwrite_original "$f"
+  git add "$f"
+done

@@ -20,12 +20,15 @@ $serif: "Palatino", "Palatino Linotype", "Book Antiqua", "URW Palladio L", Georg
   --measure:   42rem;
 }
 
-// Dark theme is opt-in via the header toggle (default is light).
-:root[data-theme="dark"] {
-  --bg:        #111214;
-  --fg:        #e8e8e6;
-  --muted:     #9a9a97;
-  --rule:      #2a2c30;
+// The photo gallery is the one page that runs in a dark theme —
+// stepping into a dark room to look at pictures, basically.
+@view-transition { navigation: auto; }
+
+body.photos-page {
+  --bg:        #000000;
+  --fg:        #ededec;
+  --muted:     #8f8f92;
+  --rule:      #2a2a2d;
   --accent:    #7aa7e6;
   --accent-fg: #a9c6f0;
 }
@@ -43,7 +46,7 @@ body {
   line-height: 1.62;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  transition: background-color .2s ease, color .2s ease;
+  transition: background-color .4s ease, color .4s ease;
 }
 @media (prefers-reduced-motion: reduce) {
   body { transition: none; }
@@ -86,6 +89,7 @@ a:hover { color: var(--accent-fg); border-bottom-color: currentColor; }
   display: flex;
   align-items: center;
   gap: 1.1rem;
+  flex-wrap: wrap;
 }
 .site-nav a {
   font-size: 0.95rem;
@@ -93,30 +97,6 @@ a:hover { color: var(--accent-fg); border-bottom-color: currentColor; }
   border-bottom: none;
 }
 .site-nav a:hover { color: var(--fg); }
-
-// ─── Theme toggle (sun / moon) ───────────────────────────────
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  background: none;
-  border: none;
-  color: var(--muted);
-  cursor: pointer;
-  line-height: 0;
-  -webkit-tap-highlight-color: transparent;
-}
-.theme-toggle:hover { color: var(--fg); }
-.theme-toggle:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 3px;
-}
-.theme-toggle svg { width: 1.15rem; height: 1.15rem; display: block; }
-.theme-toggle .moon { display: none; }
-:root[data-theme="dark"] .theme-toggle .sun  { display: none; }
-:root[data-theme="dark"] .theme-toggle .moon { display: block; }
 
 // ─── Typography ──────────────────────────────────────────────
 h1, h2, h3, h4 {
@@ -363,6 +343,20 @@ pre code { background: none; padding: 0; }
   font-variant-numeric: tabular-nums;
 }
 
+// ─── Tables ──────────────────────────────────────────────────
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.88rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.4rem 0.6rem 0.4rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
+
 // ─── Links ───────────────────────────────────────────────────
 // Plain markdown bullets: "- [Name](url) — why it's worth reading."
 // The li carries the muted note colour; the link inside sits at full contrast.
@@ -384,7 +378,12 @@ pre code { background: none; padding: 0; }
   font-weight: 500;
 }
 .links-page li a:hover { color: var(--accent); }
-.links-page h2 { margin-bottom: 0.5rem; }
+.links-page h2 {
+  border-top: none;
+  margin: 1.75rem 0 0.5rem;
+  padding-top: 0;
+}
+.links-page h2:first-child { margin-top: 0; }
 
 // ─── Single essay ────────────────────────────────────────────
 .essay-header { margin-bottom: 2rem; }
@@ -414,6 +413,81 @@ pre code { background: none; padding: 0; }
 .essay-body img { max-width: 100%; height: auto; }
 .essay-back { margin-top: 3rem; font-size: 0.9rem; }
 
+// ─── Dlog (tag cloud + entry list + single entry + todo) ──────
+.dlog-page ul.task-list { list-style: none; padding: 0; margin: 0 0 1rem; }
+.dlog-page li.task-list-item { padding: 0.2rem 0; }
+.dlog-page input[type="checkbox"] { margin-right: 0.5rem; }
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 1.1rem;
+  max-width: 32rem;
+  margin: 0 auto 2rem;
+  padding: 2.25rem 3rem;
+  border: 1px solid var(--rule);
+  border-radius: 0.5rem;
+  text-align: center;
+}
+.tag-cloud-item {
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  background: none;
+  border: none;
+  padding: 0.15rem 0.1rem;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity .15s ease, transform .15s ease;
+}
+.tag-cloud-item:hover { opacity: 1; transform: translateY(-1px); }
+.tag-cloud-item.is-active {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.tag-cloud:has(.is-active) .tag-cloud-item:not(.is-active) { opacity: 0.35; }
+
+.entry-list { list-style: none; padding: 0; margin: 0; }
+.entry-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.entry-item[hidden] { display: none; }
+.entry-item-title { color: var(--fg); border-bottom: none; }
+.entry-item-title:hover { color: var(--accent); }
+.entry-item-date {
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.entry-header { margin-bottom: 1.5rem; }
+.entry-title { margin-bottom: 0.35rem; }
+.entry-date { color: var(--muted); font-size: 0.9rem; }
+.entry-body > :first-child { margin-top: 0; }
+.entry-body img { max-width: 100%; height: auto; }
+.entry-back { margin-top: 3rem; font-size: 0.9rem; }
+
+.tags { margin-top: 1.25rem; }
+.tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 0.05rem 0.5rem;
+  margin: 0 0.4rem 0.4rem 0;
+}
+
 // ─── Section sidebar (left margin, hover to reveal) ──────────
 // Collapsed it is a column of dashes pinned to the screen edge;
 // hovering the left margin grows the section titles in rightward.
@@ -435,13 +509,13 @@ pre code { background: none; padding: 0; }
     width: calc(50vw - (var(--measure) / 2) - var(--toc-gap));
     max-width: 22rem;
   }
-  // Nothing shows until the margin is hovered — the nav itself stays as an
-  // invisible hover target.
+  // The dashes stay faintly visible at rest as a hint that the margin is
+  // interactive; only the labels wait for hover to reveal themselves.
   .toc-list {
     list-style: none;
     margin: 0;
     padding: 0;
-    opacity: 0;
+    opacity: 0.55;
     transition: opacity .3s ease;
   }
   .toc:hover .toc-list,
@@ -553,9 +627,60 @@ pre code { background: none; padding: 0; }
   .site-footer .copyright .mark { transition: none; }
 }
 
+// ─── Photos ──────────────────────────────────────────────────
+// A horizontal filmstrip within the normal column width. Every image
+// shares a height and keeps its own aspect ratio, so landscape and
+// portrait shots sit side by side without cropping. Auto-advances;
+// arrows nudge it manually. No visible scrollbar — it's a gallery,
+// not a scroll area.
+.photo-gallery { position: relative; }
+
+.photo-scroll {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  height: 70vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.photo-scroll::-webkit-scrollbar { display: none; }
+
+.photo-item {
+  flex: 0 0 auto;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  scroll-snap-align: center;
+  border-radius: 3px;
+}
+
+.photo-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--fg);
+  font-size: 2.25rem;
+  line-height: 1;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  opacity: 0.25;
+  transition: opacity .2s ease;
+  z-index: 2;
+}
+.photo-nav:hover,
+.photo-nav:focus-visible { opacity: 0.9; }
+.photo-nav--prev { left: 0; }
+.photo-nav--next { right: 0; }
+
 // ─── Small screens ───────────────────────────────────────────
 @media (max-width: 34rem) {
   .wrap { padding: 2.5rem 1.15rem 3rem; }
   h1 { font-size: 1.65rem; }
-  .essay-item { flex-direction: column; gap: 0.15rem; }
+  .essay-item, .entry-item { flex-direction: column; gap: 0.15rem; }
 }

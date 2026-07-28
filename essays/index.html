@@ -5,7 +5,7 @@ permalink: /essays/
 ---
 <h1>Essays</h1>
 
-<p class="lede">Notes and essays on machine learning, neuroscience, genetics, and the occasional curiosity.</p>
+<p class="lede">Notes and essays on machine learning, neuroscience, genetics, and the occasional curiosity. <a href="{{ '/feed/essays.xml' | relative_url }}">Subscribe with RSS</a></p>
 
 <ul class="essay-list">
   {% assign essays = site.essays | sort: "date" | reverse %}
@@ -13,7 +13,7 @@ permalink: /essays/
   {% unless essay.draft %}
     <li class="essay-item">
       <a class="essay-item-title" href="{{ essay.url | relative_url }}">{{ essay.title }}</a>
-      <time class="essay-item-date" datetime="{{ essay.date | date_to_xmlschema }}">{{ essay.date | date: "%b %Y" }}</time>
+      <time class="essay-item-date" datetime="{{ essay.date | date_to_xmlschema }}">{{ essay.date | date: "%-d %B %Y" }}</time>
     </li>
   {% endunless %}
   {% endfor %}
