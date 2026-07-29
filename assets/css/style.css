@@ -1,15 +1,3 @@
----
-# Front matter required for Jekyll to process this Sass file.
----
-
-// ─────────────────────────────────────────────────────────────
-//  Chris Leung — minimal, professional frame.
-//  Helvetica Neue for site chrome & the main page; Palatino for essay body.
-// ─────────────────────────────────────────────────────────────
-
-$sans: "Helvetica Neue", Helvetica, Arial, -apple-system, BlinkMacSystemFont, sans-serif;
-$serif: "Palatino", "Palatino Linotype", "Book Antiqua", "URW Palladio L", Georgia, serif;
-
 :root {
   --bg:        #ffffff;
   --fg:        #1a1a1a;
@@ -20,7 +8,6 @@ $serif: "Palatino", "Palatino Linotype", "Book Antiqua", "URW Palladio L", Georg
   --measure:   42rem;
 }
 
-// Cross-document view transitions between pages of the site.
 @view-transition { navigation: auto; }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -31,7 +18,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family: $sans;
+  font-family: "Helvetica Neue", Helvetica, Arial, -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 400;
   line-height: 1.62;
   -webkit-font-smoothing: antialiased;
@@ -44,7 +31,6 @@ body {
   padding: 3.5rem 1.5rem 4rem;
 }
 
-// ─── Links ───────────────────────────────────────────────────
 a {
   color: var(--accent);
   text-decoration: none;
@@ -53,7 +39,6 @@ a {
 }
 a:hover { color: var(--accent-fg); border-bottom-color: currentColor; }
 
-// ─── Header ──────────────────────────────────────────────────
 .site-header {
   display: flex;
   align-items: baseline;
@@ -84,7 +69,6 @@ a:hover { color: var(--accent-fg); border-bottom-color: currentColor; }
 }
 .site-nav a:hover { color: var(--fg); }
 
-// ─── Typography ──────────────────────────────────────────────
 h1, h2, h3, h4 {
   color: var(--fg);
   line-height: 1.25;
@@ -109,7 +93,6 @@ h3 {
   margin: 1.9rem 0 0.15rem;
 }
 
-// affiliation line under a project heading
 h3 + p em:only-child,
 h3 + p > em {
   color: var(--muted);
@@ -117,7 +100,6 @@ h3 + p > em {
   font-size: 0.94rem;
 }
 
-// ─── Project cards (fixed height + square figure frame) ──────
 .project {
   display: flex;
   gap: 1.5rem;
@@ -130,7 +112,7 @@ h3 + p > em {
 
 .project-body {
   flex: 1 1 auto;
-  min-width: 0;               // allow text to shrink / clamp
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
@@ -149,14 +131,14 @@ h3 + p > em {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 7;      // generous; sized so the longest descriptions fit whole
+  -webkit-line-clamp: 7;
 }
 .project-body .project-link { margin: auto 0 0; padding-top: 0.6rem; }
 
 .project-figure {
   flex: 0 0 auto;
-  width: 11rem;               // fixed square, independent of card height
-  height: 11rem;              // (so the text column keeps its full width)
+  width: 11rem;
+  height: 11rem;
   align-self: center;
   border-radius: 4px;
   overflow: hidden;
@@ -166,12 +148,12 @@ h3 + p > em {
 .project-figure img {
   width: 100%;
   height: 100%;
-  object-fit: contain;        // diagrams shown whole, not cropped
+  object-fit: contain;
 }
 
 @media (max-width: 34rem) {
   .project {
-    flex-direction: column-reverse;   // figure above text on narrow screens
+    flex-direction: column-reverse;
     height: auto;
     gap: 1rem;
   }
@@ -185,14 +167,12 @@ h3 + p > em {
   .project-body .desc { -webkit-line-clamp: unset; }
 }
 
-// ─── Hobbies (set in the essay serif, like the reading itself) ─
 .hobbies {
-  font-family: $serif;
-  font-size: 1.06rem;   // Palatino runs small; matches the essay body
+  font-family: "Palatino", "Palatino Linotype", "Book Antiqua", "URW Palladio L", Georgia, serif;
+  font-size: 1.06rem;
   line-height: 1.68;
 }
 
-// ─── Projects (collapsed disclosures, no figures) ────────────
 .proj {
   border-bottom: 1px solid var(--rule);
 }
@@ -204,7 +184,7 @@ h3 + p > em {
   gap: 0.55rem;
   padding: 0.7rem 0;
   cursor: pointer;
-  list-style: none;             // suppress the native marker
+  list-style: none;
   -webkit-tap-highlight-color: transparent;
 }
 .proj > summary::-webkit-details-marker { display: none; }
@@ -221,10 +201,10 @@ h3 + p > em {
   height: 0.4rem;
   border-right: 1.5px solid var(--muted);
   border-bottom: 1.5px solid var(--muted);
-  transform: rotate(-45deg);    // points right when closed
+  transform: rotate(-45deg);
   transition: transform .25s cubic-bezier(.2, .8, .2, 1), border-color .15s ease;
 }
-.proj[open] > summary .proj-arrow { transform: rotate(45deg); }  // points down
+.proj[open] > summary .proj-arrow { transform: rotate(45deg); }
 .proj > summary:hover .proj-arrow {
   border-right-color: var(--fg);
   border-bottom-color: var(--fg);
@@ -240,7 +220,7 @@ h3 + p > em {
 .proj > summary:hover .proj-title { color: var(--accent); }
 
 .proj-body {
-  padding: 0 0 1rem 0.95rem;    // align under the title, past the arrow
+  padding: 0 0 1rem 0.95rem;
 }
 .proj-body > :first-child { margin-top: 0; }
 .proj-body > :last-child { margin-bottom: 0; }
@@ -257,7 +237,6 @@ h3 + p > em {
 }
 .proj-body .project-link { margin: 0; padding-top: 0.6rem; }
 
-// Slide the panel open rather than snapping it.
 @media (prefers-reduced-motion: no-preference) {
   .proj[open] > .proj-body { animation: proj-open .28s cubic-bezier(.2, .8, .2, 1); }
 }
@@ -279,7 +258,6 @@ blockquote {
   color: var(--muted);
 }
 
-// ─── Inline “button” links (kramdown {: .btn }) ──────────────
 a.btn {
   display: inline-block;
   font-size: 0.82rem;
@@ -292,7 +270,6 @@ a.btn {
 }
 a.btn:hover { color: var(--fg); border-color: var(--muted); }
 
-// ─── Code ────────────────────────────────────────────────────
 code {
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 0.86em;
@@ -308,7 +285,6 @@ pre {
 }
 pre code { background: none; padding: 0; }
 
-// ─── Essays list ─────────────────────────────────────────────
 .lede { color: var(--muted); margin-bottom: 2rem; }
 
 .essay-list { list-style: none; padding: 0; margin: 0; }
@@ -329,7 +305,6 @@ pre code { background: none; padding: 0; }
   font-variant-numeric: tabular-nums;
 }
 
-// ─── Tables ──────────────────────────────────────────────────
 table {
   width: 100%;
   border-collapse: collapse;
@@ -343,9 +318,6 @@ th, td {
 }
 th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
 
-// ─── Links ───────────────────────────────────────────────────
-// Plain markdown bullets: "- [Name](url) — why it's worth reading."
-// The li carries the muted note colour; the link inside sits at full contrast.
 .links-page ul {
   list-style: none;
   padding: 0;
@@ -371,24 +343,21 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
 }
 .links-page h2:first-child { margin-top: 0; }
 
-// ─── Single essay ────────────────────────────────────────────
 .essay-header { margin-bottom: 2rem; }
 .essay-title { margin-bottom: 0.35rem; }
 .essay-date { color: var(--muted); font-size: 0.9rem; }
 .essay-body {
   margin-top: 1.5rem;
-  font-family: $serif;
-  font-size: 1.06rem;   // Palatino runs small; nudge up for reading
+  font-family: "Palatino", "Palatino Linotype", "Book Antiqua", "URW Palladio L", Georgia, serif;
+  font-size: 1.06rem;
   line-height: 1.68;
 }
 
-// In-essay headings: sans (matches site chrome) over the serif body,
-// no rules, sized as sub-sections beneath the page title.
 .essay-body h1,
 .essay-body h2,
 .essay-body h3,
 .essay-body h4 {
-  font-family: $sans;
+  font-family: "Helvetica Neue", Helvetica, Arial, -apple-system, BlinkMacSystemFont, sans-serif;
   border-top: none;
   padding-top: 0;
 }
@@ -399,7 +368,6 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
 .essay-body img { max-width: 100%; height: auto; }
 .essay-back { margin-top: 3rem; font-size: 0.9rem; }
 
-// ─── Dlog (tag cloud + entry list + single entry + todo) ──────
 .dlog-page ul.task-list { list-style: none; padding: 0; margin: 0 0 1rem; }
 .dlog-page li.task-list-item { padding: 0.2rem 0; }
 .dlog-page input[type="checkbox"] { margin-right: 0.5rem; }
@@ -474,15 +442,11 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
   margin: 0 0.4rem 0.4rem 0;
 }
 
-// ─── Section sidebar (left margin, hover to reveal) ──────────
-// Collapsed it is a column of dashes pinned to the screen edge;
-// hovering the left margin grows the section titles in rightward.
-// The nav is capped so it never comes within --toc-gap of the column.
 .toc { display: none; }
 
 @media (min-width: 68rem) and (pointer: fine) {
   .toc {
-    --toc-gap: 2.5rem;   // clear space between the nav and the text column
+    --toc-gap: 2.5rem;
     display: block;
     position: fixed;
     top: 50%;
@@ -490,13 +454,9 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
     transform: translateY(-50%);
     z-index: 5;
     padding: 1.25rem 1.5rem;
-    // Fill the margin right of the column edge, minus the gap — this is
-    // both the hover target and the width the titles wrap within.
     width: calc(50vw - (var(--measure) / 2) - var(--toc-gap));
     max-width: 22rem;
   }
-  // The dashes stay faintly visible at rest as a hint that the margin is
-  // interactive; only the labels wait for hover to reveal themselves.
   .toc-list {
     list-style: none;
     margin: 0;
@@ -511,8 +471,8 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
   .toc a {
     display: flex;
     align-items: flex-start;
-    gap: 0.6rem;                 // dashes stay flush left; titles grow rightward
-    min-height: 1rem;            // even dash spacing while collapsed
+    gap: 0.6rem;
+    min-height: 1rem;
     border-bottom: none;
     color: var(--muted);
   }
@@ -521,17 +481,12 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
     flex: none;
     height: 1px;
     width: 0.9rem;
-    margin-top: 0.5rem;          // centred on the label's first line
+    margin-top: 0.5rem;
     background: var(--rule);
     transition: width .3s cubic-bezier(.2, .8, .2, 1), background-color .2s ease;
   }
   .toc-h1 .toc-dash { width: 1.4rem; }
 
-  // Collapsing the row track to 0fr keeps the wrapped label out of the
-  // layout while closed, so the dashes stay evenly spaced — and animates
-  // to its natural height on reveal. No min-width: 0 on the wrapper: the
-  // label keeps its min-content floor so flex never squeezes it narrower
-  // than its longest word, which is what split words mid-way before.
   .toc-labelwrap {
     display: grid;
     grid-template-rows: 0fr;
@@ -548,12 +503,11 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
     transition: opacity .28s ease, transform .38s cubic-bezier(.2, .8, .2, 1);
   }
   .toc-h1 .toc-label { font-weight: 600; }
-  .toc-h2 .toc-label { padding-left: 0.85rem; }   // sub-sections step in
+  .toc-h2 .toc-label { padding-left: 0.85rem; }
 
   .toc a.is-active .toc-dash { background: var(--fg); width: 1.8rem; }
   .toc a.is-active .toc-label { color: var(--fg); }
 
-  // Revealed state
   .toc:hover .toc-labelwrap,
   .toc:focus-within .toc-labelwrap { grid-template-rows: 1fr; }
   .toc:hover .toc-label,
@@ -571,17 +525,26 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
     border-radius: 3px;
   }
 
-  // Stagger the labels so they cascade in rather than pop.
-  @for $i from 1 through 14 {
-    .toc-item:nth-child(#{$i}) .toc-label { transition-delay: #{($i - 1) * 18}ms; }
-  }
+  .toc-item:nth-child(1) .toc-label { transition-delay: 0ms; }
+  .toc-item:nth-child(2) .toc-label { transition-delay: 18ms; }
+  .toc-item:nth-child(3) .toc-label { transition-delay: 36ms; }
+  .toc-item:nth-child(4) .toc-label { transition-delay: 54ms; }
+  .toc-item:nth-child(5) .toc-label { transition-delay: 72ms; }
+  .toc-item:nth-child(6) .toc-label { transition-delay: 90ms; }
+  .toc-item:nth-child(7) .toc-label { transition-delay: 108ms; }
+  .toc-item:nth-child(8) .toc-label { transition-delay: 126ms; }
+  .toc-item:nth-child(9) .toc-label { transition-delay: 144ms; }
+  .toc-item:nth-child(10) .toc-label { transition-delay: 162ms; }
+  .toc-item:nth-child(11) .toc-label { transition-delay: 180ms; }
+  .toc-item:nth-child(12) .toc-label { transition-delay: 198ms; }
+  .toc-item:nth-child(13) .toc-label { transition-delay: 216ms; }
+  .toc-item:nth-child(14) .toc-label { transition-delay: 234ms; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .toc-list, .toc-dash, .toc-label, .toc-labelwrap { transition: none; }
 }
 
-// ─── Footer ──────────────────────────────────────────────────
 .site-footer {
   margin-top: 4rem;
   padding-top: 1.5rem;
@@ -600,7 +563,6 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
 }
 .site-footer .social a:hover { color: var(--fg); }
 .site-footer .copyright { color: var(--muted); }
-// Rapid clicking must not select the text or look like an affordance.
 .site-footer .copyright .mark {
   cursor: default;
   user-select: none;
@@ -613,7 +575,6 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
   .site-footer .copyright .mark { transition: none; }
 }
 
-// ─── Small screens ───────────────────────────────────────────
 @media (max-width: 34rem) {
   .wrap { padding: 2.5rem 1.15rem 3rem; }
   h1 { font-size: 1.65rem; }

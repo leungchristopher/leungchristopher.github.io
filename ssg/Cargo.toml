@@ -1,0 +1,16 @@
+[package]
+name = "ssg"
+version = "0.1.0"
+edition = "2021"
+
+# Zero runtime dependencies: no template engine, no markdown crate, no YAML
+# crate. Front matter, markdown, and dates are parsed by hand in src/ —
+# the whole site's needs are small enough that a general-purpose parser
+# is more machinery than the content warrants. Keeps the binary tiny and
+# the build fast/reproducible with nothing to audit upstream.
+[dependencies]
+
+[profile.release]
+opt-level = "z"
+lto = true
+strip = true

@@ -1,10 +1,6 @@
 ---
-layout: default
 title: Links
-permalink: /links/
-body_class: links-page
 ---
-
 
 # Links
 
@@ -35,5 +31,3 @@ body_class: links-page
 - [What is intelligence?](https://whatisintelligence.antikythera.org/): GEB for the modern day.
 - [The new age of research](https://paradigma.inc/blog/the-new-age-of-research/): something I disagree with.
 - [Prime Intellect](https://www.primeintellect.ai/blog/rlm): recursive language models - fad?
-
-

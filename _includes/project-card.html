@@ -1,9 +1,0 @@
-<div class="project">
-  <div class="project-body">
-    <h3>{{ include.project.title }}</h3>
-    <p class="affil">{{ include.project.affil }}</p>
-    <p class="desc">{{ include.project.desc }}</p>
-    {% if include.project.link %}<p class="project-link"><a class="btn" href="{{ include.project.link }}">{{ include.project.link_text }}</a></p>{% endif %}
-  </div>
-  <div class="project-figure"><img src="{{ include.project.img | relative_url }}" alt="{{ include.project.title }}" width="380" height="380" loading="lazy" decoding="async"></div>
-</div>
