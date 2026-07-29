@@ -323,6 +323,24 @@ pub fn project_card(
         ),
         None => String::new(),
     };
+    // SVGs are already tiny vectors; only raster (webp) images get an AVIF
+    // source with the webp kept as the <img> fallback for browsers without
+    // AVIF support (older Safari/iOS, dead browsers) — zero compatibility
+    // loss, since those browsers just skip straight to the <img>.
+    let figure = if let Some(base) = img.strip_suffix(".webp") {
+        format!(
+            r#"<picture><source srcset="{base}.avif" type="image/avif"><img src="{img}" alt="{title}" width="380" height="380" loading="lazy" decoding="async"></picture>"#,
+            base = base,
+            img = img,
+            title = title,
+        )
+    } else {
+        format!(
+            r#"<img src="{img}" alt="{title}" width="380" height="380" loading="lazy" decoding="async">"#,
+            img = img,
+            title = title,
+        )
+    };
     format!(
         r#"<div class="project">
   <div class="project-body">
@@ -331,13 +349,13 @@ pub fn project_card(
     <p class="desc">{desc}</p>
     {link}
   </div>
-  <div class="project-figure"><img src="{img}" alt="{title}" width="380" height="380" loading="lazy" decoding="async"></div>
+  <div class="project-figure">{figure}</div>
 </div>"#,
         title = title,
         affil = affil,
         desc = desc,
         link = link_html,
-        img = img,
+        figure = figure,
     )
 }
 
