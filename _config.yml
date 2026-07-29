@@ -12,6 +12,9 @@ repository: "leungchristopher/leungchristopher.github.io"
 dlog_start: "2026-07-27"
 
 # Build settings
+sass:
+  style: compressed
+
 markdown: kramdown
 kramdown:
   math_engine: mathjax
@@ -42,12 +45,13 @@ defaults:
       path: ""
     values:
       layout: default
+  # MathJax is ~250 kB, so it is opt-in rather than on by default:
+  # set `math: true` in an essay's front matter when it contains LaTeX.
   - scope:
       path: ""
       type: essays
     values:
       layout: post
-      math: true
   - scope:
       path: ""
       type: dlog

@@ -4,10 +4,10 @@ title: Home
 permalink: /
 ---
 
-I study cooperative and emergent behaviour in intelligent systems, at the intersection of neuroscience, genetics, and machine learning.
-I am currently at the [California Institute of Technology (Caltech)](https://www.caltech.edu/), studying consolidative memory replay in neural circuits during sleep.
+I work at the intersection of neuroscience, genetics, and machine learning: intelligent systems that learn to adapt and cooperate.
+I am currently at the [California Institute of Technology (Caltech)](https://www.caltech.edu/), as a summer exchange student from the University of Cambridge, studying consolidative memory replay in neural circuits during sleep.
 
-Alongside my academic work, I am developing algorithms for openended scientific discovery: more on this soon! Fundamentally, I'm excited about the unknown unknowns: as the production of biomedical data outpaces our ability to parse and understand it, how can we bring its fruits to bear?
+I am a general, technical problem solver: I optimise to help others, constrained by my interest in biomedical and scientific breakthroughs, powered by improvements in data and compute. If you're interested in this too, I would love to hear from you. 
 
 ### Contact me
 

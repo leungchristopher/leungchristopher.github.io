@@ -17,6 +17,11 @@ I try to wear two hats: scientist and computer scientist. By working across the 
 
 This log is here to keep me focused on building what I *want* to build, inspired by my friend, [Kyle Ng](https://doingtheth.ing/)!
 
+My goals for the summer:
+1. Become fluent in Rust and C
+2. Familiarise myself with the cognitive and computational neuroscience frontier.
+3. Be up-to-date with reasoning, world models, and robotics.
+
 {% include dlog-tag-cloud.html %}
 
 ## Entries

@@ -1,6 +1,7 @@
 ---
 title: "On scale-free intelligence"
 date: 2025-12-23
+math: true
 ---
 
 [Paper]

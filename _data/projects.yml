@@ -11,7 +11,7 @@
 - title: "Viral ancestral recombination graphs · 2025–present"
   affil: "Department of Genetics, University of Cambridge"
   desc: "Scalable inference of ancestral recombination graphs for viral DNA, using Markov Chain Monte Carlo and perturbation theory. Awarded the J.M. Thoday Prize for the best undergraduate research project."
-  img: /assets/images/projects/ebv.jpg
+  img: /assets/images/projects/ebv.webp
   link: "https://github.com/leungchristopher/viralarg"
   link_text: code
   current: true
@@ -19,7 +19,7 @@
 - title: "Deep learning for genome organisation · 2025–present"
   affil: "Hannon Group, Cancer Research UK Cambridge Institute"
   desc: 'Deep learning for predicting three-dimensional chromatin organisation from sequencing data, in the laboratory of <a href="https://www.cell.com/cell/fulltext/S0092-8674(26)00640-9">Greg Hannon</a>. Work focused on learning sequence determinants of topologically associating domains and compartment structure. Publication in preparation.'
-  img: /assets/images/projects/hannon.png
+  img: /assets/images/projects/hannon.webp
   link: "https://github.com/leungchristopher/orcafly"
   link_text: code
   current: true
@@ -27,19 +27,19 @@
 - title: "Lock-in risk benchmark for LLM systems · 2025"
   affil: "Supervised Program for Alignment Research"
   desc: "Paper under review."
-  img: /assets/images/projects/att.png
+  img: /assets/images/projects/att.webp
   current: false
 
 - title: "Structural biology of transcription · 2024"
   affil: "Department Cramer, Max Planck Institute for Multidisciplinary Sciences, Göttingen"
   desc: "Studied +1 nucleosome promoter-proximal pausing in eukaryotic transcription. Independently designed biochemical assays, and developed skills in cryo-electron microscopy. Funded by the Max Planck Institute for Multidisciplinary Sciences."
-  img: /assets/images/projects/cramer.jpg
+  img: /assets/images/projects/cramer.webp
   current: false
 
 - title: "Hidden Markov Models for fast protein kinetics · 2023"
   affil: "Haran Group, Weizmann Institute of Science"
   desc: "Inference of conformational state sequences from single-molecule FRET data using hidden Markov models. Work addressed the challenge of fast dynamics on timescales shorter than photon-arrival intervals. Funded by the Weizmann UK Foundation."
-  img: /assets/images/projects/clpc.png
+  img: /assets/images/projects/clpc.webp
   link: "mailto:chcl4@cam.ac.uk?subject=WIS%20report"
   link_text: report
   current: false

@@ -20,18 +20,8 @@ $serif: "Palatino", "Palatino Linotype", "Book Antiqua", "URW Palladio L", Georg
   --measure:   42rem;
 }
 
-// The photo gallery is the one page that runs in a dark theme —
-// stepping into a dark room to look at pictures, basically.
+// Cross-document view transitions between pages of the site.
 @view-transition { navigation: auto; }
-
-body.photos-page {
-  --bg:        #000000;
-  --fg:        #ededec;
-  --muted:     #8f8f92;
-  --rule:      #2a2a2d;
-  --accent:    #7aa7e6;
-  --accent-fg: #a9c6f0;
-}
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -46,10 +36,6 @@ body {
   line-height: 1.62;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  transition: background-color .4s ease, color .4s ease;
-}
-@media (prefers-reduced-motion: reduce) {
-  body { transition: none; }
 }
 
 .wrap {
@@ -626,57 +612,6 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
 @media (prefers-reduced-motion: reduce) {
   .site-footer .copyright .mark { transition: none; }
 }
-
-// ─── Photos ──────────────────────────────────────────────────
-// A horizontal filmstrip within the normal column width. Every image
-// shares a height and keeps its own aspect ratio, so landscape and
-// portrait shots sit side by side without cropping. Auto-advances;
-// arrows nudge it manually. No visible scrollbar — it's a gallery,
-// not a scroll area.
-.photo-gallery { position: relative; }
-
-.photo-scroll {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  height: 70vh;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x proximity;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.photo-scroll::-webkit-scrollbar { display: none; }
-
-.photo-item {
-  flex: 0 0 auto;
-  height: 100%;
-  width: auto;
-  max-width: none;
-  scroll-snap-align: center;
-  border-radius: 3px;
-}
-
-.photo-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: var(--fg);
-  font-size: 2.25rem;
-  line-height: 1;
-  padding: 0.5rem 0.8rem;
-  cursor: pointer;
-  opacity: 0.25;
-  transition: opacity .2s ease;
-  z-index: 2;
-}
-.photo-nav:hover,
-.photo-nav:focus-visible { opacity: 0.9; }
-.photo-nav--prev { left: 0; }
-.photo-nav--next { right: 0; }
 
 // ─── Small screens ───────────────────────────────────────────
 @media (max-width: 34rem) {

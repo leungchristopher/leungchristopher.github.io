@@ -14,4 +14,6 @@
     svg: { fontCache: 'global' }
   };
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<!-- tex-svg, not tex-mml-chtml: TeX input only (no MathML parser), and SVG
+     output carries its glyphs as paths, so no separate web-font requests. -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
