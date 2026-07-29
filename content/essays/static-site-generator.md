@@ -1,6 +1,6 @@
 ---
 title: "A Rust static site generator"
-date: 2026-12-29
+date: 2026-07-29
 ---
 
 I got nerd-sniped by [Julian Schrittwieser's blog post](https://www.julian.ac/blog/2024/09/12/custom-static-site-generator/) on writing a static site generator in Rust - here it is!
