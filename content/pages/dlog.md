@@ -8,3 +8,6 @@ My goals for the summer:
 1. Become fluent in Rust and C
 2. Familiarise myself with the cognitive and computational neuroscience frontier.
 3. Be up-to-date with reasoning, world models, and robotics.
+
+!progress[How To Scale Your Model](1/12)
+!progress[General Relativity](12/153)

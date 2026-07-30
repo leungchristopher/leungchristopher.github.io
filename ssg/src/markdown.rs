@@ -106,6 +106,30 @@ fn find_seq(chars: &[char], from: usize, seq: &str) -> Option<usize> {
     (from..=n - m).find(|&j| chars[j..j + m] == seq[..])
 }
 
+/// Parses a `!progress[Title](X/Y)` line into (title, filled, total).
+fn parse_progress(line: &str) -> Option<(String, u32, u32)> {
+    let rest = line.strip_prefix("!progress[")?;
+    let (title, rest) = rest.split_once("](")?;
+    let rest = rest.strip_suffix(')')?;
+    let (filled, total) = rest.split_once('/')?;
+    let filled: u32 = filled.trim().parse().ok()?;
+    let total: u32 = total.trim().parse().ok()?;
+    Some((title.to_string(), filled, total))
+}
+
+/// Renders a reusable progress bar: a title line above a continuous
+/// black fill bar, with an "X/Y" count.
+fn render_progress(title: &str, filled: u32, total: u32, refs: &HashMap<String, String>) -> String {
+    let pct = if total > 0 { (filled as f64 / total as f64) * 100.0 } else { 0.0 };
+    format!(
+        "<div class=\"progress-bar\">\n<div class=\"progress-bar-title\">{}</div>\n<div class=\"progress-bar-track\"><div class=\"progress-bar-fill\" style=\"width: {:.2}%\"></div></div>\n<div class=\"progress-bar-count\">{}/{}</div>\n</div>\n",
+        inline(title, refs),
+        pct,
+        filled,
+        total
+    )
+}
+
 fn ial_class(line: &str) -> Option<String> {
     let line = line.trim();
     let inner = line.strip_prefix("{:")?.strip_suffix('}')?;
@@ -139,6 +163,13 @@ pub fn render(src: &str, directives: &HashMap<&str, String>) -> String {
         let trimmed = line.trim();
 
         if trimmed.is_empty() {
+            i += 1;
+            continue;
+        }
+
+        // Segmented progress bar: !progress[Title](X/Y)
+        if let Some((title, filled, total)) = parse_progress(trimmed) {
+            out.push_str(&render_progress(&title, filled, total, &refs));
             i += 1;
             continue;
         }

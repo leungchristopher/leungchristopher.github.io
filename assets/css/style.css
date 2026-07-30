@@ -580,3 +580,26 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
   h1 { font-size: 1.65rem; }
   .essay-item, .entry-item { flex-direction: column; gap: 0.15rem; }
 }
+
+.progress-bar { margin: 1rem 0; }
+.progress-bar-title {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+.progress-bar-track {
+  height: 0.5rem;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: #1a1a1a;
+  border-radius: 2px;
+}
+.progress-bar-count {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.3rem;
+}
