@@ -121,15 +121,41 @@ fn main() {
     {
         let src = fs::read_to_string(content.join("pages/links.md")).unwrap();
         let (fm, body) = frontmatter::parse(&src);
-        let body_html = markdown::render(body, &HashMap::new());
+        let body_html = markdown::render_links(body);
         let page = templates::Page {
             title: fm.get("title").unwrap_or("Links").to_string(),
             path: "/links/".to_string(),
             body_class: Some("links-page".to_string()),
             math: false,
-            content: body_html,
+            content: templates::links_wrap(&body_html),
         };
         write(&out, "/links/index.html", &templates::page(&page));
+    }
+
+    // ---- Writeups: linked only from /links/, not essays, no index/feed/sitemap entry ----
+    {
+        let dir = content.join("writeups");
+        if dir.exists() {
+            for path in read_dir_sorted(&dir) {
+                let slug = path.file_stem().unwrap().to_string_lossy().to_string();
+                let src = fs::read_to_string(&path).unwrap();
+                let (fm, body) = frontmatter::parse(&src);
+                let title = fm.get("title").unwrap_or(&slug).to_string();
+                let date = Date::parse(fm.get("date").unwrap_or("1970-01-01")).unwrap();
+                let math = fm.flag("math");
+                let body_html = markdown::render(body, &HashMap::new());
+                let article =
+                    templates::writeup_article(&title, &date.long(), &date.iso(), &body_html);
+                let page = templates::Page {
+                    title,
+                    path: format!("/writeups/{}/", slug),
+                    body_class: None,
+                    math,
+                    content: article,
+                };
+                write(&out, &format!("/writeups/{}/index.html", slug), &templates::page(&page));
+            }
+        }
     }
 
     // ---- 404 page ----
@@ -361,7 +387,7 @@ Day {num_days}, {num_documented} logged ({pct}%), {streak} day streak, {hrs} hr 
     // ---- Sitemap ----
     {
         let mut urls = vec!["/".to_string(), "/about/".to_string(), "/essays/".to_string(), "/dlog/".to_string(), "/links/".to_string()];
-        for e in &essays {
+        for e in essays.iter().filter(|e| !e.draft) {
             urls.push(format!("/essays/{}/", e.slug));
         }
         for e in &dlog_entries {

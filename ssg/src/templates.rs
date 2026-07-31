@@ -13,12 +13,12 @@ const TOC_SCRIPT: &str = r#"<nav class="toc" aria-label="On this page" hidden>
 </nav>
 <script>
 (function () {
-  var body = document.querySelector('.essay-body, .home');
+  var body = document.querySelector('.essay-body, .home, .links-page');
   var nav  = document.querySelector('.toc');
   if (!body || !nav) return;
 
   var heads = Array.prototype.filter.call(
-    body.querySelectorAll('h1, h2'),
+    body.querySelectorAll('h1, h2, h3'),
     function (h) { return h.textContent.trim().length; }
   );
   if (heads.length < 2) return;
@@ -210,6 +210,10 @@ pub fn page(p: &Page) -> String {
     )
 }
 
+pub fn links_wrap(body_html: &str) -> String {
+    format!("{}\n\n{}", body_html, TOC_SCRIPT)
+}
+
 pub fn home_wrap(body_html: &str, with_toc: bool) -> String {
     if with_toc {
         format!("<div class=\"home\">\n{}</div>\n\n{}", body_html, TOC_SCRIPT)
@@ -231,6 +235,30 @@ pub fn essay_article(title: &str, date_long: &str, date_iso: &str, body_html: &s
   </div>
 
   <p class="essay-back"><a href="/essays/">All essays</a></p>
+</article>
+
+{toc}"#,
+        title = title,
+        date_iso = date_iso,
+        date_long = date_long,
+        body = body_html,
+        toc = TOC_SCRIPT,
+    )
+}
+
+pub fn writeup_article(title: &str, date_long: &str, date_iso: &str, body_html: &str) -> String {
+    format!(
+        r#"<article class="essay">
+  <header class="essay-header">
+    <h1 class="essay-title">{title}</h1>
+    <time class="essay-date" datetime="{date_iso}">{date_long}</time>
+  </header>
+
+  <div class="essay-body">
+{body}
+  </div>
+
+  <p class="essay-back"><a href="/links/">Back to links</a></p>
 </article>
 
 {toc}"#,

@@ -311,6 +311,160 @@ pub fn render(src: &str, directives: &HashMap<&str, String>) -> String {
     out
 }
 
+/// Strips an optional trailing `[[slug]]` writeup marker off a links-page
+/// list item, returning the remaining text and the essay slug if present.
+fn strip_writeup(item: &str) -> (&str, Option<&str>) {
+    let t = item.trim_end();
+    if let Some(inner) = t.strip_suffix("]]") {
+        if let Some(start) = inner.rfind("[[") {
+            let slug = &inner[start + 2..];
+            let rest = t[..start].trim_end();
+            return (rest, Some(slug));
+        }
+    }
+    (item, None)
+}
+
+/// Renders the links page: `#` is a plain title, `##` opens a collapsible
+/// top-level group, `###` opens a collapsible subgroup within it, and `-`
+/// items are gathered into that subgroup's list. Plain lines become
+/// paragraphs (with `{: .class}` IAL support), same as `render`.
+pub fn render_links(src: &str) -> String {
+    let mut refs: HashMap<String, String> = HashMap::new();
+    let mut lines: Vec<&str> = Vec::new();
+    for line in src.lines() {
+        let t = line.trim();
+        if let Some(rest) = t.strip_prefix('[') {
+            if let Some((label, tail)) = rest.split_once("]:") {
+                refs.insert(label.to_string(), tail.trim().to_string());
+                continue;
+            }
+        }
+        lines.push(line);
+    }
+
+    let mut out = String::new();
+    let mut in_wrapper = false;
+    let mut in_h1 = false;
+    let mut in_h2 = false;
+    let mut in_ul = false;
+
+    let close_ul = |out: &mut String, in_ul: &mut bool| {
+        if *in_ul {
+            out.push_str("</ul>\n");
+            *in_ul = false;
+        }
+    };
+    let close_h2 = |out: &mut String, in_ul: &mut bool, in_h2: &mut bool| {
+        close_ul(out, in_ul);
+        if *in_h2 {
+            out.push_str("</details>\n");
+            *in_h2 = false;
+        }
+    };
+    let close_h1 = |out: &mut String, in_ul: &mut bool, in_h2: &mut bool, in_h1: &mut bool| {
+        close_h2(out, in_ul, in_h2);
+        if *in_h1 {
+            out.push_str("</div>\n</details>\n");
+            *in_h1 = false;
+        }
+    };
+
+    let mut i = 0;
+    let n = lines.len();
+    while i < n {
+        let line = lines[i];
+        let trimmed = line.trim();
+
+        if trimmed.is_empty() {
+            i += 1;
+            continue;
+        }
+
+        if let Some(text) = trimmed.strip_prefix("### ") {
+            close_h2(&mut out, &mut in_ul, &mut in_h2);
+            out.push_str(&format!(
+                "<details class=\"link-h2\" open>\n<summary><span class=\"link-arrow\"></span><h3 class=\"link-h2-title\">{}</h3></summary>\n",
+                inline(text.trim(), &refs)
+            ));
+            in_h2 = true;
+            i += 1;
+            continue;
+        }
+
+        if let Some(text) = trimmed.strip_prefix("## ") {
+            close_h1(&mut out, &mut in_ul, &mut in_h2, &mut in_h1);
+            if !in_wrapper {
+                out.push_str("<div class=\"links-groups\">\n");
+                in_wrapper = true;
+            }
+            out.push_str(&format!(
+                "<details class=\"link-h1\" open>\n<summary><span class=\"link-arrow\"></span><h2 class=\"link-h1-title\">{}</h2></summary>\n<div class=\"link-h1-body\">\n",
+                inline(text.trim(), &refs)
+            ));
+            in_h1 = true;
+            i += 1;
+            continue;
+        }
+
+        if let Some(text) = trimmed.strip_prefix("# ") {
+            close_h1(&mut out, &mut in_ul, &mut in_h2, &mut in_h1);
+            out.push_str(&format!("<h1>{}</h1>\n", inline(text.trim(), &refs)));
+            i += 1;
+            continue;
+        }
+
+        if trimmed.starts_with("- ") {
+            if !in_ul {
+                out.push_str("<ul>\n");
+                in_ul = true;
+            }
+            let (item, writeup) = strip_writeup(&trimmed[2..]);
+            let mut li = inline(item, &refs);
+            if let Some(slug) = writeup {
+                li.push_str(&format!(
+                    " <a class=\"link-writeup\" href=\"/writeups/{}/\">[writeup]</a>",
+                    slug
+                ));
+            }
+            out.push_str(&format!("<li>{}</li>\n", li));
+            i += 1;
+            continue;
+        }
+
+        // Paragraph: gather consecutive plain lines, honoring a trailing IAL.
+        let mut body = Vec::new();
+        while i < n {
+            let t = lines[i].trim();
+            if t.is_empty()
+                || t.starts_with('#')
+                || t.starts_with("- ")
+                || ial_class(t).is_some()
+            {
+                break;
+            }
+            body.push(lines[i].trim());
+            i += 1;
+        }
+        let class = if i < n { ial_class(lines[i].trim()) } else { None };
+        if class.is_some() {
+            i += 1;
+        }
+        let class_attr = class.map(|c| format!(" class=\"{}\"", c)).unwrap_or_default();
+        out.push_str(&format!(
+            "<p{}>{}</p>\n",
+            class_attr,
+            inline(&body.join(" "), &refs)
+        ));
+    }
+
+    close_h1(&mut out, &mut in_ul, &mut in_h2, &mut in_h1);
+    if in_wrapper {
+        out.push_str("</div>\n");
+    }
+    out
+}
+
 fn is_ordered_item(t: &str) -> bool {
     match t.split_once(". ") {
         Some((num, _)) => !num.is_empty() && num.chars().all(|c| c.is_ascii_digit()),
