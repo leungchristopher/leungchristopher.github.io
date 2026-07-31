@@ -9,16 +9,16 @@ math: true
 ## Floats and why it matters
 A float is represented with a sign bit, exponent bits, and significand/mantissa bits. The interval on the real number line is the dynamic range, with the precision being the inter-value distance.
 
-memory = nr_bits / 8 * nr_params
+$$\textnormal{memory} = \textnormal{no. of bits} / 8 \times\textnormal{no. of params}$$
 
 Why do we care? Because loading full-precision N billion parameter models requires 4N GB of memory just to store the parameters.
 
 Quantisation lowers the bit-width, reducing granularity/precision.
 If we were to go from FP32 to FP16, the dynamic range decreases. Hence, BF16 (brain-float) was invented - it uses the same number of bits as FP16 but matches FP32's dynamic range.
 ## Quantisation methods
-A further reduction is INT8 $x\in\mathcal{Z}\in[-127,127$. However, you need to map the range of the model's parameters into INT8. Here, symmetric and asymmetric quantisation are possible. A rather obvious way is to scale by the absolute maximum, and set that to 127. Quantisation error is then the difference in value when you return to FP32.
+A further reduction is INT8 $x\in\mathcal{Z}\in[-127,127]$. However, you need to map the range of the model's parameters into INT8. Here, symmetric and asymmetric quantisation are possible. A rather obvious way is to scale by the absolute maximum, and set that to 127. Quantisation error is then the difference in value when you return to FP32.
 
-Asymmetric quantisation maps min and max from the float range to the min $\beta$ and max $\alpha$ of the quantised range. The scale factor is given by $s=R/(\alpha-\beta)$, with the zero point being $z=\textnormal{round}(-s\beta)-2^{b-1}$, and the quantised $x'=\textnormal{round}(sx+z)
+Asymmetric quantisation maps min and max from the float range to the min $\beta$ and max $\alpha$ of the quantised range. The scale factor is given by $s=R/(\alpha-\beta)$, with the zero point being $z=\textnormal{round}(-s\beta)-2^{b-1}$, and the quantised $x'=\textnormal{round}(sx+z)$
 ## Range clipping
 To prevent outliers from having an outsized effect, you can clip the dynamic range. But this results in massive quantisation errors if you have lots of outliers.
 ## W&B quantisation in practice
