@@ -10,4 +10,4 @@ My goals for the summer:
 3. Be up-to-date with reasoning, world models, and robotics.
 
 !progress[How To Scale Your Model](1/12)
-!progress[General Relativity](12/153)
+!progress[General Relativity](16/153)
