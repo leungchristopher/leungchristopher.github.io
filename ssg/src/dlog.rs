@@ -47,6 +47,8 @@ pub struct Stats {
     pub streak: i64,
     /// (tag, minutes, size_em, color) sorted by tag name.
     pub tags: Vec<(String, i64, f64, &'static str)>,
+    /// (date, minutes) for every day from `start` to `today`, ascending.
+    pub daily: Vec<(Date, i64)>,
 }
 
 const PALETTE: [&str; 8] = [
@@ -110,6 +112,20 @@ pub fn compute(entries: &[DlogEntry], start: Date, today: Date) -> Stats {
         }
     }
 
+    let mut minutes_by_date: BTreeMap<Date, i64> = BTreeMap::new();
+    for e in entries {
+        let mins: i64 = e.sessions.iter().map(session_minutes).sum();
+        *minutes_by_date.entry(e.date).or_insert(0) += mins;
+    }
+    let mut daily = Vec::new();
+    let mut d = start.days_since_epoch();
+    let end = today.days_since_epoch();
+    while d <= end {
+        let date = Date::from_days_since_epoch(d);
+        daily.push((date, minutes_by_date.get(&date).copied().unwrap_or(0)));
+        d += 1;
+    }
+
     Stats {
         num_days,
         num_documented_days,
@@ -118,5 +134,6 @@ pub fn compute(entries: &[DlogEntry], start: Date, today: Date) -> Stats {
         total_mins,
         streak,
         tags,
+        daily,
     }
 }

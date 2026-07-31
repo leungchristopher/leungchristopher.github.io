@@ -387,13 +387,69 @@ pub fn project_card(
     )
 }
 
+fn hm(mins: i64) -> String {
+    format!("{} hr {} min", mins / 60, mins % 60)
+}
+
+pub fn hours_chart(daily: &[(crate::dates::Date, i64)]) -> String {
+    let n = daily.len();
+    let max_mins = daily.iter().map(|(_, m)| *m).max().unwrap_or(0).max(1) as f64;
+
+    let window = daily.len().min(7);
+    let avg_7_mins = if window > 0 {
+        daily[daily.len() - window..].iter().map(|(_, m)| *m).sum::<i64>() / window as i64
+    } else {
+        0
+    };
+
+    let cols: String = daily
+        .iter()
+        .map(|(date, mins)| {
+            let pct = (*mins as f64 / max_mins) * 100.0;
+            format!(
+                "<div class=\"hours-col\"><div class=\"hours-bar-fill\" data-tooltip=\"{day}: {hm}\" style=\"height: {pct:.2}%\"></div></div>",
+                day = date.d, hm = hm(*mins), pct = pct
+            )
+        })
+        .collect::<Vec<_>>()
+        .join("\n    ");
+
+    let labels: String = daily
+        .iter()
+        .map(|(date, _)| format!("<div class=\"hours-label\">{day}</div>", day = date.d))
+        .collect::<Vec<_>>()
+        .join("\n    ");
+
+    format!(
+        r#"<div class="hours-chart" role="img" aria-label="Hours worked per day">
+  <p class="hours-chart-avg">Last 7 days: {avg_hm}/day avg</p>
+  <div class="hours-chart-scroll">
+    <div class="hours-tracks" style="width: {content_pct}%; --n: {n}">
+    {cols}
+    </div>
+    <div class="hours-labels" style="width: {content_pct}%; --n: {n}">
+    {labels}
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {{
+  var scroll = document.querySelector('.hours-chart-scroll');
+  if (!scroll) return;
+  scroll.scrollLeft = scroll.scrollWidth;
+}});
+</script>"#,
+        n = n, cols = cols, labels = labels, content_pct = n * 10, avg_hm = hm(avg_7_mins)
+    )
+}
+
 pub fn tag_cloud(tags: &[(String, i64, f64, &'static str)]) -> String {
     let buttons: String = tags
         .iter()
         .map(|(tag, mins, size, color)| {
             format!(
-                "<button type=\"button\" class=\"tag-cloud-item\" data-tag=\"{tag}\" style=\"font-size: {size}em; color: {color}\" title=\"{mins} min\">{tag}</button>",
-                tag = tag, size = size, color = color, mins = mins
+                "<button type=\"button\" class=\"tag-cloud-item\" data-tag=\"{tag}\" style=\"font-size: {size}em; color: {color}\" data-tooltip=\"{tag}: {hm}\">{tag}</button>",
+                tag = tag, size = size, color = color, hm = hm(*mins)
             )
         })
         .collect::<Vec<_>>()
@@ -432,4 +488,37 @@ document.addEventListener('DOMContentLoaded', function () {{
 </script>"#,
         buttons = buttons
     )
+}
+
+/// Shared custom tooltip for [data-tooltip] elements (tag cloud + hours chart).
+pub fn tooltip_script() -> &'static str {
+    r#"<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var tip = document.createElement('div');
+  tip.className = 'chart-tooltip';
+  tip.hidden = true;
+  document.body.appendChild(tip);
+
+  function show(e) {
+    var el = e.target.closest('[data-tooltip]');
+    if (!el) return;
+    tip.textContent = el.dataset.tooltip;
+    tip.hidden = false;
+    move(e);
+  }
+  function move(e) {
+    if (tip.hidden) return;
+    tip.style.left = (e.clientX + 12) + 'px';
+    tip.style.top = (e.clientY + 12) + 'px';
+  }
+  function hide(e) {
+    if (!e.target.closest('[data-tooltip]')) return;
+    tip.hidden = true;
+  }
+
+  document.addEventListener('mouseover', show);
+  document.addEventListener('mousemove', move);
+  document.addEventListener('mouseout', hide);
+});
+</script>"#
 }

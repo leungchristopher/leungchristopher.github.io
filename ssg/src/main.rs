@@ -357,7 +357,15 @@ fn main() {
 Day {num_days}, {num_documented} logged ({pct}%), {streak} day streak, {hrs} hr {mins} min total.
 </p>
 {intro}
+<div class="stats-row">
+<div class="stats-panel">
 {tag_cloud}
+</div>
+<div class="stats-panel">
+{hours_chart}
+</div>
+</div>
+{tooltip_script}
 
 <h2>Entries</h2>
 
@@ -371,7 +379,9 @@ Day {num_days}, {num_documented} logged ({pct}%), {streak} day streak, {hrs} hr 
             hrs = stats.total_hrs,
             mins = stats.total_mins,
             intro = intro_html,
+            tooltip_script = templates::tooltip_script(),
             tag_cloud = templates::tag_cloud(&stats.tags),
+            hours_chart = templates::hours_chart(&stats.daily),
             items = items,
         );
         let page = templates::Page {
