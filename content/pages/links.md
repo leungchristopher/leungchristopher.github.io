@@ -8,8 +8,9 @@ People whose work I find interesting, and keep going back to. A running list.
 {: .lede}
 
 ## Articles
-
-### Non-LLM machine learning
+### Algorithms
+- [How momentum works](https://distill.pub/2017/momentum/)
+### Architectures
 - [The illustrated AlphaFold](https://elanapearl.github.io/blog/2024/the-illustrated-alphafold/): AlphaFold 3, broken down. [[alphafold]]
 ### LLMs
 - [Recursive language models (prime intellect)](https://www.primeintellect.ai/blog/rlm): recursive language models - fad?
