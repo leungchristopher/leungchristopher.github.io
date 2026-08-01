@@ -17,6 +17,7 @@ People whose work I find interesting, and keep going back to. A running list.
 - [Voice mode](https://voiceaiandvoiceagents.com/#conversational-voice-ai)
 ### Open-endedness and general intelligence
 - [What is intelligence?](https://whatisintelligence.antikythera.org/): GEB for the modern day. [[what-is-intelligence]]
+- [World models in natural and artificial intelligence](https://royalsocietypublishing.org/rsta/issue/384/2320): Safron and Levin, editors.
 
 ### Hardware and GPUs
 - [Tiny TPU](https://www.tinytpu.com/)
@@ -24,6 +25,7 @@ People whose work I find interesting, and keep going back to. A running list.
 
 
 ### General
+- [Master one thing at a time](https://www.julian.ac/blog/2019/06/13/master-one-skill-at-a-time-instead-of-learning-many-at-once/): an all time favourite. Something I aspire to.
 - [Becoming a magician](https://autotranslucence.wordpress.com/2018/03/30/becoming-a-magician/): you should be a magician too!
 - [Breaking the spell of vibe coding](https://www.fast.ai/posts/2026-01-28-dark-flow/): no article has come close to distilling my concerns about aimless vibe coding. Will we be able to automate the engineering aspect of coding? Part of the reason why we write code is for ourselves to iterate on it. If vibe coding gets you the NeurIPS paper but means that no one else can realistically build on your work, what was the point?
 - [The new age of research](https://paradigma.inc/blog/the-new-age-of-research/): something I disagree with.
