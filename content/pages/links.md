@@ -27,7 +27,8 @@ People whose work I find interesting, and keep going back to. A running list.
 ### Hardware and GPUs
 - [Tiny TPU](https://www.tinytpu.com/)
 - [A visual guide to quantisation](https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization): why it matters. [[quantisation]]
-
+### Engineering
+- [Good software design according to Sean Goedecke](https://www.seangoedecke.com/tags/software%20design/0
 
 ### General
 - [Master one thing at a time](https://www.julian.ac/blog/2019/06/13/master-one-skill-at-a-time-instead-of-learning-many-at-once/): an all time favourite. Something I aspire to.
