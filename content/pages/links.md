@@ -8,6 +8,11 @@ People whose work I find interesting, and keep going back to. A running list.
 {: .lede}
 
 ## Articles
+### Biomedical
+- [A future history of biomedical progress](https://markovbio.github.io/biomedical-progress/): reasons to be optimistic!
+- [Biopharma, from Janssen to today](https://atelfo.github.io/2023/12/23/biopharma-from-janssen-to-today.html): Eroom's law is something we should be thinking about a lot more - the idea of a "Red Queen" threshold rise for basic discovery is quite compelling - does increasing the rate of search (e.g. by automation actually alleviate the problem? Ultimately, we need to demonstrate benefits over the current (rising) standards of care.
+- [Machine learning-powered drug discovery: now and tomorrow](https://ouncebiotech.substack.com/p/machine-learning-powered-drug-discovery-018)
+- [The anatomy of BoltzGen (Hugging Face)](https://huggingface.co/spaces/ludocomito/anatomy-of-boltzgen)
 ### Algorithms
 - [How momentum works](https://distill.pub/2017/momentum/)
 ### Architectures
@@ -34,6 +39,7 @@ People whose work I find interesting, and keep going back to. A running list.
 
 ### List of lists
 - [AI Engineering](https://www.latent.space/p/2025-papers)
+- [Read something wonderful about biology](https://read.asimov.com/)
 
 ### Machine learning
 
