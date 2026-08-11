@@ -395,9 +395,11 @@ pub fn hours_chart(daily: &[(crate::dates::Date, i64)]) -> String {
     let n = daily.len();
     let max_mins = daily.iter().map(|(_, m)| *m).max().unwrap_or(0).max(1) as f64;
 
-    let window = daily.len().min(7);
-    let avg_7_mins = if window > 0 {
-        daily[daily.len() - window..].iter().map(|(_, m)| *m).sum::<i64>() / window as i64
+    let window = daily.len().min(10);
+    let recent = &daily[daily.len() - window..];
+    let weekdays: Vec<i64> = recent.iter().filter(|(d, _)| d.is_weekday()).map(|(_, m)| *m).collect();
+    let avg_weekday_mins = if !weekdays.is_empty() {
+        weekdays.iter().sum::<i64>() / weekdays.len() as i64
     } else {
         0
     };
@@ -422,7 +424,7 @@ pub fn hours_chart(daily: &[(crate::dates::Date, i64)]) -> String {
 
     format!(
         r#"<div class="hours-chart" role="img" aria-label="Hours worked per day">
-  <p class="hours-chart-avg">Last 7 days: {avg_hm}/day avg</p>
+  <p class="hours-chart-avg">Last 10 days, weekdays: {avg_hm}/day avg</p>
   <div class="hours-chart-scroll">
     <div class="hours-tracks" style="width: {content_pct}%; --n: {n}">
     {cols}
@@ -439,7 +441,7 @@ document.addEventListener('DOMContentLoaded', function () {{
   scroll.scrollLeft = scroll.scrollWidth;
 }});
 </script>"#,
-        n = n, cols = cols, labels = labels, content_pct = n * 10, avg_hm = hm(avg_7_mins)
+        n = n, cols = cols, labels = labels, content_pct = n * 10, avg_hm = hm(avg_weekday_mins)
     )
 }
 

@@ -396,16 +396,23 @@ Day {num_days}, {num_documented} logged ({pct}%), {streak} day streak, {hrs} hr 
 
     // ---- Sitemap ----
     {
-        let mut urls = vec!["/".to_string(), "/about/".to_string(), "/essays/".to_string(), "/dlog/".to_string(), "/links/".to_string()];
+        let today_iso = today.iso();
+        let mut urls: Vec<(String, String)> = vec![
+            ("/".to_string(), today_iso.clone()),
+            ("/about/".to_string(), today_iso.clone()),
+            ("/essays/".to_string(), today_iso.clone()),
+            ("/dlog/".to_string(), today_iso.clone()),
+            ("/links/".to_string(), today_iso.clone()),
+        ];
         for e in essays.iter().filter(|e| !e.draft) {
-            urls.push(format!("/essays/{}/", e.slug));
+            urls.push((format!("/essays/{}/", e.slug), e.date.iso()));
         }
         for e in &dlog_entries {
-            urls.push(format!("/dlog/{}/", e.slug));
+            urls.push((format!("/dlog/{}/", e.slug), e.date.iso()));
         }
         let body: String = urls
             .iter()
-            .map(|u| format!("  <url><loc>{}{}</loc></url>", config::URL, u))
+            .map(|(u, lastmod)| format!("  <url><loc>{}{}</loc><lastmod>{}</lastmod></url>", config::URL, u, lastmod))
             .collect::<Vec<_>>()
             .join("\n");
         let sitemap = format!(

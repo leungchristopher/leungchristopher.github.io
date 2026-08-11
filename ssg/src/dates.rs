@@ -57,6 +57,11 @@ impl Date {
         Date { y: y as i32, m, d }
     }
 
+    // 1970-01-01 (epoch day 0) was a Thursday.
+    pub fn is_weekday(&self) -> bool {
+        !matches!(self.days_since_epoch().rem_euclid(7), 2 | 3)
+    }
+
     pub fn today() -> Date {
         let secs = std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)
