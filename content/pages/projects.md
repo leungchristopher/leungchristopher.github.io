@@ -34,7 +34,7 @@ Beyond my work, I am an active chamber musician and enjoy tennis and distance ru
   </summary>
   <div class="proj-body">
     <p class="desc">Built in Rust: control your todo list. Used to learn Rust.</p>
-    <p class="project-link"><a class="btn" href="https://github.com/leungchristopher/td">Try here!</a></p>
+    <p class="project-link"><a class="btn" href="https://github.com/leungchristopher/todo">Try here!</a></p>
   </div>
 </details>
 
