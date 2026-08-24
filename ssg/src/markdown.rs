@@ -311,7 +311,7 @@ pub fn render(src: &str, directives: &HashMap<&str, String>) -> String {
     out
 }
 
-/// Strips an optional trailing `[[slug]]` writeup marker off a links-page
+/// Strips an optional trailing `[[slug]]` writeup marker off a reading-page
 /// list item, returning the remaining text and the essay slug if present.
 fn strip_writeup(item: &str) -> (&str, Option<&str>) {
     let t = item.trim_end();
@@ -325,11 +325,11 @@ fn strip_writeup(item: &str) -> (&str, Option<&str>) {
     (item, None)
 }
 
-/// Renders the links page: `#` is a plain title, `##` opens a collapsible
+/// Renders the reading page: `#` is a plain title, `##` opens a collapsible
 /// top-level group, `###` opens a collapsible subgroup within it, and `-`
 /// items are gathered into that subgroup's list. Plain lines become
 /// paragraphs (with `{: .class}` IAL support), same as `render`.
-pub fn render_links(src: &str) -> String {
+pub fn render_reading(src: &str) -> String {
     let mut refs: HashMap<String, String> = HashMap::new();
     let mut lines: Vec<&str> = Vec::new();
     for line in src.lines() {
@@ -395,7 +395,7 @@ pub fn render_links(src: &str) -> String {
         if let Some(text) = trimmed.strip_prefix("## ") {
             close_h1(&mut out, &mut in_ul, &mut in_h2, &mut in_h1);
             if !in_wrapper {
-                out.push_str("<div class=\"links-groups\">\n");
+                out.push_str("<div class=\"reading-groups\">\n");
                 in_wrapper = true;
             }
             out.push_str(&format!(

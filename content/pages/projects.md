@@ -1,5 +1,5 @@
 ---
-title: About
+title: Projects
 ---
 
 ### About me
@@ -19,11 +19,22 @@ Beyond my work, I am an active chamber musician and enjoy tennis and distance ru
 <details class="proj">
   <summary>
     <span class="proj-arrow" aria-hidden="true"></span>
+    <span class="proj-title">World models with JAX</span>
+  </summary>
+  <div class="proj-body">
+    <p class="desc">Implementation of LeJEPA architecture, trained using JAX on GPUs.</p>
+    <p class="project-link"><a class="btn" href="https://github.com/leungchristopher/lejax">code</a></p>
+  </div>
+</details>
+
+<details class="proj">
+  <summary>
+    <span class="proj-arrow" aria-hidden="true"></span>
     <span class="proj-title">todo</span>
   </summary>
   <div class="proj-body">
     <p class="desc">Built in Rust: control your todo list. Used to learn Rust.</p>
-    <p class="project-link"><a class="btn" href="https://github.com/Ky-Ng/x-linguistic-fine-tuning-generalization">Try here!</a></p>
+    <p class="project-link"><a class="btn" href="https://github.com/leungchristopher/td">Try here!</a></p>
   </div>
 </details>
 
@@ -49,6 +60,7 @@ Beyond my work, I am an active chamber musician and enjoy tennis and distance ru
     <p class="project-link"><a class="btn" href="https://github.com/leungchristopher/maz">code</a></p>
   </div>
 </details>
+
 
 ## Books and music
 

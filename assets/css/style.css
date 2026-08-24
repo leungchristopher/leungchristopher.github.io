@@ -224,7 +224,7 @@ h3 + p > em {
 }
 .proj-body > :first-child { margin-top: 0; }
 .proj-body > :last-child { margin-bottom: 0; }
-.links-groups { margin-top: 1.5rem; }
+.reading-groups { margin-top: 1.5rem; }
 
 .link-h1 {
   margin-bottom: 0.5rem;
@@ -446,9 +446,9 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
 .essay-body img { max-width: 100%; height: auto; }
 .essay-back { margin-top: 3rem; font-size: 0.9rem; }
 
-.dlog-page ul.task-list { list-style: none; padding: 0; margin: 0 0 1rem; }
-.dlog-page li.task-list-item { padding: 0.2rem 0; }
-.dlog-page input[type="checkbox"] { margin-right: 0.5rem; }
+.log-page ul.task-list { list-style: none; padding: 0; margin: 0 0 1rem; }
+.log-page li.task-list-item { padding: 0.2rem 0; }
+.log-page input[type="checkbox"] { margin-right: 0.5rem; }
 
 .stats-row {
   display: flex;

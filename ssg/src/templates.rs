@@ -13,7 +13,7 @@ const TOC_SCRIPT: &str = r#"<nav class="toc" aria-label="On this page" hidden>
 </nav>
 <script>
 (function () {
-  var body = document.querySelector('.essay-body, .home, .links-page');
+  var body = document.querySelector('.essay-body, .home, .reading-page');
   var nav  = document.querySelector('.toc');
   if (!body || !nav) return;
 
@@ -153,10 +153,8 @@ pub fn page(p: &Page) -> String {
     <header class="site-header">
       <a class="site-name" href="/">{name}</a>
       <nav class="site-nav">
-        <a href="/about/">About</a>
+        <a href="/projects/">Projects</a>
         <a href="/essays/">Essays</a>
-        <a href="/dlog/">Log</a>
-        <a href="/links/">Links</a>
       </nav>
     </header>
 
@@ -210,7 +208,7 @@ pub fn page(p: &Page) -> String {
     )
 }
 
-pub fn links_wrap(body_html: &str) -> String {
+pub fn reading_wrap(body_html: &str) -> String {
     format!("{}\n\n{}", body_html, TOC_SCRIPT)
 }
 
@@ -258,7 +256,7 @@ pub fn writeup_article(title: &str, date_long: &str, date_iso: &str, body_html: 
 {body}
   </div>
 
-  <p class="essay-back"><a href="/links/">Back to links</a></p>
+  <p class="essay-back"><a href="/">Back to reading</a></p>
 </article>
 
 {toc}"#,
@@ -270,7 +268,7 @@ pub fn writeup_article(title: &str, date_long: &str, date_iso: &str, body_html: 
     )
 }
 
-pub fn dlog_entry_article(
+pub fn log_entry_article(
     title: &str,
     date_long: &str,
     date_iso: &str,
@@ -291,7 +289,7 @@ pub fn dlog_entry_article(
         format!("<p><strong>Summary:</strong> {}</p>\n", summary)
     };
     format!(
-        r#"<article class="dlog-entry">
+        r#"<article class="log-entry">
   <header class="entry-header">
     <h1 class="entry-title">{title}</h1>
     <time class="entry-date" datetime="{date_iso}">{date_long}</time>
@@ -303,7 +301,7 @@ pub fn dlog_entry_article(
     {tags}
   </div>
 
-  <p class="entry-back"><a href="/dlog/">Back to log</a></p>
+  <p class="entry-back"><a href="/">Back to log</a></p>
 </article>
 "#,
         title = title,

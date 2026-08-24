@@ -1,6 +1,5 @@
 mod config;
 mod dates;
-mod dlog;
 mod frontmatter;
 mod markdown;
 mod minify;
@@ -63,11 +62,9 @@ fn main() {
         fs::remove_dir_all(&out).unwrap();
     }
     fs::create_dir_all(&out).unwrap();
-
     let today = Date::today();
-    let dlog_start = Date::parse(config::DLOG_START).unwrap();
 
-    // ---- Projects data, shared by the home page and /about/ ----
+    // ---- Projects data, shared by the home page and /projects/ ----
     let projects_src = fs::read_to_string(content.join("data/projects.yml")).unwrap();
     let all_projects = projects::parse(&projects_src);
     let render_cards = |ps: &[&projects::Project]| -> String {
@@ -100,39 +97,24 @@ fn main() {
         write(&out, "/index.html", &templates::page(&page));
     }
 
-    // ---- About page ----
+    // ---- Projects page ----
     {
-        let src = fs::read_to_string(content.join("pages/about.md")).unwrap();
+        let src = fs::read_to_string(content.join("pages/projects.md")).unwrap();
         let (fm, body) = frontmatter::parse(&src);
         let mut directives = HashMap::new();
         directives.insert("projects:all", all_cards.clone());
         let body_html = markdown::render(body, &directives);
         let page = templates::Page {
-            title: fm.get("title").unwrap_or("About").to_string(),
-            path: "/about/".to_string(),
+            title: fm.get("title").unwrap_or("Projects").to_string(),
+            path: "/projects/".to_string(),
             body_class: None,
             math: fm.flag("math"),
             content: templates::home_wrap(&body_html, true),
         };
-        write(&out, "/about/index.html", &templates::page(&page));
+        write(&out, "/projects/index.html", &templates::page(&page));
     }
 
-    // ---- Links page ----
-    {
-        let src = fs::read_to_string(content.join("pages/links.md")).unwrap();
-        let (fm, body) = frontmatter::parse(&src);
-        let body_html = markdown::render_links(body);
-        let page = templates::Page {
-            title: fm.get("title").unwrap_or("Links").to_string(),
-            path: "/links/".to_string(),
-            body_class: Some("links-page".to_string()),
-            math: false,
-            content: templates::links_wrap(&body_html),
-        };
-        write(&out, "/links/index.html", &templates::page(&page));
-    }
-
-    // ---- Writeups: linked only from /links/, not essays, no index/feed/sitemap entry ----
+    // ---- Writeups: intentionally unlisted, no index/feed/sitemap entry ----
     {
         let dir = content.join("writeups");
         if dir.exists() {
@@ -161,7 +143,7 @@ fn main() {
     // ---- 404 page ----
     {
         let content_html = r#"<h1>Page not found</h1>
-<p>Sorry, that page doesn't exist. Head back to the <a href="/">home page</a> or browse the <a href="/dlog/">log</a>.</p>"#;
+<p>Sorry, that page doesn't exist. Head back to the <a href="/">home page</a>.</p>"#;
         let page = templates::Page {
             title: "Page not found".to_string(),
             path: "/404.html".to_string(),
@@ -278,137 +260,17 @@ fn main() {
         write(&out, "/feed/essays.xml", &feed);
     }
 
-    // ---- Dlog entries ----
-    let mut dlog_entries: Vec<dlog::DlogEntry> = Vec::new();
-    for path in read_dir_sorted(&content.join("dlog")) {
-        let slug = path.file_stem().unwrap().to_string_lossy().to_string();
-        let src = fs::read_to_string(&path).unwrap();
-        let (fm, body) = frontmatter::parse(&src);
-        let date = Date::parse(fm.get("date").unwrap_or(&slug)).unwrap();
-        let entry = dlog::DlogEntry {
-            date,
-            title: fm.get("title").unwrap_or("").to_string(),
-            goal: fm.get("goal").unwrap_or("").to_string(),
-            summary: fm.get("summary").unwrap_or("").to_string(),
-            sessions: fm.sessions.clone(),
-            body_html: markdown::render(body, &HashMap::new()),
-            slug,
-        };
-        dlog_entries.push(entry);
-    }
-    dlog_entries.sort_by(|a, b| b.date.cmp(&a.date));
-
-    for e in &dlog_entries {
-        let tags = e.tags();
-        let tags_html = if tags.is_empty() {
-            String::new()
-        } else {
-            format!(
-                "<p class=\"tags\">{}</p>",
-                tags.iter()
-                    .map(|t| format!("<span class=\"tag\">{}</span>", t))
-                    .collect::<Vec<_>>()
-                    .join("")
-            )
-        };
-        let article = templates::dlog_entry_article(
-            e.display_title(),
-            &e.date.long(),
-            &e.date.iso(),
-            &e.goal,
-            &e.summary,
-            &templates::sessions_table(&e.sessions),
-            &e.body_html,
-            &tags_html,
-        );
-        let page = templates::Page {
-            title: e.display_title().to_string(),
-            path: format!("/dlog/{}/", e.slug),
-            body_class: Some("dlog-page".to_string()),
-            math: false,
-            content: article,
-        };
-        write(&out, &format!("/dlog/{}/index.html", e.slug), &templates::page(&page));
-    }
-
-    // ---- Dlog index ----
-    {
-        let stats = dlog::compute(&dlog_entries, dlog_start, today);
-        let intro_src = fs::read_to_string(content.join("pages/dlog.md")).unwrap();
-        let (_, intro_body) = frontmatter::parse(&intro_src);
-        let intro_html = markdown::render(intro_body, &HashMap::new());
-
-        let items: String = dlog_entries
-            .iter()
-            .map(|e| {
-                let tags = json_tags(&e.tags());
-                format!(
-                    "<li class=\"entry-item\" data-tags=\"{tags}\">\n<a class=\"entry-item-title\" href=\"/dlog/{slug}/\">{title}</a>\n<time class=\"entry-item-date\" datetime=\"{iso}\">{long}</time>\n</li>",
-                    tags = tags, slug = e.slug, title = e.display_title(), iso = e.date.iso(), long = e.date.long()
-                )
-            })
-            .collect::<Vec<_>>()
-            .join("\n");
-
-        let content_html = format!(
-            r#"<h1>Log</h1>
-
-<p class="lede">
-Day {num_days}, {num_documented} logged ({pct}%), {streak} day streak, {hrs} hr {mins} min total.
-</p>
-{intro}
-<div class="stats-row">
-<div class="stats-panel">
-{tag_cloud}
-</div>
-<div class="stats-panel">
-{hours_chart}
-</div>
-</div>
-{tooltip_script}
-
-<h2>Entries</h2>
-
-<ul class="entry-list">
-{items}
-</ul>"#,
-            num_days = stats.num_days,
-            num_documented = stats.num_documented_days,
-            pct = stats.percentage_documented,
-            streak = stats.streak,
-            hrs = stats.total_hrs,
-            mins = stats.total_mins,
-            intro = intro_html,
-            tooltip_script = templates::tooltip_script(),
-            tag_cloud = templates::tag_cloud(&stats.tags),
-            hours_chart = templates::hours_chart(&stats.daily),
-            items = items,
-        );
-        let page = templates::Page {
-            title: "Log".to_string(),
-            path: "/dlog/".to_string(),
-            body_class: Some("dlog-page".to_string()),
-            math: false,
-            content: content_html,
-        };
-        write(&out, "/dlog/index.html", &templates::page(&page));
-    }
 
     // ---- Sitemap ----
     {
         let today_iso = today.iso();
         let mut urls: Vec<(String, String)> = vec![
             ("/".to_string(), today_iso.clone()),
-            ("/about/".to_string(), today_iso.clone()),
+            ("/projects/".to_string(), today_iso.clone()),
             ("/essays/".to_string(), today_iso.clone()),
-            ("/dlog/".to_string(), today_iso.clone()),
-            ("/links/".to_string(), today_iso.clone()),
         ];
         for e in essays.iter().filter(|e| !e.draft) {
             urls.push((format!("/essays/{}/", e.slug), e.date.iso()));
-        }
-        for e in &dlog_entries {
-            urls.push((format!("/dlog/{}/", e.slug), e.date.iso()));
         }
         let body: String = urls
             .iter()
@@ -431,7 +293,7 @@ Day {num_days}, {num_documented} logged ({pct}%), {streak} day streak, {hrs} hr 
     // build, since the Actions deploy replaces the whole artifact each time.
     write(&out, "/CNAME", "leungchristopher.com\n");
 
-    println!("Built {} essays, {} dlog entries.", essays.len(), dlog_entries.len());
+    println!("Built {} essays.", essays.len());
 }
 
 /// Encodes tags as a JSON array for the `data-tags` attribute, so a
