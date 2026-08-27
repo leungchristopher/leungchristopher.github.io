@@ -184,6 +184,7 @@ h3 + p > em {
 .institution-logo {
   display: flex;
   flex: 0 1 auto;
+  min-width: 0;
   align-items: center;
   justify-content: center;
   border: 0;
@@ -206,7 +207,15 @@ h3 + p > em {
 }
 
 @media (max-width: 34rem) {
-  .institution-logo img { max-width: 4.5rem; }
+  .institution-logo {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+  .institution-logo img {
+    width: auto;
+    max-width: 22vw;
+    height: 1.6rem;
+  }
 }
 
 .proj {
