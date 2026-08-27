@@ -168,29 +168,10 @@ pub fn page(p: &Page) -> String {
       </div>
       <div class="copyright">
         <span class="mark">© {year} {name}</span>
-        <a class="answer" href="https://mailtoll.app/chris" rel="noopener" hidden>Don't Panic — but it'll cost you →</a>
       </div>
     </footer>
   </div>
 
-  <script>
-    (function () {{
-      var mark = document.querySelector('.copyright .mark');
-      var answer = document.querySelector('.copyright .answer');
-      if (!mark || !answer) return;
-      var clicks = 0, idle;
-      mark.addEventListener('click', function () {{
-        clicks++;
-        clearTimeout(idle);
-        idle = setTimeout(function () {{ clicks = 0; mark.style.opacity = ''; }}, 3000);
-        if (clicks > 32) mark.style.opacity = Math.max(0, 1 - (clicks - 32) / 10);
-        if (clicks === 42) {{
-          mark.hidden = true;
-          answer.hidden = false;
-        }}
-      }});
-    }})();
-  </script>
 </body>
 </html>
 "#,

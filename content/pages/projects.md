@@ -60,12 +60,3 @@ Beyond my work, I am an active chamber musician and enjoy tennis and distance ru
     <p class="project-link"><a class="btn" href="https://github.com/leungchristopher/maz">code</a></p>
   </div>
 </details>
-
-
-## Books and music
-
-I am currently reading: *Das Glasperlenspiel* (Hesse), *Incomplete Nature* (Deacon), *Who we are and how we got here* (Reich), and *Embodiment and the Inner Life* (Shanahan).
-{: .hobbies}
-
-My next piano recital is in **October**.
-{: .hobbies}

@@ -4,7 +4,7 @@
 
 - title: "Spontaneous neuronal activation · 2026–present"
   affil: "Lois group, Caltech"
-  desc: "Computational modelling of spontaneous neuronal activity and its role in the restoration of learned behaviours following perturbation. Drawing on attractor network theory and Hebbian plasticity. Part of the Cambridge–Caltech exchange, funded by Caltech and St Catharine's College, Cambridge."
+  desc: "Computational modelling of spontaneous neuronal activity and its role in the restoration of learned behaviours following perturbation. Drawing on attractor network theory and Hebbian plasticity. Also worked on preprocessing of fMRI data (ongoing project). Part of the Cambridge–Caltech exchange, funded by Caltech and St Catharine's College, Cambridge."
   img: /assets/images/projects/lois.svg
   current: true
 

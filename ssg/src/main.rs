@@ -92,7 +92,7 @@ fn main() {
             path: "/".to_string(),
             body_class: None,
             math: fm.flag("math"),
-            content: templates::home_wrap(&body_html, true),
+            content: templates::home_wrap(&body_html, false),
         };
         write(&out, "/index.html", &templates::page(&page));
     }
@@ -112,6 +112,21 @@ fn main() {
             content: templates::home_wrap(&body_html, true),
         };
         write(&out, "/projects/index.html", &templates::page(&page));
+    }
+
+    // ---- Links page ----
+    {
+        let src = fs::read_to_string(content.join("pages/links.md")).unwrap();
+        let (fm, body) = frontmatter::parse(&src);
+        let body_html = markdown::render(body, &HashMap::new());
+        let page = templates::Page {
+            title: fm.get("title").unwrap_or("Links").to_string(),
+            path: "/links/".to_string(),
+            body_class: None,
+            math: false,
+            content: templates::home_wrap(&body_html, true),
+        };
+        write(&out, "/links/index.html", &templates::page(&page));
     }
 
     // ---- Writeups: intentionally unlisted, no index/feed/sitemap entry ----
@@ -268,6 +283,7 @@ fn main() {
             ("/".to_string(), today_iso.clone()),
             ("/projects/".to_string(), today_iso.clone()),
             ("/essays/".to_string(), today_iso.clone()),
+            ("/links/".to_string(), today_iso.clone()),
         ];
         for e in essays.iter().filter(|e| !e.draft) {
             urls.push((format!("/essays/{}/", e.slug), e.date.iso()));
