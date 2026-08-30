@@ -179,8 +179,8 @@ fn main() {
             .filter(|e| !e.draft)
             .map(|e| {
                 format!(
-                    "<li class=\"essay-item\">\n<a class=\"essay-item-title\" href=\"/essays/{slug}/\">{title}</a>\n<time class=\"essay-item-date\" datetime=\"{iso}\">{long}</time>\n</li>",
-                    slug = e.slug, title = e.title, iso = e.date.iso(), long = e.date.long()
+                    "<li class=\"essay-item\">\n<a class=\"essay-item-title\" href=\"/essays/{slug}/\">{title}</a>\n<span class=\"essay-item-rule\" aria-hidden=\"true\"></span>\n<time class=\"essay-item-date\" datetime=\"{iso}\">{date}</time>\n</li>",
+                    slug = e.slug, title = e.title, iso = e.date.iso(), date = e.date.dotted()
                 )
             })
             .collect::<Vec<_>>()
@@ -287,21 +287,6 @@ fn main() {
     write(&out, "/CNAME", "leungchristopher.com\n");
 
     println!("Built {} essays.", essays.len());
-}
-
-/// Encodes tags as a JSON array for the `data-tags` attribute, so a
-/// multi-word tag like "world models" can't be confused with a
-/// space- or comma-delimited list when the client-side filter reads it.
-fn json_tags(tags: &[String]) -> String {
-    let items: Vec<String> = tags
-        .iter()
-        .map(|t| format!("\"{}\"", t.replace('\\', "\\\\").replace('"', "\\\"")))
-        .collect();
-    let json = format!("[{}]", items.join(","));
-    // HTML-attribute-escape (the value sits inside a double-quoted attribute).
-    json.replace('&', "&amp;")
-        .replace('"', "&quot;")
-        .replace('<', "&lt;")
 }
 
 fn xml_escape(s: &str) -> String {

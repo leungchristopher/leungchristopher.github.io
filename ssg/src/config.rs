@@ -9,5 +9,4 @@ pub const SOCIAL: &[(&str, &str)] = &[
     ("LinkedIn", "https://www.linkedin.com/in/christopherhcleung"),
     ("X", "https://x.com/chrishcleung"),
     ("Substack", "https://leungchristopher.substack.com/"),
-    ("Links", "/links/"),
 ];

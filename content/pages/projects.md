@@ -2,14 +2,6 @@
 title: Projects
 ---
 
-### About me
-
-I studied Natural Sciences at the [University of Cambridge](https://www.cam.ac.uk/) from 2023 to 2026, obtaining a double First and the Holgate-Pollard Prize for placing 2nd in my cohort. I also received the J.M. Thoday Prize for the best undergraduate research project in genetics.
-
-I immensely enjoy solving problems, and reached the finals for selecting the United Kingdom's teams for the International Chemistry Olympiad and [International Astronomy and Astrophysics Olympiad](https://www.bpho.org.uk/IOAA/); I also received distinctions/top golds in the British [Mathematical](https://bmos.ukmt.org.uk/) and [Physics](https://www.bpho.org.uk) Olympiads, and the Freeman Dyson Prize in Physics. My team and I also won the [National Cipher Challenge](https://www.cipherchallenge.org/) in 2022.
-
-Beyond my work, I am an active chamber musician and enjoy tennis and distance running. [CV](mailto:chcl4@cam.ac.uk?subject=CV%20request)
-
 ## Publications
 **Christopher Leung**, Charlotte Houldcroft, Aylwyn Scally. *Statistical inference of viral ancestral recombination graphs* (2026). *In preparation.*
 

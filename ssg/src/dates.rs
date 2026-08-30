@@ -27,23 +27,16 @@ impl Date {
         format!("{} {} {}", self.d, MONTHS[(self.m - 1) as usize], self.y)
     }
 
+    pub fn dotted(&self) -> String {
+        format!("{:02}.{:02}.{:04}", self.d, self.m, self.y)
+    }
+
     pub fn iso(&self) -> String {
         format!("{:04}-{:02}-{:02}T00:00:00+00:00", self.y, self.m, self.d)
     }
 
-    // Howard Hinnant's days-from-civil, days since 1970-01-01.
-    pub fn days_since_epoch(&self) -> i64 {
-        let y = if self.m <= 2 { self.y as i64 - 1 } else { self.y as i64 };
-        let era = if y >= 0 { y } else { y - 399 } / 400;
-        let yoe = (y - era * 400) as i64;
-        let mp = (self.m as i64 + 9) % 12;
-        let doy = (153 * mp + 2) / 5 + self.d as i64 - 1;
-        let doe = yoe * 365 + yoe / 4 - yoe / 100 + doy;
-        era * 146097 + doe - 719468
-    }
-
     // Howard Hinnant's civil-from-days, inverse of the above.
-    pub fn from_days_since_epoch(z: i64) -> Date {
+    fn from_days(z: i64) -> Date {
         let z = z + 719468;
         let era = if z >= 0 { z } else { z - 146096 } / 146097;
         let doe = z - era * 146097;
@@ -57,22 +50,11 @@ impl Date {
         Date { y: y as i32, m, d }
     }
 
-    // 1970-01-01 (epoch day 0) was a Thursday.
-    pub fn is_weekday(&self) -> bool {
-        !matches!(self.days_since_epoch().rem_euclid(7), 2 | 3)
-    }
-
     pub fn today() -> Date {
         let secs = std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)
             .unwrap()
             .as_secs();
-        Date::from_days_since_epoch((secs / 86400) as i64)
+        Date::from_days((secs / 86400) as i64)
     }
-}
-
-/// Parses "HH:MM" into minutes since midnight.
-pub fn parse_hm(s: &str) -> i64 {
-    let (h, m) = s.split_once(':').unwrap_or(("0", "0"));
-    h.parse::<i64>().unwrap_or(0) * 60 + m.parse::<i64>().unwrap_or(0)
 }
