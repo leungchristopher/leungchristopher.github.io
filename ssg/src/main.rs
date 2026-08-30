@@ -17,23 +17,6 @@ fn write(out_dir: &Path, rel_path: &str, content: &str) {
     fs::write(path, content).unwrap();
 }
 
-fn copy_dir(src: &Path, dst: &Path) {
-    fs::create_dir_all(dst).unwrap();
-    for entry in fs::read_dir(src).unwrap() {
-        let entry = entry.unwrap();
-        let path = entry.path();
-        if path.file_name().unwrap().to_string_lossy().starts_with('.') {
-            continue;
-        }
-        let dest = dst.join(entry.file_name());
-        if path.is_dir() {
-            copy_dir(&path, &dest);
-        } else {
-            fs::copy(&path, &dest).unwrap();
-        }
-    }
-}
-
 fn read_dir_sorted(dir: &Path) -> Vec<PathBuf> {
     let mut paths: Vec<PathBuf> = fs::read_dir(dir)
         .unwrap()
@@ -70,29 +53,24 @@ fn main() {
     let render_cards = |ps: &[&projects::Project]| -> String {
         ps.iter()
             .map(|p| {
-                templates::project_card(&p.title, &p.affil, &p.desc, &p.img, &p.link, &p.link_text)
+                templates::project_card(&p.title, &p.affil, &p.desc, &p.link, &p.link_text)
             })
             .collect::<Vec<_>>()
             .join("\n")
     };
-    let current_cards = render_cards(
-        &all_projects.iter().filter(|p| p.current).collect::<Vec<_>>(),
-    );
     let all_cards = render_cards(&all_projects.iter().collect::<Vec<_>>());
 
     // ---- Home page ----
     {
         let src = fs::read_to_string(content.join("pages/index.md")).unwrap();
         let (fm, body) = frontmatter::parse(&src);
-        let mut directives = HashMap::new();
-        directives.insert("projects:current", current_cards.clone());
-        let body_html = markdown::render(body, &directives);
+        let body_html = markdown::render(body, &HashMap::new());
         let page = templates::Page {
             title: fm.get("title").unwrap_or("").to_string(),
             path: "/".to_string(),
             body_class: None,
             math: fm.flag("math"),
-            content: templates::home_wrap(&body_html, false),
+            content: templates::home_wrap(&body_html),
         };
         write(&out, "/index.html", &templates::page(&page));
     }
@@ -109,7 +87,7 @@ fn main() {
             path: "/projects/".to_string(),
             body_class: None,
             math: fm.flag("math"),
-            content: templates::home_wrap(&body_html, true),
+            content: templates::home_wrap(&body_html),
         };
         write(&out, "/projects/index.html", &templates::page(&page));
     }
@@ -118,13 +96,13 @@ fn main() {
     {
         let src = fs::read_to_string(content.join("pages/links.md")).unwrap();
         let (fm, body) = frontmatter::parse(&src);
-        let body_html = markdown::render(body, &HashMap::new());
+        let body_html = markdown::render_reading(body);
         let page = templates::Page {
             title: fm.get("title").unwrap_or("Links").to_string(),
             path: "/links/".to_string(),
             body_class: None,
             math: false,
-            content: templates::home_wrap(&body_html, true),
+            content: templates::home_wrap(&body_html),
         };
         write(&out, "/links/index.html", &templates::page(&page));
     }
@@ -210,7 +188,7 @@ fn main() {
         let content_html = format!(
             r#"<h1>Essays</h1>
 
-<p class="lede">Notes and essays on machine learning, neuroscience, genetics, and the occasional curiosity. <a href="/feed/essays.xml">Subscribe with RSS</a></p>
+<p class="lede"><a href="/feed/essays.xml">Subscribe with RSS</a></p>
 
 <ul class="essay-list">
 {items}
@@ -303,7 +281,6 @@ fn main() {
     // ---- Static assets ----
     let css_src = fs::read_to_string(root.join("assets/css/style.css")).unwrap();
     write(&out, "/assets/css/style.css", &minify::css(&css_src));
-    copy_dir(&root.join("assets/images"), &out.join("assets/images"));
 
     // GitHub Pages custom domain: needed in the published output on every
     // build, since the Actions deploy replaces the whole artifact each time.

@@ -2,10 +2,8 @@ pub struct Project {
     pub title: String,
     pub affil: String,
     pub desc: String,
-    pub img: String,
     pub link: Option<String>,
     pub link_text: String,
-    pub current: bool,
 }
 
 fn unquote(v: &str) -> String {
@@ -45,10 +43,8 @@ pub fn parse(src: &str) -> Vec<Project> {
                 title: String::new(),
                 affil: String::new(),
                 desc: String::new(),
-                img: String::new(),
                 link: None,
                 link_text: String::new(),
-                current: false,
             });
         }
         let Some((key, val)) = body.split_once(':') else {
@@ -60,10 +56,8 @@ pub fn parse(src: &str) -> Vec<Project> {
             "title" => p.title = val,
             "affil" => p.affil = val,
             "desc" => p.desc = val,
-            "img" => p.img = val,
             "link" => p.link = Some(val),
             "link_text" => p.link_text = val,
-            "current" => p.current = val == "true",
             _ => {}
         }
     }

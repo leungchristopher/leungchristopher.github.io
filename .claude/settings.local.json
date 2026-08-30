@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -lh /Users/chris/Documents/GitHub/leungchristopher.github.io/*.ttf)",
+      "Bash(find /Users/chris/Documents/GitHub/leungchristopher.github.io -type d -not -path */.*)",
+      "Bash(dig leungchristopher.com +short)",
+      "Bash(dig www.leungchristopher.com +short)",
+      "Bash(curl -sI https://leungchristopher.com)",
+      "Bash(ruby --version)",
+      "Bash(gem list *)"
+    ]
+  }
+}

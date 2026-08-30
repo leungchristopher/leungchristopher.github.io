@@ -6,9 +6,7 @@ title: Links
 
 People whose work I find interesting, and keep going back to.
 
-## Articles
-
-### Biomedical
+## Articles — Biomedical
 
 - [A future history of biomedical progress](https://markovbio.github.io/biomedical-progress/)
 - [Machine learning-powered drug discovery: now and tomorrow](https://ouncebiotech.substack.com/p/machine-learning-powered-drug-discovery-018)
@@ -17,8 +15,9 @@ People whose work I find interesting, and keep going back to.
 - [Anti-aging strategies and ex vivo organ rejuvenation](https://www.sciencedirect.com/science/article/pii/S193459092500445X)
 - [Transposons and aging](https://www.science.org/doi/10.1126/scitranslmed.abl6057/)
 - [MRI questions](https://mriquestions.com/)
-
-### Computer science
+- [In vivo screening](https://www.gordian.bio/blog/the-in-vivo-screening-revolution/)
+- [Impetus Grants](https://norn.group/impetus-grants)
+## Articles — Computer science
 
 - [How momentum works](https://distill.pub/2017/momentum/)
 - [The illustrated AlphaFold](https://elanapearl.github.io/blog/2024/the-illustrated-alphafold/)
@@ -37,17 +36,17 @@ People whose work I find interesting, and keep going back to.
 - [The tech interview handbook](https://www.techinterviewhandbook.org/)
 - [LeetGPU](https://leetgpu.com/challenges/)
 - [What is intelligence?](https://whatisintelligence.antikythera.org/)
+- [Context rot](https://www.trychroma.com/research/context-rot)
 
-### General
+## Articles — General
 
 - [Master one thing at a time](https://www.julian.ac/blog/2019/06/13/master-one-skill-at-a-time-instead-of-learning-many-at-once/)
 - [The new age of research](https://paradigma.inc/blog/the-new-age-of-research/)
 - [Fun arithmetic](https://arithmetic.zetamac.com/)
 - [Registered reports](https://www.nature.com/articles/d41586-026-01629-y)
+- [French](https://universitas-scholarium.org/latinum/french)
 
-## Blogs and websites
-
-### Machine learning
+## Blogs and websites — Machine learning
 
 - [Chris Olah](https://colah.github.io/)
 - [Lilian Weng](https://lilianweng.github.io/)
@@ -56,7 +55,7 @@ People whose work I find interesting, and keep going back to.
 - [Stanford CS336](https://cs336.stanford.edu/#coursework): language modelling from scratch
 - [Stanford CS329A](https://cs336.stanford.edu/#coursework): self improving agents
 
-### General
+## Blogs and websites — General
 
 - [Gwern Branwen](https://gwern.net/)
 - [Ben Kuhn](https://www.benkuhn.net/)
@@ -70,4 +69,3 @@ People whose work I find interesting, and keep going back to.
 - [Readwise](https://readwise.io/)
 - [Anki](https://apps.ankiweb.net/)
 - [Todo](https://github.com/leungchristopher/todo/)
-
