@@ -6,18 +6,18 @@ title: Links
 
 People whose work I find interesting, and keep going back to.
 
-## Articles — Biomedical
+## Articles: biomedical
 
-- [A future history of biomedical progress](https://markovbio.github.io/biomedical-progress/)
+- [A future history of biomedical progress](https://markovbio.github.io/biomedical-progress/): a wishlist.
 - [Machine learning-powered drug discovery: now and tomorrow](https://ouncebiotech.substack.com/p/machine-learning-powered-drug-discovery-018)
-- [Andy's brain book](https://andysbrainbook.readthedocs.io/)
-- [Genome-wide RNAi against Covid](https://www.nature.com/articles/s42003-023-04589-5)
+- [Andy's brain book](https://andysbrainbook.readthedocs.io/): a guide to fMRI data processing.
+- [Genome-wide RNAi against Covid](https://www.nature.com/articles/s42003-023-04589-5): an interesting application of massively parallel siRNA discovery.
 - [Anti-aging strategies and ex vivo organ rejuvenation](https://www.sciencedirect.com/science/article/pii/S193459092500445X)
 - [Transposons and aging](https://www.science.org/doi/10.1126/scitranslmed.abl6057/)
 - [MRI questions](https://mriquestions.com/)
 - [In vivo screening](https://www.gordian.bio/blog/the-in-vivo-screening-revolution/)
-- [Impetus Grants](https://norn.group/impetus-grants)
-## Articles — Computer science
+- [Impetus Grants](https://norn.group/impetus-grants): cool funding for biotech!
+## Articles: computer science
 
 - [How momentum works](https://distill.pub/2017/momentum/)
 - [The illustrated AlphaFold](https://elanapearl.github.io/blog/2024/the-illustrated-alphafold/)
@@ -37,16 +37,18 @@ People whose work I find interesting, and keep going back to.
 - [LeetGPU](https://leetgpu.com/challenges/)
 - [What is intelligence?](https://whatisintelligence.antikythera.org/)
 - [Context rot](https://www.trychroma.com/research/context-rot)
+- [Mamba](https://srush.github.io/annotated-mamba/hard.html)
 
-## Articles — General
+## Articles: general
 
 - [Master one thing at a time](https://www.julian.ac/blog/2019/06/13/master-one-skill-at-a-time-instead-of-learning-many-at-once/)
 - [The new age of research](https://paradigma.inc/blog/the-new-age-of-research/)
 - [Fun arithmetic](https://arithmetic.zetamac.com/)
 - [Registered reports](https://www.nature.com/articles/d41586-026-01629-y)
 - [French](https://universitas-scholarium.org/latinum/french)
+- [Tacit knowledge](https://commoncog.com/the-tacit-knowledge-series/)
 
-## Blogs and websites — Machine learning
+## Blogs and websites: machine learning
 
 - [Chris Olah](https://colah.github.io/)
 - [Lilian Weng](https://lilianweng.github.io/)
@@ -54,8 +56,9 @@ People whose work I find interesting, and keep going back to.
 - [Berkeley CS185/285](https://rail.eecs.berkeley.edu/deeprlcourse/): deep reinforcement learning
 - [Stanford CS336](https://cs336.stanford.edu/#coursework): language modelling from scratch
 - [Stanford CS329A](https://cs336.stanford.edu/#coursework): self improving agents
+- [Beren Millidge](https://www.beren.io/sequences/)
 
-## Blogs and websites — General
+## More general blogs and websites
 
 - [Gwern Branwen](https://gwern.net/)
 - [Ben Kuhn](https://www.benkuhn.net/)

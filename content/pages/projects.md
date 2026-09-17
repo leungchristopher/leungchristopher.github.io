@@ -13,45 +13,51 @@ May be a lagging indicator
 
 <details class="proj">
   <summary>
-    <span class="proj-arrow" aria-hidden="true"></span>
-    <span class="proj-title">World models with JAX</span>
+    <strong>Action chunking with transformers</strong>
   </summary>
   <div class="proj-body">
-    <p class="desc">Implementation of LeJEPA architecture, trained using JAX on GPUs.</p>
-    <p class="project-link"><a class="btn" href="https://github.com/leungchristopher/lejax">code</a></p>
+    <p>Teaching a network to control a robotic arm with action chunking, to perform the task of grasping a champagne flute, flipping it upside down, and manoeuvring it to a new position.</p>
+    <p><a href="https://github.com/leungchristopher/ACTdemo">code</a></p>
   </div>
 </details>
 
 <details class="proj">
   <summary>
-    <span class="proj-arrow" aria-hidden="true"></span>
-    <span class="proj-title">todo</span>
+    <strong>World models with JAX</strong>
   </summary>
   <div class="proj-body">
-    <p class="desc">Built in Rust: control your todo list. Used to learn Rust.</p>
-    <p class="project-link"><a class="btn" href="https://github.com/leungchristopher/todo">Try here!</a></p>
+    <p>Implementation of LeJEPA architecture, trained using JAX on GPUs.</p>
+    <p><a href="https://github.com/leungchristopher/lejax">code</a></p>
   </div>
 </details>
 
 <details class="proj">
   <summary>
-    <span class="proj-arrow" aria-hidden="true"></span>
-    <span class="proj-title">Cross-lingual interpretability</span>
+    <strong>todo</strong>
+  </summary>
+  <div class="proj-body">
+    <p>Built in Rust: control your todo list. Used to learn Rust.</p>
+    <p><a href="https://github.com/leungchristopher/todo">Try here!</a></p>
+  </div>
+</details>
+
+<details class="proj">
+  <summary>
+    <strong>Cross-lingual interpretability</strong>
   </summary>
   <div class="proj-body">
     <p class="affil">Oxford AI Safety Initiative, 2026</p>
-    <p class="desc">Using LoRA finetuning to understand generalisation across languages in open-source LLMs.</p>
-    <p class="project-link"><a class="btn" href="https://github.com/Ky-Ng/x-linguistic-fine-tuning-generalization">writeup and code</a></p>
+    <p>Using LoRA finetuning to understand generalisation across languages in open-source LLMs.</p>
+    <p><a href="https://github.com/Ky-Ng/x-linguistic-fine-tuning-generalization">writeup and code</a></p>
   </div>
 </details>
 
 <details class="proj">
   <summary>
-    <span class="proj-arrow" aria-hidden="true"></span>
-    <span class="proj-title">Multi-agent AlphaZero</span>
+    <strong>Multi-agent AlphaZero</strong>
   </summary>
   <div class="proj-body">
-    <p class="desc">Implementation of the multi-agent AlphaZero architecture, trained using JAX on GPUs.</p>
-    <p class="project-link"><a class="btn" href="https://github.com/leungchristopher/maz">code</a></p>
+    <p>Implementation of the multi-agent AlphaZero architecture, trained using JAX on GPUs.</p>
+    <p><a href="https://github.com/leungchristopher/maz">code</a></p>
   </div>
 </details>

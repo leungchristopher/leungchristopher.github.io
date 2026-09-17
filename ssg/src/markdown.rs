@@ -106,30 +106,6 @@ fn find_seq(chars: &[char], from: usize, seq: &str) -> Option<usize> {
     (from..=n - m).find(|&j| chars[j..j + m] == seq[..])
 }
 
-/// Parses a `!progress[Title](X/Y)` line into (title, filled, total).
-fn parse_progress(line: &str) -> Option<(String, u32, u32)> {
-    let rest = line.strip_prefix("!progress[")?;
-    let (title, rest) = rest.split_once("](")?;
-    let rest = rest.strip_suffix(')')?;
-    let (filled, total) = rest.split_once('/')?;
-    let filled: u32 = filled.trim().parse().ok()?;
-    let total: u32 = total.trim().parse().ok()?;
-    Some((title.to_string(), filled, total))
-}
-
-/// Renders a reusable progress bar: a title line above a continuous
-/// black fill bar, with an "X/Y" count.
-fn render_progress(title: &str, filled: u32, total: u32, refs: &HashMap<String, String>) -> String {
-    let pct = if total > 0 { (filled as f64 / total as f64) * 100.0 } else { 0.0 };
-    format!(
-        "<div class=\"progress-bar\">\n<div class=\"progress-bar-title\">{}</div>\n<div class=\"progress-bar-track\"><div class=\"progress-bar-fill\" style=\"width: {:.2}%\"></div></div>\n<div class=\"progress-bar-count\">{}/{}</div>\n</div>\n",
-        inline(title, refs),
-        pct,
-        filled,
-        total
-    )
-}
-
 fn ial_class(line: &str) -> Option<String> {
     let line = line.trim();
     let inner = line.strip_prefix("{:")?.strip_suffix('}')?;
@@ -163,13 +139,6 @@ pub fn render(src: &str, directives: &HashMap<&str, String>) -> String {
         let trimmed = line.trim();
 
         if trimmed.is_empty() {
-            i += 1;
-            continue;
-        }
-
-        // Segmented progress bar: !progress[Title](X/Y)
-        if let Some((title, filled, total)) = parse_progress(trimmed) {
-            out.push_str(&render_progress(&title, filled, total, &refs));
             i += 1;
             continue;
         }
@@ -344,7 +313,6 @@ pub fn render_reading(src: &str) -> String {
     }
 
     let mut out = String::new();
-    let mut in_wrapper = false;
     let mut in_h1 = false;
     let mut in_h2 = false;
     let mut in_ul = false;
@@ -365,7 +333,7 @@ pub fn render_reading(src: &str) -> String {
     let close_h1 = |out: &mut String, in_ul: &mut bool, in_h2: &mut bool, in_h1: &mut bool| {
         close_h2(out, in_ul, in_h2);
         if *in_h1 {
-            out.push_str("</div>\n</details>\n");
+            out.push_str("</details>\n");
             *in_h1 = false;
         }
     };
@@ -384,7 +352,7 @@ pub fn render_reading(src: &str) -> String {
         if let Some(text) = trimmed.strip_prefix("### ") {
             close_h2(&mut out, &mut in_ul, &mut in_h2);
             out.push_str(&format!(
-                "<details class=\"link-h2\" open>\n<summary><span class=\"link-arrow\"></span><h3 class=\"link-h2-title\">{}</h3></summary>\n",
+                "<details class=\"link-h2\" open>\n<summary><h3 class=\"link-h2-title\">{}</h3></summary>\n",
                 inline(text.trim(), &refs)
             ));
             in_h2 = true;
@@ -394,12 +362,8 @@ pub fn render_reading(src: &str) -> String {
 
         if let Some(text) = trimmed.strip_prefix("## ") {
             close_h1(&mut out, &mut in_ul, &mut in_h2, &mut in_h1);
-            if !in_wrapper {
-                out.push_str("<div class=\"reading-groups\">\n");
-                in_wrapper = true;
-            }
             out.push_str(&format!(
-                "<details class=\"link-h1\" open>\n<summary><span class=\"link-arrow\"></span><h2 class=\"link-h1-title\">{}</h2></summary>\n<div class=\"link-h1-body\">\n",
+                "<details class=\"link-h1\" open>\n<summary><h2 class=\"link-h1-title\">{}</h2></summary>\n",
                 inline(text.trim(), &refs)
             ));
             in_h1 = true;
@@ -423,7 +387,7 @@ pub fn render_reading(src: &str) -> String {
             let mut li = inline(item, &refs);
             if let Some(slug) = writeup {
                 li.push_str(&format!(
-                    " <a class=\"link-writeup\" href=\"/writeups/{}/\">[writeup]</a>",
+                    " <a href=\"/writeups/{}/\">[writeup]</a>",
                     slug
                 ));
             }
@@ -459,9 +423,6 @@ pub fn render_reading(src: &str) -> String {
     }
 
     close_h1(&mut out, &mut in_ul, &mut in_h2, &mut in_h1);
-    if in_wrapper {
-        out.push_str("</div>\n");
-    }
     out
 }
 
