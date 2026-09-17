@@ -6,3 +6,4 @@ ssg/target
 .DS_Store*
 
 rlhf.md
+.claude/
