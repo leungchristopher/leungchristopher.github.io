@@ -88,6 +88,7 @@ pub fn page(p: &Page) -> String {
   <title>{title_tag}</title>
   <meta name="description" content="{description}">
   <link rel="canonical" href="{url}{path}">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="stylesheet" href="/assets/css/style.css">
   <link type="application/atom+xml" rel="alternate" href="/feed/essays.xml" title="{site_title} — Essays">
   {mathjax}</head>

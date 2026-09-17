@@ -272,6 +272,8 @@ fn main() {
     }
 
     // ---- Static assets ----
+    fs::create_dir_all(out.join("assets")).unwrap();
+    fs::copy(root.join("assets/favicon.svg"), out.join("assets/favicon.svg")).unwrap();
     let css_src = fs::read_to_string(root.join("assets/css/style.css")).unwrap();
     write(&out, "/assets/css/style.css", &minify::css(&css_src));
 
