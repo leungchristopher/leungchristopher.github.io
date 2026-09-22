@@ -10,4 +10,4 @@ In a past life, I was a finalist in the selection of the UK's teams for the Inte
 
 Beyond my work, I enjoy playing chamber music, tennis, and distance running.
 
-If you are interested in collaborating with me, feel free to reach out by [email](mailto:chrishcleung@gmail.com).
+If you are interested in collaborating with me, feel free to reach out by [email](mailto:chrishcleung@gmail.com). If you're interested in my New York Times pips solver, it's [here](https://pipssolver.vercel.app/).
