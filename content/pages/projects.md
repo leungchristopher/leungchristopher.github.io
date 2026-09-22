@@ -13,6 +13,16 @@ May be a lagging indicator
 
 <details class="proj">
   <summary>
+    <strong>New York Times Pips solver</strong>
+  </summary>
+  <div class="proj-body">
+    <p>Belief propagation, message passing, and factor graphs applied to solving New York Times Pips. This is obviously not as efficient as a simple constraint/backtracking solver, but it is a statistical analogue of how we solve puzzles collaboratively.</p>
+    <p><a href="https://pipssolver.vercel.app/">Try it here!</a></p>
+  </div>
+</details>
+
+<details class="proj">
+  <summary>
     <strong>Action chunking with transformers</strong>
   </summary>
   <div class="proj-body">
