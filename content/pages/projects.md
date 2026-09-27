@@ -11,7 +11,7 @@ May be a lagging indicator
 
 ## Projects
 
-<details class="proj" open>
+<details class="proj">
   <summary>
     <strong>New York Times Pips solver</strong>
   </summary>
@@ -21,7 +21,7 @@ May be a lagging indicator
   </div>
 </details>
 
-<details class="proj" open>
+<details class="proj">
   <summary>
     <strong>Action chunking with transformers</strong>
   </summary>
@@ -31,7 +31,7 @@ May be a lagging indicator
   </div>
 </details>
 
-<details class="proj" open>
+<details class="proj">
   <summary>
     <strong>World models with JAX</strong>
   </summary>
@@ -41,7 +41,7 @@ May be a lagging indicator
   </div>
 </details>
 
-<details class="proj" open>
+<details class="proj">
   <summary>
     <strong>todo</strong>
   </summary>
@@ -51,7 +51,7 @@ May be a lagging indicator
   </div>
 </details>
 
-<details class="proj" open>
+<details class="proj">
   <summary>
     <strong>Cross-lingual interpretability</strong>
   </summary>
@@ -62,7 +62,7 @@ May be a lagging indicator
   </div>
 </details>
 
-<details class="proj" open>
+<details class="proj">
   <summary>
     <strong>Multi-agent AlphaZero</strong>
   </summary>

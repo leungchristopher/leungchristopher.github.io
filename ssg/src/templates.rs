@@ -90,27 +90,21 @@ pub fn page(p: &Page) -> String {
   <title>{title_tag}</title>
   <meta name="description" content="{description}">
   <link rel="canonical" href="{url}{path}">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="stylesheet" href="/assets/css/style.css">
-  <meta name="view-transition" content="same-origin">
   <link type="application/atom+xml" rel="alternate" href="/feed/essays.xml" title="{site_title} — Essays">
   {mathjax}</head>
 <body{body_class}>
-  <div class="wrap">
-    <header class="site-header">
-      <nav class="site-nav">
-        {nav}
-      </nav>
-    </header>
-
-    <main class="content">
+  <main>
       {content}
-    </main>
+  </main>
 
-    <footer class="site-footer">
-      <div class="social">© 2026</div>
-    </footer>
-  </div>
+  <footer class="site-footer">
+    <nav class="site-nav" aria-label="Main navigation">
+      {nav}
+    </nav>
+    <div class="social">© 2026</div>
+  </footer>
 
 </body>
 </html>
