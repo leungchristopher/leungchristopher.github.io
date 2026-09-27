@@ -54,11 +54,7 @@ const MATHJAX: &str = r#"<script>
 "#;
 
 pub fn page(p: &Page) -> String {
-    let title_tag = if p.title.is_empty() || p.title == TITLE {
-        TITLE.to_string()
-    } else {
-        format!("{} · {}", p.title, TITLE)
-    };
+    let title_tag = "chris leung";
     let body_class = p
         .body_class
         .as_ref()
