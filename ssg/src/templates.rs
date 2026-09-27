@@ -3,6 +3,7 @@ use crate::config::*;
 pub struct Page {
     pub title: String,
     pub path: String,
+    pub body_class: Option<String>,
     pub math: bool,
     pub content: String,
 }
@@ -58,15 +59,15 @@ pub fn page(p: &Page) -> String {
     } else {
         format!("{} · {}", p.title, TITLE)
     };
+    let body_class = p
+        .body_class
+        .as_ref()
+        .map(|c| format!(" class=\"{}\"", c))
+        .unwrap_or_default();
     let mathjax = if p.math { MATHJAX } else { "" };
-    let social = SOCIAL
-        .iter()
-        .map(|(label, href)| format!("<a href=\"{}\">{}</a>", href, label))
-        .collect::<Vec<_>>()
-        .join("\n        ");
     let nav_link = |path: &str, label: &str, active: bool| {
         if active {
-            format!("<a href=\"{}\" aria-current=\"page\">{}</a>", path, label)
+            format!("<a class=\"is-active\" href=\"{}\" aria-current=\"page\">{}</a>", path, label)
         } else {
             format!("<a href=\"{}\">{}</a>", path, label)
         }
@@ -75,7 +76,8 @@ pub fn page(p: &Page) -> String {
         nav_link("/", "Now", p.path == "/"),
         nav_link("/projects/", "Projects", p.path.starts_with("/projects/")),
         nav_link("/essays/", "Essays", p.path.starts_with("/essays/")),
-        nav_link("/links/", "Links", p.path.starts_with("/links/")),
+        nav_link("/links/", "Recs", p.path.starts_with("/links/")),
+        nav_link("/contact/", "Contact", p.path.starts_with("/contact/")),
     ]
     .join("\n        ");
 
@@ -88,23 +90,27 @@ pub fn page(p: &Page) -> String {
   <title>{title_tag}</title>
   <meta name="description" content="{description}">
   <link rel="canonical" href="{url}{path}">
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap">
   <link rel="stylesheet" href="/assets/css/style.css">
+  <meta name="view-transition" content="same-origin">
   <link type="application/atom+xml" rel="alternate" href="/feed/essays.xml" title="{site_title} — Essays">
   {mathjax}</head>
-<body>
-  <main>
-    {content}
-  </main>
+<body{body_class}>
+  <div class="wrap">
+    <header class="site-header">
+      <nav class="site-nav">
+        {nav}
+      </nav>
+    </header>
 
-  <footer class="site-footer">
-    <nav class="site-nav" aria-label="Main navigation">
-      {nav}
-    </nav>
-    <div class="social">
-      {social}
-    </div>
-  </footer>
+    <main class="content">
+      {content}
+    </main>
+
+    <footer class="site-footer">
+      <div class="social">© 2026</div>
+    </footer>
+  </div>
 
 </body>
 </html>
@@ -115,18 +121,22 @@ pub fn page(p: &Page) -> String {
         path = p.path,
         site_title = TITLE,
         mathjax = mathjax,
-        social = social,
+        body_class = body_class,
         nav = nav,
         content = p.content,
     )
 }
 
+pub fn home_wrap(body_html: &str) -> String {
+    format!("<div class=\"home\">\n{}</div>\n", body_html)
+}
+
 pub fn essay_article(title: &str, date_long: &str, date_iso: &str, body_html: &str) -> String {
     format!(
-        r#"<article>
+        r#"<article class="essay">
   <header class="essay-header">
     <h1 class="essay-title">{title}</h1>
-    <time datetime="{date_iso}">{date_long}</time>
+    <time class="essay-date" datetime="{date_iso}">{date_long}</time>
   </header>
 
   {toc}
@@ -147,10 +157,10 @@ pub fn essay_article(title: &str, date_long: &str, date_iso: &str, body_html: &s
 
 pub fn writeup_article(title: &str, date_long: &str, date_iso: &str, body_html: &str) -> String {
     format!(
-        r#"<article>
+        r#"<article class="essay">
   <header class="essay-header">
     <h1 class="essay-title">{title}</h1>
-    <time datetime="{date_iso}">{date_long}</time>
+    <time class="essay-date" datetime="{date_iso}">{date_long}</time>
   </header>
 
   <div class="essay-body">
@@ -175,17 +185,19 @@ pub fn project_card(
 ) -> String {
     let link_html = match link {
         Some(l) => format!(
-            "<p><a href=\"{}\">{}</a></p>",
+            "<p class=\"project-link\"><a class=\"btn\" href=\"{}\">{}</a></p>",
             l, link_text
         ),
         None => String::new(),
     };
     format!(
         r#"<div class="project">
-  <h3>{title}</h3>
-  <p class="affil">{affil}</p>
-  <p>{desc}</p>
-  {link}
+  <div class="project-body">
+    <h3>{title}</h3>
+    <p class="affil">{affil}</p>
+    <p class="desc">{desc}</p>
+    {link}
+  </div>
 </div>"#,
         title = title,
         affil = affil,

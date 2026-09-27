@@ -68,8 +68,9 @@ fn main() {
         let page = templates::Page {
             title: fm.get("title").unwrap_or("").to_string(),
             path: "/".to_string(),
+            body_class: None,
             math: fm.flag("math"),
-            content: body_html,
+            content: templates::home_wrap(&body_html),
         };
         write(&out, "/index.html", &templates::page(&page));
     }
@@ -84,8 +85,9 @@ fn main() {
         let page = templates::Page {
             title: fm.get("title").unwrap_or("Projects").to_string(),
             path: "/projects/".to_string(),
+            body_class: None,
             math: fm.flag("math"),
-            content: body_html,
+            content: templates::home_wrap(&body_html),
         };
         write(&out, "/projects/index.html", &templates::page(&page));
     }
@@ -96,12 +98,28 @@ fn main() {
         let (fm, body) = frontmatter::parse(&src);
         let body_html = markdown::render_reading(body);
         let page = templates::Page {
-            title: fm.get("title").unwrap_or("Links").to_string(),
+            title: fm.get("title").unwrap_or("Recs").to_string(),
             path: "/links/".to_string(),
+            body_class: None,
             math: false,
-            content: body_html,
+            content: templates::home_wrap(&body_html),
         };
         write(&out, "/links/index.html", &templates::page(&page));
+    }
+
+    // ---- Contact page ----
+    {
+        let src = fs::read_to_string(content.join("pages/contact.md")).unwrap();
+        let (fm, body) = frontmatter::parse(&src);
+        let body_html = markdown::render(body, &HashMap::new());
+        let page = templates::Page {
+            title: fm.get("title").unwrap_or("Contact").to_string(),
+            path: "/contact/".to_string(),
+            body_class: None,
+            math: false,
+            content: templates::home_wrap(&body_html),
+        };
+        write(&out, "/contact/index.html", &templates::page(&page));
     }
 
     // ---- Writeups: intentionally unlisted, no index/feed/sitemap entry ----
@@ -121,6 +139,7 @@ fn main() {
                 let page = templates::Page {
                     title,
                     path: format!("/writeups/{}/", slug),
+                    body_class: None,
                     math,
                     content: article,
                 };
@@ -136,6 +155,7 @@ fn main() {
         let page = templates::Page {
             title: "Page not found".to_string(),
             path: "/404.html".to_string(),
+            body_class: None,
             math: false,
             content: content_html.to_string(),
         };
@@ -158,6 +178,7 @@ fn main() {
         let page = templates::Page {
             title: title.clone(),
             path: format!("/essays/{}/", slug),
+            body_class: None,
             math,
             content: article,
         };
@@ -173,16 +194,14 @@ fn main() {
             .filter(|e| !e.draft)
             .map(|e| {
                 format!(
-                    "<li class=\"essay-item\">\n<a href=\"/essays/{slug}/\">{title}</a>\n<time class=\"essay-item-date\" datetime=\"{iso}\">{date}</time>\n</li>",
+                    "<li class=\"essay-item\">\n<a class=\"essay-item-title\" href=\"/essays/{slug}/\">{title}</a>\n<span class=\"essay-item-rule\" aria-hidden=\"true\"></span>\n<time class=\"essay-item-date\" datetime=\"{iso}\">{date}</time>\n</li>",
                     slug = e.slug, title = e.title, iso = e.date.iso(), date = e.date.dotted()
                 )
             })
             .collect::<Vec<_>>()
             .join("\n");
         let content_html = format!(
-            r#"<h1>Essays</h1>
-
-<p><a href="/feed/essays.xml">Subscribe with RSS</a></p>
+            r#"<p><a href="/feed/essays.xml">Subscribe with RSS</a></p>
 
 <ul class="essay-list">
 {items}
@@ -192,6 +211,7 @@ fn main() {
         let page = templates::Page {
             title: "Essays".to_string(),
             path: "/essays/".to_string(),
+            body_class: None,
             math: false,
             content: content_html,
         };
@@ -255,6 +275,7 @@ fn main() {
             ("/projects/".to_string(), today_iso.clone()),
             ("/essays/".to_string(), today_iso.clone()),
             ("/links/".to_string(), today_iso.clone()),
+            ("/contact/".to_string(), today_iso.clone()),
         ];
         for e in essays.iter().filter(|e| !e.draft) {
             urls.push((format!("/essays/{}/", e.slug), e.date.iso()));
