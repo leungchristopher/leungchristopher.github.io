@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>chris leung</title>
+  <meta name="description" content="Machine learning and genetics at Cambridge.">
+  <link rel="canonical" href="https://leungchristopher.com/essays/pinns-1/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link type="application/atom+xml" rel="alternate" href="/feed/essays.xml" title="Chris Leung — Essays">
+  <script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      tags: 'ams'
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+  <main>
+      <article class="essay">
+  <header class="essay-header">
+    <h1 class="essay-title">Physics-informed neural networks 1</h1>
+    <time class="essay-date" datetime="2026-04-02T00:00:00+00:00">2 April 2026</time>
+  </header>
+
+  <nav class="essay-toc" aria-label="On this page" hidden>
+  <p class="essay-toc-title">Contents</p>
+  <ol class="essay-toc-list"></ol>
+</nav>
+<script>
+(function () {
+  var body = document.querySelector('.essay-body');
+  var nav = document.querySelector('.essay-toc');
+  if (!body || !nav) return;
+  var headings = body.querySelectorAll('h2, h3');
+  if (headings.length < 2) return;
+  var list = nav.querySelector('.essay-toc-list');
+  headings.forEach(function (heading, index) {
+    if (!heading.id) heading.id = 'section-' + index;
+    var li = document.createElement('li');
+    li.className = 'essay-toc-' + heading.tagName.toLowerCase();
+    var a = document.createElement('a');
+    a.href = '#' + heading.id;
+    a.textContent = heading.textContent.trim();
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+  nav.hidden = false;
+})();
+</script>
+
+
+  <div class="essay-body">
+<p>Overfitting and generalisation are perpetual problems in neural network training. One thing we can do is regularisation, where we add $L(\textrm{regularisation})=\lambda\lVert \theta \rVert$.</p>
+<p>A physics-informed neural network (PINN) can simply guide the shape of the neural network - a regularising prior on a universal function approximator. So we can set Loss = Data Loss + Physics-informed Loss. If we pick the function $g:X\rightarrow Y$ where the neural network $f:X\rightarrow Y$ is parameterised by $\theta$, we can use $g(x,f(x\mid\theta))$ weighted by $\lambda$ as the physics-informed loss.</p>
+<p>If we're modelling a physical system, you might call this cheating: for me, it's just a really strong prior on what we expect our functions to look like. Perhaps you're working with some projectile data, but you've forgotten which planet you fired your projectile on: set $g$ to be your differentiable parameter, and let backpropagation find your solution!</p>
+<p>I will put together a demo when I find time - perhaps after Monday.</p>
+
+  </div>
+
+  <p class="essay-back"><a href="/essays/">All essays</a></p>
+</article>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/">Now</a>
+        <a href="/projects/">Projects</a>
+        <a class="is-active" href="/essays/" aria-current="page">Essays</a>
+        <a href="/links/">Recs</a>
+        <a href="/contact/">Contact</a>
+    </nav>
+    <div class="social">© 2026</div>
+  </footer>
+
+</body>
+</html>

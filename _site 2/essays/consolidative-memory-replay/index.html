@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>chris leung</title>
+  <meta name="description" content="Machine learning and genetics at Cambridge.">
+  <link rel="canonical" href="https://leungchristopher.com/essays/consolidative-memory-replay/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link type="application/atom+xml" rel="alternate" href="/feed/essays.xml" title="Chris Leung — Essays">
+  </head>
+<body>
+  <main>
+      <article class="essay">
+  <header class="essay-header">
+    <h1 class="essay-title">Consolidative memory replay</h1>
+    <time class="essay-date" datetime="2026-04-03T00:00:00+00:00">3 April 2026</time>
+  </header>
+
+  <nav class="essay-toc" aria-label="On this page" hidden>
+  <p class="essay-toc-title">Contents</p>
+  <ol class="essay-toc-list"></ol>
+</nav>
+<script>
+(function () {
+  var body = document.querySelector('.essay-body');
+  var nav = document.querySelector('.essay-toc');
+  if (!body || !nav) return;
+  var headings = body.querySelectorAll('h2, h3');
+  if (headings.length < 2) return;
+  var list = nav.querySelector('.essay-toc-list');
+  headings.forEach(function (heading, index) {
+    if (!heading.id) heading.id = 'section-' + index;
+    var li = document.createElement('li');
+    li.className = 'essay-toc-' + heading.tagName.toLowerCase();
+    var a = document.createElement('a');
+    a.href = '#' + heading.id;
+    a.textContent = heading.textContent.trim();
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+  nav.hidden = false;
+})();
+</script>
+
+
+  <div class="essay-body">
+<p>I had to write a research proposal recently, and I came across this really interesting problem in the exploration phase.</p>
+<p>There are certain experimental systems which are very amenable to damage. A spatial example is the mouse hippocampus, which encodes place fields - essentially, sets of neurons that fire when recognising a certain part of space. The HVC in zebra finches is a nucleus that encodes temporally-associated memories.</p>
+<p>In both cases, you can damage almost half of the excitatory neurons, and the mice/songbirds will still recover their behaviour within days or weeks. This is remarkable in itself, but there is also a temporal dynamic to it. In songbirds, we observe steady improvement during the say, spontaneous neuronal activity during the night, and backsliding during the day.</p>
+<p>Now, there are a few possibilities: this may be explained by a Hebbian mechanism, or perhaps homeostasis. But perhaps a more interesting line of inquiry is the idea of consolidative memory replay: how do you know whether you've progressed in the right direction or not? Perhaps spontaneous neuronal activation during sleep acts as a <em>simulated annealing</em> process.</p>
+<p>Simulated annealing derives from a metallurgical metaphor, where slow cooling represents slowly increasing the acceptance threshold as we explore solution space for the global optimum.</p>
+<pre><code class="language-text">s=s_0
+for k in range (0, k_max):
+	T ← temperature(1-(k+1)/k_max)
+	s_new ← neighbour_random(s)
+	if P(E(s), E(S_new), T) &gt;= Rand(0,1):
+		s ← s_new
+return s</code></pre>
+<p>Perhaps memory replay acts as a way to anneal out of undesired learned behaviours after circuit perturbation. Given that these behaviours can be recovered without practice, this could be an intriguing way to explain why brain circuits are so resilient.</p>
+
+  </div>
+
+  <p class="essay-back"><a href="/essays/">All essays</a></p>
+</article>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/">Now</a>
+        <a href="/projects/">Projects</a>
+        <a class="is-active" href="/essays/" aria-current="page">Essays</a>
+        <a href="/links/">Recs</a>
+        <a href="/contact/">Contact</a>
+    </nav>
+    <div class="social">© 2026</div>
+  </footer>
+
+</body>
+</html>

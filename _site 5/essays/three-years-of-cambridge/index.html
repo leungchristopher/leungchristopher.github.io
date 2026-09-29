@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>chris leung</title>
+  <meta name="description" content="Machine learning and genetics at Cambridge.">
+  <link rel="canonical" href="https://leungchristopher.com/essays/three-years-of-cambridge/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link type="application/atom+xml" rel="alternate" href="/feed/essays.xml" title="Chris Leung — Essays">
+  </head>
+<body>
+  <main>
+      <article class="essay">
+  <header class="essay-header">
+    <h1 class="essay-title">Three years of Cambridge and twenty-six ideas</h1>
+    <time class="essay-date" datetime="2026-06-24T00:00:00+00:00">24 June 2026</time>
+  </header>
+
+  <nav class="essay-toc" aria-label="On this page" hidden>
+  <p class="essay-toc-title">Contents</p>
+  <ol class="essay-toc-list"></ol>
+</nav>
+<script>
+(function () {
+  var body = document.querySelector('.essay-body');
+  var nav = document.querySelector('.essay-toc');
+  if (!body || !nav) return;
+  var headings = body.querySelectorAll('h2, h3');
+  if (headings.length < 2) return;
+  var list = nav.querySelector('.essay-toc-list');
+  headings.forEach(function (heading, index) {
+    if (!heading.id) heading.id = 'section-' + index;
+    var li = document.createElement('li');
+    li.className = 'essay-toc-' + heading.tagName.toLowerCase();
+    var a = document.createElement('a');
+    a.href = '#' + heading.id;
+    a.textContent = heading.textContent.trim();
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+  nav.hidden = false;
+})();
+</script>
+
+
+  <div class="essay-body">
+<p>Another year at Cambridge has drawn to a close, so I've decided to come up with 10 paragraphs and 16 one-liners (making 26 (!) points) to summarise what I've learned so far.</p>
+<h1>Academic</h1>
+<h2>Phenomenology and mechanism</h2>
+<p>A concept that came up a lot in my study of genetics was the conversion of phenomenology to mechanism. Phenomenology, in the Husserl and Heidegger tradition, is the idea of first-person lived experiences and consciousness: in science, I recast this as using abstract mathematical models to describe and predict observable experimental data. A mechanism a physicochemical, biological process that creates the traits we describe using phenomenology. The outstanding success of quantitative genetics did not require our molecular understanding of genes, and phenomenological models still pervade systems biology. Crucially, a mechanism isn't required for us to medically/biologically act on the evidence.</p>
+<h2>The exploration-exploitation dilemma</h2>
+<p>This perhaps bridges both the academic and personal aspects of my life. In machine learning, we have the idea of the multi-armed bandit: if you have a row of slot machines, each with unknown payoffs (of which estimates you can improve in a Bayesian way), how many times do you play each machine, and in what order? Exploration becomes more difficult as rewards become sparser, less reliable, or less observable. I have more to say on this topic mathematically, and perhaps this will be another article.</p>
+<h2>All your models are wrong, and yours are useless</h2>
+<p>I attended a talk given by Florian Markowetz to Cancer Research UK Cambridge Institute students, and he raised the point that clinical prediction models are uselss unless they're impactful for patients. This got me thinking about the role of modelling in science: when a model has great explanatory power (e.g. Maxwell's electrodynamical equations and the symmetry-adapted linear combinations in chemistry), they do have an impact. Yet in biology, where populations are stratified, variation isn't well characterised, and the branching tree of individually justifiable data analysis choices is practically infinite, modelling has found far less success than in other fields. We can make the tools accessible (e.g. Mendelian Randomisation), but this information can be benignly harmful - when people make decisions based off of faulty analysis, the medical and financial consequences are immense. Understanding when a model concretely adds to the evidence is so important.</p>
+<h2>Why we haven't solved biology so far</h2>
+<p>Before I came across the idea of gene ontology (GO) annotation in my second year, I naively thought about the idea of writing down a structured grammar for biology, in order to reason about pathways without having to memorise all of the finicky 3/4 letter acronyms. The central idea of GO annotation is that everything has a molecular function, a biological process, and a cellular component, and annotating gene products with a hierarchical set of GO terms allows computational tools to trace biological pathways in a precise way.</p>
+<p>Yet in the Tinbergen tradition, this is a static, proximate view: it doesn't tell us anything about the dynamics of a biological system, nor does it give us the ultimate reason why something exists. This obviously wasn't a goal of Ashburner's GO project, but it did make me think a lot about the promise of dynamical systems theory, when applied to entire cells. As always, the issue is that we don't have measurable latent variables!</p>
+<h2>Neuroscience and imagination</h2>
+<p>Memory replay in the hippocampus and in other motor functions continues to fascinate me: is there a form of simulated annealing that helps us get out of maladaptive states in the brain? There is some evidence pointing towards this in mouse hippocampus and in model motor systems, but I'm interested in the implications for machine learning: perhaps we can go beyond backpropagation, and follow the Stanley and Lehman PicBreeder-style approach, so that representations are disentangled and more interpretable. I suspect this topic will keep me entertained for a very long time...</p>
+<h1>Personal</h1>
+<p>Will be significantly shorter, to keep things light!</p>
+<h2>Health</h2>
+<p>Really the pillar of my happiness: that doesn't mean I track everything (I don't have the patience/brain capacity to do so), but staying fit and healthy has helped me so much this year.</p>
+<h2>People</h2>
+<p>It's very easy to feel like you've found <em>your people</em>, and then doubt that feeling. Sometimes it's worth taking the leap, and not doubting.</p>
+<h2>Just do things?</h2>
+<p>I've run into quite a few good opportunities by just putting myself out there, and taking rejection quite lightly. Something that I'll keep improving at.</p>
+<h2>Music</h2>
+<p>It's been such a joy playing with other people again, and I've planned more musical sidequests next year!</p>
+<h2>Time</h2>
+<p>This is the time where I'll have the fewest responsibilities ever. Whilst this doesn't mean that one should be irresponsible, one should take advantage of this abundance: see that friend, spend those hours watching the sun set, chat late into the night. Because this era, too, will end.</p>
+<h1>Quickfire round</h1>
+<ol>
+<li>When life gets you down, have some fruit</li>
+<li>Wear sunscreen and don't apply it in spots</li>
+<li>Everything can be a trip hazard if you're sufficiently unskilled</li>
+<li>It's okay to be dilettantish in your pursuits as long as you achieve depth in them and cross-fertilise ideas</li>
+<li>Developmental biology is really really hard</li>
+<li>13.1 miles is the Pareto frontier in the pain-enjoyment tradeoff</li>
+<li>Play music with your friends more frequently</li>
+<li>Swimming is the most underrated form of cardio</li>
+<li>Don't trade sleep for marginal increments in work hours</li>
+<li>What is your question?</li>
+<li>Don't work yourself to the bone: you (and the people who remember you afterwards) will regret it</li>
+<li>Smell the flowers</li>
+<li>Play some more games when you and your friends are bored</li>
+<li>Eat the frog</li>
+<li>Reject things which drain you</li>
+<li>It's about the life in your years, not the years in your life</li>
+</ol>
+<p>Part of a 15 minute writing exercise</p>
+
+  </div>
+
+  <p class="essay-back"><a href="/essays/">All essays</a></p>
+</article>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/">Now</a>
+        <a href="/projects/">Projects</a>
+        <a class="is-active" href="/essays/" aria-current="page">Essays</a>
+        <a href="/links/">Recs</a>
+        <a href="/contact/">Contact</a>
+    </nav>
+    <div class="social">© 2026</div>
+  </footer>
+
+</body>
+</html>

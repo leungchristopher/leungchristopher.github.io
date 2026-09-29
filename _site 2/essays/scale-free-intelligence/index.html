@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>chris leung</title>
+  <meta name="description" content="Machine learning and genetics at Cambridge.">
+  <link rel="canonical" href="https://leungchristopher.com/essays/scale-free-intelligence/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link type="application/atom+xml" rel="alternate" href="/feed/essays.xml" title="Chris Leung — Essays">
+  <script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      tags: 'ams'
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+  <main>
+      <article class="essay">
+  <header class="essay-header">
+    <h1 class="essay-title">On scale-free intelligence</h1>
+    <time class="essay-date" datetime="2025-12-23T00:00:00+00:00">23 December 2025</time>
+  </header>
+
+  <nav class="essay-toc" aria-label="On this page" hidden>
+  <p class="essay-toc-title">Contents</p>
+  <ol class="essay-toc-list"></ol>
+</nav>
+<script>
+(function () {
+  var body = document.querySelector('.essay-body');
+  var nav = document.querySelector('.essay-toc');
+  if (!body || !nav) return;
+  var headings = body.querySelectorAll('h2, h3');
+  if (headings.length < 2) return;
+  var list = nav.querySelector('.essay-toc-list');
+  headings.forEach(function (heading, index) {
+    if (!heading.id) heading.id = 'section-' + index;
+    var li = document.createElement('li');
+    li.className = 'essay-toc-' + heading.tagName.toLowerCase();
+    var a = document.createElement('a');
+    a.href = '#' + heading.id;
+    a.textContent = heading.textContent.trim();
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+  nav.hidden = false;
+})();
+</script>
+
+
+  <div class="essay-body">
+<p><a href="https://www.mindthefuture.info/p/towards-a-scale-free-theory-of-intelligent">Paper</a></p>
+<p>Some brief notes and thoughts on intelligence and agency, taken from Richard Ngo's essay on intelligent agency (<a href="https://www.mindthefuture.info/p/towards-a-scale-free-theory-of-intelligent">Paper</a>). I do not claim originality.</p>
+<p>First, we define an <em>agent</em> as an entity that develops an understanding of the world, and acts to exert an influence on the world. How, then, can this agent act <em>intelligently</em>?</p>
+<h2>The universal intelligence measure</h2>
+<p>Legg and Hutter's definition of universal intelligence from 2007 reads as follows:</p>
+<p>$$\Upsilon(\pi)=\sum_{\mu\in E}2^{-K(\mu)}V^{\pi}_{\mu}$$</p>
+<p>Note that the universal intelligence measure, $\Upsilon$, satisfies the invariance properties of Kolmogorov complexity. The underlying computational architecture does not matter: we could encode the tasks in a Scratch-based universal Turing machine or the 'human coding language', to similar effect. Moreover, the hierarchy of problems in the scale-free architecture has scale-free properties.</p>
+<h2>Ngo: two current theories on intelligent agency</h2>
+<h3>Expected utility maximisation (EUM)</h3>
+<p>Search and planning enable an agent to discover strategies that maximise utility in expectation. Ngo points out that EUM handles goals and beliefs in isolation, and develops heuristics through experience. He suggests that theoretical progress in deep reinforcement learning is too broad and slow to generalise the theory of EUM to describe sequential decision making.</p>
+<h3>Active inference</h3>
+<p>This idea comes from neuroscience. Imagine that the brain is a hierarchical network. From the top downwards, each level tries to predict the behaviour of the level below it, and the bottom layer predicts sensory inputs. This model is a good analogy for both artificial neural nets and biological vision. The strength of the abstract representation at the top can disseminate throughout the network: think about how illusions clearly snap into focus when you spot the trick.</p>
+<p>In the same line of thought, actions are formulated as strong predictions that override our default, resting states. Instead of treating goals separately, consider <em>active inference</em>. There can be a gap between our beliefs and our observations. If the cost of changing future observations is lower than the cost to update conflicting beliefs, these are goals.</p>
+<p>What does this imply? We can borrow directly from Friston's free energy princple.</p>
+<p>Let's say we're in a situation where taking actions $a\in\mathcal{A}$ leads to outcomes $o\in\mathcal{O}$. Active inference provides a model where we have a goal distribution $P(o)$ and expected distribution $P(o\vert a)$. We can then define the expected free energy (F):</p>
+<p>$$F(a)\approx D_{KL}[P(o\vert a) \parallel P(o)]=\left(\sum_o P(o\vert a)\ln P(o\vert a)\right)-\left(\sum_o P(o\vert a)\ln P(o)\right)$$</p>
+<p>In this expression, the first term describes the value of the information we have in our model. The latter describes the expected utility of the active inference model. Hence, minimising expected free energy means maximising expected utility: $$\min G(a)\approx\max\sum_o P(o\vert a)\ln P(o)$$</p>
+<h2>A unified theory of intelligent agency</h2>
+<p>What if I, an agent, have multiple goals? Strategies come into play. We have studied this in multi-agent scenarios, but how do goals interact in strategic terms within an agent? Shanahan describes this in the <strong>global workspace theory</strong> in <em>Embodiment and the inner mind</em>. More on this later.</p>
+<p>Ngo argues that intelligent agency must be scale-free: the models of conflict that describe inter-agent interactions should of sufficient explanatory power to describe scales both above and below this.</p>
+<p>How can we privilege the individuality, perhaps indivisibility of agents in our theory? We can perhaps pose this as a strong constraint on the space of possible strategies accessible to the agent's sub-agents. Ngo terms this <strong>coalitional agency</strong>, and provides two possible routes to describing this phenomenon.</p>
+<h3>EUM to active inference</h3>
+<p>Starting from expected utility maximisation, we run into the problem of combining EUM agents. EUM agents provide a utility function over an outcome probability distribution. Harsanyi's utilitarian theorem essentially states that for utility functions $U_i(o)$, under weak Pareto, rational conditions, the social welfare function is described as:</p>
+<p>$$W(o)=\beta+\sum_i\alpha_i U_i(o)$$</p>
+<p>This is a limiting welfare function: our notions of fairness and credit assignment are limited by the fact that we're performing a linear combination of their original utility functions: there is no term for the interaction between the subagents - we've essentially squashed their individuality. How can we respect incentives in a hierarchical structure?</p>
+<p>Ngo presents a classic example in cutting cake: one cuts, one chooses the half. The framework that covers the most ground is that of <strong>bargaining theory</strong>. As a sub-agent in a system, I'd consider the following:</p>
+<ol>
+<li>How do I consider and weigh decisions I might have to take in the future?</li>
+<li>What level do I bargain at? Individual decisions, methods, or systems?</li>
+</ol>
+<p>This is an open problem. I think that Shanahan's global workspace theory can add to this. The key idea is that the brain is a set of parallel processes competing to influence the global workspace, whose state is then broadcast back to all of the processes. How does one win this competition? Coalitions of coupled processes are attractors in state space, and the process of action and feedback constantly shifts the landscape of attractors.</p>
+<p>This is a fine description of the problem, and I'd be interested in connecting this back to multi-level game theory. Do the Matryoshka dolls terminate? More to follow.</p>
+<p>Returning to Ngo's argument, he believes that a theory of intelligent agency should incorporate the fact that agents should have beliefs and goals. It's difficult to find a good description for how decision procedures incorporate this fact.</p>
+<h3>Active inference to EUM</h3>
+<p>We extend the hierarchical model described above to contain beliefs and goals. A subagent is then a consistent cluster of goals and beliefs in this agent.</p>
+<p>Now, what happens when two subagents disagree on their predictions? We want a system that is compatible with incentieves. Ngo points to the precision-weighted average as a mechanism. But game-theoretically we return to an impasse: we can endlessly consider what how other subagents in this game respond. By shifting to a prediction market system, we can specialise by predicting different aspects of the agent.</p>
+<p>In this formulation, perhaps we select an action based on the dynamics of the prediction market. We break the symmmetry of multi-layer game theory by conditioning the dynamics of the market on outcomes. If a subagent can predict some aspect of a complex plan, it can profit. But in order for this complex plan to work, it must be coordinated in full. Therefore, the incentive to implement plans allows rational subagents to take control of the whole system.</p>
+<p>In my mind, we've arrived back at global workspace theory. In GWT, subagents can be overlapping in their goals and apparatus: the system is hierarchical in its representation of concepts and ideas, but reuses its components and actuators. Perhaps the study of overlapping coalition formation games might provide some insight into the problem.</p>
+<h2>Why we need to understand coalitional agency?</h2>
+<p>This is a useful framework not just for understanding artificial intelligence, but also biological/social systems:</p>
+<ul>
+<li>Cooperative biofilms that are also fighting it out for resources and ecological niches (e.g. regions of the gut)</li>
+<li>Interactions between the tumour microenvironment and surrounding tissue.</li>
+<li>The credit assignment problem in companies</li>
+<li>Race dynamics in neural networks (e.g. work from Andrew Saxe's group at the Gatsby unit at UCL)</li>
+</ul>
+<p>These are just my preliminary thoughts. Looking forward to reading more about this topic.</p>
+
+  </div>
+
+  <p class="essay-back"><a href="/essays/">All essays</a></p>
+</article>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/">Now</a>
+        <a href="/projects/">Projects</a>
+        <a class="is-active" href="/essays/" aria-current="page">Essays</a>
+        <a href="/links/">Recs</a>
+        <a href="/contact/">Contact</a>
+    </nav>
+    <div class="social">© 2026</div>
+  </footer>
+
+</body>
+</html>

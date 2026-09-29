@@ -2,7 +2,7 @@
 title: Home
 ---
 
-My name is Chris. Most of the things I do are driven by an interest in systems that learn to learn. I am currently involved in a new venture focused on reasoning.
+My name is Chris. Most of the things I do are driven by an interest in systems that learn to learn.
 
 I studied Natural Sciences at the [University of Cambridge](https://www.cam.ac.uk/) from 2023 to 2026, obtaining a double First, where I placed second in my cohort and received the [Holgate-Pollard](https://www.cambridgestudents.cam.ac.uk/fees-and-funding/funding/prizes) and [J.M. Thoday](https://www.admin.cam.ac.uk/univ/so/2018/chapter12-section2.html#heading2-560) prizes. During this time, I did research in mathematical and computational genetics at the University and the [Cancer Research UK Cambridge Institute](https://www.cruk.cam.ac.uk/), and neuroscience at [Caltech](https://www.caltech.edu/).
 
