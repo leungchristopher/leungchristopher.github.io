@@ -14,6 +14,6 @@ Outside of work, I'm interested in the following problems:
 - The role of preprocessing in analyses of biological data (think cell atlases, neural imaging, Mendelian randomisation, GWAS).
 
 <blockquote class="featured-quote">
-<p>What you call passion is not a spiritual force, but friction between the soul and the outside world. Where passion dominates, that does not signify the presence of greater desire and ambition, but rather the misdirection of these qualities toward an isolated and false goal, with a consequent tension and sultriness in the atmosphere. Those who direct the maximum force of their desires toward the center, toward true being, toward perfection, seem quieter than the passionate souls because the flame of their fervor cannot always be seen. In argument, for example, they will not shout or wave their arms. But, I assure you, they are nevertheless burning with subdued fires.</p>
-<cite>— Hermann Hesse, <em>The Glass Bead Game</em></cite>
+<p>"I hereby renounce the right to complacency and vow lifelong to take only what minimum of leisure is necessary to my productivity, viewing health, happiness, rest and play as means, not ends, and that, while Utopia provides my needs, I will commit the full produce of my labors to our collective effort to redirect the path of human life away from death and toward the stars."</p>
+<cite>— The Utopian Oath, <em>Terra Ignota</em></cite>
 </blockquote>
