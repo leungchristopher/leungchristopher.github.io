@@ -6,7 +6,7 @@ math: true
 
 [Paper]
 
-Some brief notes and thoughts on intelligence and agency, taken from Richard Ngo's essay on intelligent agency ([Paper]). I do not claim originality.
+Some brief notes and thoughts on intelligence and agency, digested from Richard Ngo's essay on intelligent agency ([Paper]).
 
 First, we define an *agent* as an entity that develops an understanding of the world, and acts to exert an influence on the world. How, then, can this agent act *intelligently*?
 
