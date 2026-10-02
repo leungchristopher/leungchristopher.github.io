@@ -119,11 +119,11 @@ blockquote { margin: 1em 0; }
 }
 .attractor-panel {
   margin: 1.2em 0 1.5em;
-  overflow-x: auto;
+  width: 100%;
 }
 .attractor-row {
   display: grid;
-  grid-template-columns: repeat(5, minmax(96px, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: .65em;
 }
 .attractor { margin: 0; }
