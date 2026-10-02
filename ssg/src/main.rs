@@ -64,11 +64,13 @@ fn main() {
     {
         let src = fs::read_to_string(content.join("pages/index.md")).unwrap();
         let (fm, body) = frontmatter::parse(&src);
-        let body_html = markdown::render(body, &HashMap::new());
+        let mut directives = HashMap::new();
+        directives.insert("attractors", templates::attractors());
+        let body_html = markdown::render(body, &directives);
         let page = templates::Page {
             title: fm.get("title").unwrap_or("").to_string(),
             path: "/".to_string(),
-            body_class: None,
+            body_class: Some("homepage".to_string()),
             math: fm.flag("math"),
             content: templates::home_wrap(&body_html),
         };
@@ -295,6 +297,12 @@ fn main() {
     // ---- Static assets ----
     fs::create_dir_all(out.join("assets")).unwrap();
     fs::copy(root.join("assets/favicon.svg"), out.join("assets/favicon.svg")).unwrap();
+    fs::create_dir_all(out.join("assets/graphics")).unwrap();
+    for name in ["attractors.bin", "halvorsen.svg", "lorenz.svg", "aizawa.svg", "chen-celikovsky.svg", "double-scroll.svg"] {
+        fs::copy(root.join("assets/graphics").join(name), out.join("assets/graphics").join(name)).unwrap();
+    }
+    fs::create_dir_all(out.join("assets/js")).unwrap();
+    fs::copy(root.join("assets/js/attractors.js"), out.join("assets/js/attractors.js")).unwrap();
     let css_src = fs::read_to_string(root.join("assets/css/style.css")).unwrap();
     write(&out, "/assets/css/style.css", &minify::css(&css_src));
 

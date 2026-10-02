@@ -1,6 +1,6 @@
 /* Minimal, native typography with a comfortable reading measure. */
 :root {
-  color-scheme: dark light;
+  color-scheme: light;
 }
 
 html {
@@ -14,6 +14,8 @@ body {
   max-width: 70ch;
   overflow-wrap: break-word;
 }
+
+.homepage .home { text-align: justify; }
 
 a:link,
 a:visited {
@@ -114,6 +116,27 @@ blockquote { margin: 1em 0; }
   margin-top: .75em;
   font-style: normal;
   text-align: right;
+}
+.attractor-panel {
+  margin: 1.2em 0 1.5em;
+  overflow-x: auto;
+}
+.attractor-row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(96px, 1fr));
+  gap: .65em;
+}
+.attractor { margin: 0; }
+.attractor-stage {
+  position: relative;
+  aspect-ratio: 240 / 210;
+}
+.attractor-stage img,
+.attractor-stage canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 table {
   display: block;

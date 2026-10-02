@@ -121,6 +121,24 @@ pub fn home_wrap(body_html: &str) -> String {
     format!("<div class=\"home\">\n{}</div>\n", body_html)
 }
 
+pub fn attractors() -> String {
+    let mut html = String::from("<div class=\"attractor-panel\" aria-label=\"Five chaotic attractors\">\n<div class=\"attractor-row\">\n");
+    for (slug, name) in [
+        ("halvorsen", "Halvorsen"), ("lorenz", "Lorenz"), ("aizawa", "Aizawa"),
+        ("chen-celikovsky", "Chen–Celikovsky"), ("double-scroll", "Chua double-scroll"),
+    ] {
+        html.push_str(&format!(r#"<figure class="attractor">
+  <div class="attractor-stage">
+    <img src="/assets/graphics/{slug}.svg" width="240" height="210" alt="Thin trajectories of the {name} attractor">
+    <canvas width="240" height="210" role="img" aria-label="Trajectories of the {name} attractor, gradually slowing to a trickle" hidden></canvas>
+  </div>
+</figure>
+"#));
+    }
+    html.push_str("</div>\n</div>\n<script src=\"/assets/js/attractors.js\"></script>");
+    html
+}
+
 pub fn essay_article(title: &str, date_long: &str, date_iso: &str, body_html: &str) -> String {
     format!(
         r#"<article class="essay">
