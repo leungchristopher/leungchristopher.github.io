@@ -3,7 +3,7 @@ title: Projects
 ---
 May be a lagging indicator
 ## Publications
-**C.H.C. Leung**, C.J. Houldcroft, A. Scally. *Statistical inference of viral ancestral recombination graphs* (2026). *bioRxiv*
+Leung, C.H.C., Houldcroft, C. J. & Scally, A. Statistical inference of virus evolution using ancestral recombination graphs. 2026.10.02.756209 Preprint at https://doi.org/10.64898/2026.10.02.756209 (2026).
 
 ## Research
 
