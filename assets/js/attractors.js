@@ -1,4 +1,4 @@
-/* C supplies prepared paths and terminal states. All five drawings share a
+/* C supplies prepared paths and terminal states. Displayed drawings share a
  * clock that eases into a trickle, then continue their own autonomous flows. */
 (function () {
   'use strict';
@@ -170,9 +170,9 @@
       var systems = view.getUint32(4, true), count = view.getUint32(8, true), samples = view.getUint32(12, true);
       var dt = view.getFloat32(16, true), h = view.getFloat32(20, true);
       var block = 80 + count * samples * 8 + count * 24;
-      if (systems !== figures.length || buffer.byteLength !== 24 + systems * block) throw new Error('Incomplete attractor data');
+      if (systems < figures.length || buffer.byteLength !== 24 + systems * block) throw new Error('Incomplete attractor data');
       var offset = 24;
-      for (var s = 0; s < systems; s++) {
+      for (var s = 0; s < figures.length; s++) {
         var model = {id: view.getUint32(offset, true), rate: view.getFloat32(offset + 4, true), matrix: [], states: []};
         if (model.id !== s) throw new Error('Invalid model order');
         for (var j = 0; j < 6; j++) model.matrix.push(view.getFloat64(offset + 8 + j * 8, true));

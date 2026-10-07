@@ -122,10 +122,13 @@ pub fn home_wrap(body_html: &str) -> String {
 }
 
 pub fn attractors() -> String {
-    let mut html = String::from("<div class=\"attractor-panel\" aria-label=\"Five chaotic attractors\">\n<div class=\"attractor-row\">\n");
+    let mut html = String::from("<div class=\"attractor-panel\" aria-label=\"Halvorsen chaotic attractor\">\n<div class=\"attractor-row\">\n");
     for (slug, name) in [
-        ("halvorsen", "Halvorsen"), ("lorenz", "Lorenz"), ("aizawa", "Aizawa"),
-        ("chen-celikovsky", "Chen–Celikovsky"), ("double-scroll", "Chua double-scroll"),
+        ("halvorsen", "Halvorsen"),
+        // ("lorenz", "Lorenz"),
+        // ("aizawa", "Aizawa"),
+        // ("chen-celikovsky", "Chen–Celikovsky"),
+        // ("double-scroll", "Chua double-scroll"),
     ] {
         html.push_str(&format!(r#"<figure class="attractor">
   <div class="attractor-stage">

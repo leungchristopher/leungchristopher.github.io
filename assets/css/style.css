@@ -126,7 +126,7 @@ blockquote { margin: 1em 0; }
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: .65em;
 }
-.attractor { margin: 0; }
+.attractor { margin: 0; grid-column: 3; }
 .attractor-stage {
   position: relative;
   aspect-ratio: 240 / 210;
