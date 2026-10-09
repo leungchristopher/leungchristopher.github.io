@@ -80,6 +80,9 @@ summary { cursor: pointer; }
 .essay-item { margin: 1em 0; }
 .essay-item-date { display: block; }
 .essay-header { margin-bottom: 1em; }
+.essay-figure { margin: 1.25em 0 1.5em; }
+.essay-figure img { display: block; width: 100%; }
+.essay-figure figcaption { margin-top: .3em; color: #687078; font-size: .85em; }
 .essay-title { margin-bottom: .5em; }
 .essay-toc { margin: 1em 0; }
 .essay-toc-title { margin-bottom: .5em; }
