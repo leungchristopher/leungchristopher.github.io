@@ -1,12 +1,17 @@
 ---
 title: Projects
 ---
-May be a lagging indicator
-## A short CV
+## A little spiel
 
 I studied Natural Sciences at the [University of Cambridge](https://www.cam.ac.uk/) from 2023 to 2026, obtaining a double First, where I placed second in my cohort and received the [Holgate-Pollard](https://www.cambridgestudents.cam.ac.uk/fees-and-funding/funding/prizes) and [J.M. Thoday](https://www.admin.cam.ac.uk/univ/so/2018/chapter12-section2.html#heading2-560) prizes. During this time, I did research in mathematical and computational genetics at the University and the [Cancer Research UK Cambridge Institute](https://www.cruk.cam.ac.uk/), and neuroscience at [Caltech](https://www.caltech.edu/).
 
-In a past life at Winchester, I was a finalist in the selection of the UK's teams for the International Chemistry Olympiad and [International Astronomy and Astrophysics Olympiad](https://www.bpho.org.uk/IOAA/). I also received distinctions/top golds in the British [Mathematical](https://bmos.ukmt.org.uk/) and [Physics](https://www.bpho.org.uk) Olympiads, and the Freeman Dyson Prize in Physics. My team and I also won the [National Cipher Challenge](https://www.cipherchallenge.org/) in 2022 with a genetic algorithm.
+Science competitions ignited my desire to work hard and do interesting research. Meeting like-minded competitors at camps and competitions was a fantastic experience, and I wholeheartedly recommend trying them out - especially across many disciplines!
+- Top 10 out of 12000, UK selection for the International Chemistry Olympiad
+- Top 14, UK selection for the International Olympiad on Astronomy and Astrophysics 
+- Top 28, UK selection for the International Physics Olympiad
+- Distinction, British Mathematical Olympiad
+- IBM Prize (1st-placed group out of 2700 teams, 6250 entrants), [National Cipher Challenge](https://www.cipherchallenge.org/)
+
 ## Publications
 **Leung, C.H.C.**, Houldcroft, C. J. & Scally, A. Statistical inference of virus evolution using ancestral recombination graphs. 2026.10.02.756209 Preprint at [https://doi.org/10.64898/2026.10.02.756209](https://doi.org/10.64898/2026.10.02.756209) (2026).
 

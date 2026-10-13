@@ -35,7 +35,7 @@ Consider the problem of XOR. You cannot draw a linear decision boundary in the i
 
 More generally, introduce a function $f(x)=\langle f,\phi(x)\rangle$. $f$ is an object, whereas $f(x)$ is the value taken at that point. The RKHS generalises this to a space, selecting an inner product so that $f(x)$ is computed as an inner product of $f$ with the feature representation of $x$. In a space with infinite dimensions, this allows us to work with kernel values rather than infinitely many feature coordinates.
 
-Now, an infinite dimensional space implies an infinite feature dictionary. How do we select features then? We need rules for the combinations that are acceptable, e.g. a norm on functional space for convergence. And we want to penalise for less costly combinatiosn of features. One desirable property is that the features should lie in $l_2$ space such that $\sum_{l=1}^{\infty}f_l^2<\infty$.
+Now, an infinite dimensional space implies an infinite feature dictionary. How do we select features then? We need rules for the combinations that are acceptable, e.g. a norm on functional space for convergence. And we want to penalise for less costly combinations of features. One desirable property is that the features should lie in $l_2$ space such that $\sum_{l=1}^{\infty}f_l^2<\infty$.
 
 Consider a function composing features and feature maps $f(x)=\sum_{l=1}^{\infty}f_l\phi_l(x)$. And consider a finite combination of feature vectors at **observed** inputs, $f=\sum_{i=1}^m \alpha_i\phi(x_i)$. This has a coordinate in direction $l$, denoted $f_l=\sum_{i=1}^m \alpha_i\phi_l(x_i)$.
 
