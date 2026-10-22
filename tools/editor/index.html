@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="editor-token" content="__TOKEN__">
+<title>Notes editor</title>
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/edit/editor.css">
+<body>
+<header><a href="/notes/">← View notes</a><h1>Notes editor</h1><p>Write Markdown, preview it, and save it directly to your website’s files.</p></header>
+<main>
+<section aria-label="Folder browser">
+<p id="location"></p>
+<div class="actions"><button id="new-note">New note</button><button id="new-folder">New folder</button></div>
+<ul id="files"></ul>
+</section>
+<section id="workspace" hidden>
+<div class="actions"><strong id="filename"></strong><button id="save">Save note</button><a id="view" hidden>View note ↗</a></div>
+<div class="toolbar" role="group" aria-label="Insert Markdown">
+<button data-before="## " data-after="" data-block="true">Heading</button>
+<button data-before="**" data-after="**">Bold</button>
+<button data-before="*" data-after="*">Italic</button>
+<button data-before="- " data-after="" data-block="true">List</button>
+<button data-before="> " data-after="" data-block="true">Quote</button>
+<button id="link">Link</button><button id="code">Code block</button>
+<button data-before="$" data-after="$">Inline TeX</button>
+<button data-before="$$&#10;" data-after="&#10;$$" data-block="true">Display TeX</button>
+</div>
+<div class="panes"><div><label for="source">Markdown</label><textarea id="source" spellcheck="false"></textarea></div>
+<div><label for="preview">Live preview</label><iframe id="preview" title="Rendered note preview" sandbox="allow-scripts"></iframe></div></div>
+<p><kbd>⌘ / Ctrl + S</kbd> to save. Use <code>$x^2$</code> inline or <code>$$…$$</code> for display equations. Saving updates local files; commit and push to publish.</p>
+</section>
+<p id="status" role="status" aria-live="polite"></p>
+</main>
+<script src="/edit/editor.js"></script>
+</body></html>

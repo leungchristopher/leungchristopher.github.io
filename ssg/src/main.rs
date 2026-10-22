@@ -1,3 +1,4 @@
+mod notes;
 mod config;
 mod dates;
 mod frontmatter;
@@ -37,6 +38,13 @@ struct Essay {
 }
 
 fn main() {
+    if std::env::args().nth(1).as_deref() == Some("--preview") {
+        use std::io::Read;
+        let mut source = String::new();
+        std::io::stdin().read_to_string(&mut source).unwrap();
+        print!("{}", notes::article(&source, "preview.md"));
+        return;
+    }
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).parent().unwrap().to_path_buf();
     let content = root.join("content");
     let out = root.join("_site");
@@ -269,6 +277,8 @@ fn main() {
     }
 
 
+    let note_urls = notes::build(&content.join("notes"), &out, "");
+
     // ---- Sitemap ----
     {
         let today_iso = today.iso();
@@ -279,6 +289,7 @@ fn main() {
             ("/links/".to_string(), today_iso.clone()),
             ("/contact/".to_string(), today_iso.clone()),
         ];
+        urls.extend(note_urls.iter().map(|u| (u.clone(), today_iso.clone())));
         for e in essays.iter().filter(|e| !e.draft) {
             urls.push((format!("/essays/{}/", e.slug), e.date.iso()));
         }

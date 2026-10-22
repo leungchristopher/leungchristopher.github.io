@@ -7,6 +7,7 @@ fn escape(s: &str) -> String {
             '&' => out.push_str("&amp;"),
             '<' => out.push_str("&lt;"),
             '>' => out.push_str("&gt;"),
+            '"' => out.push_str("&quot;"),
             _ => out.push(c),
         }
     }
@@ -120,8 +121,11 @@ pub fn render(src: &str, directives: &HashMap<&str, String>) -> String {
     // Pass 1: pull out `[label]: url` reference definitions.
     let mut refs: HashMap<String, String> = HashMap::new();
     let mut lines: Vec<&str> = Vec::new();
+    let mut in_code = false;
     for line in src.lines() {
         let t = line.trim();
+        if t.starts_with("```") { in_code = !in_code; }
+        if in_code { lines.push(line); continue; }
         if let Some(rest) = t.strip_prefix('[') {
             if let Some((label, tail)) = rest.split_once("]:") {
                 refs.insert(label.to_string(), tail.trim().to_string());
@@ -207,7 +211,7 @@ pub fn render(src: &str, directives: &HashMap<&str, String>) -> String {
         }
 
         // Blockquote
-        if let Some(_) = trimmed.strip_prefix("> ") {
+        if trimmed.starts_with('>') {
             let mut body = Vec::new();
             while i < n && lines[i].trim_start().starts_with('>') {
                 let t = lines[i].trim_start();
@@ -430,5 +434,17 @@ fn is_ordered_item(t: &str) -> bool {
     match t.split_once(". ") {
         Some((num, _)) => !num.is_empty() && num.chars().all(|c| c.is_ascii_digit()),
         None => false,
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn editor_code_math_and_quotes() {
+        let html = render("```text\n[label]: literal\n<x>\n```\n\n>\n> quote\n\n$$\nx_i^2 + y_i^2\n$$", &HashMap::new());
+        assert!(html.contains("[label]: literal\n&lt;x&gt;"));
+        assert!(html.contains("<blockquote>"));
+        assert!(html.contains("$$ x_i^2 + y_i^2 $$"));
     }
 }

@@ -153,3 +153,6 @@ th, td {
   border-bottom: 1px solid;
 }
 mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+
+.notes-list li { margin: .9em 0; }
+.notes-list small { color: #687078; margin-left: .5em; }

@@ -72,6 +72,7 @@ pub fn page(p: &Page) -> String {
         nav_link("/", "Now", p.path == "/"),
         nav_link("/projects/", "Projects", p.path.starts_with("/projects/")),
         nav_link("/essays/", "Essays", p.path.starts_with("/essays/")),
+        nav_link("/notes/", "Notes", p.path.starts_with("/notes/")),
         nav_link("/links/", "Recs", p.path.starts_with("/links/")),
         nav_link("/contact/", "Contact", p.path.starts_with("/contact/")),
     ]
