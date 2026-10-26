@@ -15,6 +15,8 @@ Science competitions ignited my desire to work hard and do interesting research.
 ## Publications
 **Leung, C.H.C.**, Houldcroft, C. J. & Scally, A. Statistical inference of virus evolution using ancestral recombination graphs. 2026.10.02.756209 Preprint at [https://doi.org/10.64898/2026.10.02.756209](https://doi.org/10.64898/2026.10.02.756209) (2026).
 
+Graepel, G. & **Leung, C.H.C.** *Something is rotten in the state of knowledge*. (2026). [PDF](/assets/pdf/ggcl.pdf)
+
 ## Research
 
 {{projects:all}}

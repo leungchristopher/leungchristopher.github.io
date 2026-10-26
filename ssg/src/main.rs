@@ -308,6 +308,8 @@ fn main() {
     // ---- Static assets ----
     fs::create_dir_all(out.join("assets")).unwrap();
     fs::copy(root.join("assets/favicon.svg"), out.join("assets/favicon.svg")).unwrap();
+    fs::create_dir_all(out.join("assets/pdf")).unwrap();
+    fs::copy(root.join("assets/pdf/ggcl.pdf"), out.join("assets/pdf/ggcl.pdf")).unwrap();
     fs::create_dir_all(out.join("assets/graphics")).unwrap();
     for name in ["attractors.bin", "halvorsen.svg", "lorenz.svg", "aizawa.svg", "chen-celikovsky.svg", "double-scroll.svg", "rkhs-xor.svg", "rkhs-tophat.svg"] {
         fs::copy(root.join("assets/graphics").join(name), out.join("assets/graphics").join(name)).unwrap();
